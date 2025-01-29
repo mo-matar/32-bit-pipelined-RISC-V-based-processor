@@ -25,13 +25,11 @@
     logic ALUSrcAD;
     logic [1:0] ALUSrcBD;
     logic [1:0] ALUOp;
-
-    //TODO: write the connections of the intermediate control registers
  
 
-    //TODO: write maindec and aludec
-    maindec md(op, ResultSrc, MemWrite, Branch,ALUSrc, RegWrite, Jump, ImmSrc, ALUOp);
-    aludec   ad(op[5], funct3, funct7b5, ALUOp, ALUControl);
-    assign PCSrc = //TODO: write PCSrc logic
-    assign PCJalSrcE = //TODO: write the jal/jalr mux logic
+ //TODO: write maindec and aludec
+ maindec md(op, ResultSrc, MemWrite, Branch,ALUSrc, RegWrite, Jump, ImmSrc, ALUOp);
+ aludec   ad(op[5], funct3, funct7b5, ALUOp, ALUControl);
+ //assign PCSrc = //TODO: write PCSrc logic
+ //assign PCJalSrcE = //TODO: write the jal/jalr mux logic
  endmodule

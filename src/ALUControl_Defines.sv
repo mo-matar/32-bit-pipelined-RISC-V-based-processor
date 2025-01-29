@@ -1,0 +1,13 @@
+`define SUM 4'b0000
+`define SUB 4'b0001
+`define AND 4'b0010
+`define OR  4'b0011
+`define XOR 4'b0100
+`define SLT 4'b0101
+`define SLL 4'b0110
+`define SRL 4'b0111
+`define SRA 4'b1000
+`define SLTU 4'b1001
+`define ROR 4'b1010
+`define MUL 4'b1011
+`define DIV 4'b1100
