@@ -11,22 +11,22 @@ module alu (
 logic [31:0] condinvB, sum; 
 logic        overflow;              // overflow 
 logic        isAddSub;       // true when is add or subtract operation 
-assign condinvB = ((ALUControl == `SUB) | (ALUControl == `SLT)) ? ~B : B; // conditionally inverted B
+assign condinvB = ((ALUControl == `ALU_SUB) | (ALUControl == `ALU_SLT)) ? ~B : B; // conditionally inverted B
 assign sum = A + condinvB + ALUControl[0]; //use 2's complement if B was inverted, add 0 if not
-assign isAddSub = (ALUControl == `SUM) | (ALUControl == `SUB) | (ALUControl == `SLT);
+assign isAddSub = (ALUControl == `ALU_SUM) | (ALUControl == `ALU_SUB) | (ALUControl == `ALU_SLT);
 always_comb begin
     case (ALUControl)
-        `SUM : ALUResult = sum; // Addition
-        `SUB : ALUResult = sum; // Subtraction (uses 2's complement)
-        `AND : ALUResult = A & B; //bitwise AND
-        `OR  : ALUResult = A | B; //bitwise OR
-        `XOR : ALUResult = A ^ B; //bitwise XOR
-        `SLT : ALUResult = {31'b0, overflow ^ sum[31]}; //set Less Than (signed) - result is 1 if A < B, else 0
-        `SLTU: ALUResult = {31'b0, ($unsigned(A) < $unsigned(B))}; //set Less Than Unsigned - result is 1 if A < B, else 0
-        `SLL : ALUResult = A << B[4:0]; //Shift Left Logical (shift amount is lower 5 bits of B)
-        `SRL : ALUResult = A >> B[4:0]; //Shift Right Logical (shift amount is lower 5 bits of B)
-        `SRA : ALUResult = $signed(A) >>> B[4:0]; //shift Right Arithmetic (preserves sign bit)
-        `ROR : ALUResult = (A >> B[4:0]) | (A << (32 - B[4:0])); // Rotate Right
+        `ALU_SUM : ALUResult = sum; // Addition
+        `ALU_SUB : ALUResult = sum; // Subtraction (uses 2's complement)
+        `ALU_AND : ALUResult = A & B; //bitwise AND
+        `ALU_OR  : ALUResult = A | B; //bitwise OR
+        `ALU_XOR : ALUResult = A ^ B; //bitwise XOR
+        `ALU_SLT : ALUResult = {31'b0, overflow ^ sum[31]}; //set Less Than (signed) - result is 1 if A < B, else 0
+        `ALU_SLTU: ALUResult = {31'b0, ($unsigned(A) < $unsigned(B))}; //set Less Than Unsigned - result is 1 if A < B, else 0
+        `ALU_SLL : ALUResult = A << B[4:0]; //Shift Left Logical (shift amount is lower 5 bits of B)
+        `ALU_SRL : ALUResult = A >> B[4:0]; //Shift Right Logical (shift amount is lower 5 bits of B)
+        `ALU_SRA : ALUResult = $signed(A) >>> B[4:0]; //shift Right Arithmetic (preserves sign bit)
+        `ALU_ROR : ALUResult = (A >> B[4:0]) | (A << (32 - B[4:0])); // Rotate Right
         default: ALUResult = 32'b0; // Default case (should never happen)
     endcase
 end
