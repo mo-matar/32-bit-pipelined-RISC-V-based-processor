@@ -4,7 +4,7 @@
                       input  logic [2:0] funct3,
                       input  logic       funct7b5,
                       input  logic       ZeroE,
-					  input  logic       SignE,
+					       input  logic       SignE,
                       input  logic       FlushE, //this is for the directly connected control registers ID/IE_C which are also part of the controller
                       output logic [1:0] ResultSrcW,
                       output logic       MemWriteM,
@@ -44,6 +44,8 @@
  flopr #(3) controlRegW (clk, reset,
                          {RegWriteM, ResultSrcM},
                          {RegWriteW, ResultSrcW});
+
+
 
  PCSrc_generator branch_taken_generator (funct3[0], funct3[2], ZeroE, SignE, branchTaken);
  assign PCSrcE = JumpE | (BranchE & branchTaken);

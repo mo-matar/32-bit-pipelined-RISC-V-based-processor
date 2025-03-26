@@ -3,7 +3,7 @@ description: the intermediate registers/latches for holding pipelined data.
 1. flopr (flip flop with reset):                     used for the control_reg_M, control_reg_W, reg_M, reg_W
 2. floprc (flip flop with reset and clear):          used for control_reg_E, reg_E
 3. flopenr (flip flop with enable and reset):        used for pcreg
-4. flopenrc (flip flop with enable reset and clear): used for regD
+4. flopenrc (flip flop with enable reset and clear): used for reg_D
 
 
 */

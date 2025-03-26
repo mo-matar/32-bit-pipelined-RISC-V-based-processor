@@ -20,8 +20,8 @@
           7'b0110011: controls = 15'b1_xxx_0_00_0_00_0_10_0_0; // R-Type
           7'b0110111: controls = 15'b1_100_1_01_0_00_0_00_0_0; // U-Type => lui
           7'b1100011: controls = 15'b0_010_0_00_0_xx_1_01_0_0; // B-Type
-          7'b1100111: controls = 15'b1_000_0_01_0_10_0_00_1_0; // I-Type => jalr
-          7'b1101111: controls = 15'b1_011_0_00_0_10_0_00_1_1; // J-Type => jal
+          7'b1101111: controls = 15'b1_011_0_00_0_10_0_00_1_0; // J-Type => jal
+          7'b1100111: controls = 15'b1_000_0_01_0_10_0_00_1_1; // I-Type => jalr
           7'b0000000: controls = 15'b0_000_0_00_0_00_0_00_0_0;
           default: controls = 15'bx_xxx_x_xx_x_xx_x_xx_x_x;
           
