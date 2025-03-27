@@ -1,18 +1,20 @@
 module datapath (
     input logic clk, reset,
     // Memory data
-    input logic [31:0] instF, readDataM,
+    input logic [31:0] InstrF, ReadDataM,
     output logic [31:0] PCF, ALUResultM, writeDataM,
     // Control signals
-    input logic reg_writeD, immsrcD, ALUSrcAE,
+    input logic RegWriteW, ALUSrcAE,
     input logic [1:0] ALUSrcBE,
-    input logic mem_writeM,
-    input logic [1:0] result_srcW, ALUOp,
-    input logic jumpE, PCJalSrcE, PCSrcE,
-    input logic [3:0] ALUControl,
-    input logic [2:0] immSrcD,
-    output logic sign, zero,
-    output logic [31:0] InstD,
+    input logic [1:0] result_srcW,
+    input logic PCJalSrcE, PCSrcE,
+    input logic [3:0] ALUControlE,
+    input logic [2:0] ImmSrcD,
+    output logic signE, zeroE,
+    output logic [6:0] opD,
+    output logic [2:0] funct3D, 
+    output logic funct7b5D,
+    // output logic [31:0] InstrD,
     // Hazard Unit
     input logic stallF, stallD, flushD, flushE,
     input logic [1:0] forwardAE, forwardBE,
@@ -21,6 +23,8 @@ module datapath (
 
     // Fetch stage signals 
     logic [31:0] PCPlus4F; 
+    logic [31:0] jal_jalr_PC;
+    logic [31:0] PCNextF;
     // Decode stage signals 
     logic [31:0] InstrD; 
     logic [31:0] PCD, PCPlus4D; 
@@ -30,11 +34,11 @@ module datapath (
     // Execute stage signals 
     logic [31:0] RD1E, RD2E; 
     logic [31:0] PCE, ImmExtE; 
-    logic [31:0] SrcAE, SrcBE; 
-    logic [31:0] ALUResultE; 
+    logic [31:0] SrcAE, SrcBE, SrcAEforward; 
+    logic [31:0] ALUResultE; //!good
     logic [31:0] WriteDataE; 
     logic [31:0] PCPlus4E; 
-    logic [31:0] PCTargetE; 
+    logic [31:0] PCTargetE; //!good
     // Memory stage signals 
     logic [31:0] PCPlus4M; 
     // Writeback stage signals 
@@ -44,133 +48,81 @@ module datapath (
     logic [31:0] ResultW;
 
     //Internal signals
-
-    logic [31:0] PCTargetE;
-    logic [31:0] ALUResultE, ALUResultW;
-    logic [31:0] jal_jalr_PC, PCNextF, PCPlus4F,
-                PCPlus4D, PCPlus4E, PCPlus4W, PCD, PCE; 
-    logic [31:0] instD;
     
 
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~PIPELINED STAGES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-    //Fetch
+    //Fetch Stage
     mux2 jal_jalr_mux (PCTargetE, ALUResultE, PCJalSrcE, jal_jalr_PC);
-    mux2 NextPC (PCPlusF, jal_jalr_PC, PCSrcE, PCNextF);
+    mux2 NextPC (PCPlus4F, jal_jalr_PC, PCSrcE, PCNextF);
     flopenr #(32) PC_reg (clk, reset, ~stallF, PCNextF, PCF);
     adder PC_Plus4_Adder (PCF, 32d'4, PCPlus4F);
 
     //IF\ID reg
     flopenrc #(96) IF_ID_reg (clk, reset, flushD, ~stallD,
-                        {instF, PCF, PCPlus4F},
-                        {instD, PCD, PCPlus4D});
-    
-    assign Rs1D = instD[19:15];
-    assign Rs2D = instD[24:20];
-    assign RdD = instD[11:7];
-    assign InstD = instD;
+                        {InstrF, PCF, PCPlus4F},
+                        {InstrD, PCD, PCPlus4D});
     
     // Decode stage
-    regfile rf (
-        .clk(clk),
-        .we3(reg_writeW),
-        .a1(instD[19:15]), 
-        .a2(instD[24:20]), 
-        .a3(RdW),
-        .wd3(ResultW),
-        .rd1(RD1D), 
-        .rd2(RD2D)
-    );
+    assign Rs1D = InstrD[19:15];
+    assign Rs2D = InstrD[24:20];
+    assign RdD = InstrD[11:7];
+    assign funct3D = InstrD[14:12];
+    assign funct7b5D = InstrD[30];
+    assign opD = InstrD[6:0];
+
+    reg_file rf (
+                .clk(clk),
+                .rs1_addr(Rs1D),
+                .rs2_addr(Rs2D),
+                .rd_addr(RdW),
+                .regf_write_data(ResultW),
+                .reg_write(RegWriteW),
+                .read_data1(RD1D),
+                .read_data2(RD2D)
+                );
+
+
+    imm_extender imm_extender (
+                .instr(InstrD[31:7]),
+                .immSrc(ImmSrcD),
+                .imm(ImmExtD)
+                );
+
+    //ID\EX reg
+    floprc #(175) ID_EX_reg (clk, reset, flushE,
+                        {RD1D, RD2D, PCD, Rs1D, Rs2D, RdD, ImmExtD, PCPlus4D},
+                        {RD1E, RD2E, PCE, Rs1E, Rs2E, RdE, ImmExtE, PCPlus4E});
     
-    imm_extender ext_unit (
-        .instr(instD[31:7]),
-        .immsrc(immSrcD),
-        .immext(ImmExtD)
-    );
-
-    // ID/EX register
-    flopenrc #(174) ID_EX_reg (
-        .clk(clk),
-        .reset(reset),
-        .clear(flushE),
-        .en(1'b1),
-        .d({RD1D, RD2D, PCD, ImmExtD, instD[19:15], instD[24:20], instD[11:7], PCPlus4D}),
-        .q({RD1E, RD2E, PCE, ImmExtE, Rs1E, Rs2E, RdE, PCPlus4E})
-    );
-
     // Execute stage
-    mux3 #(32) forwardAmux (
-        .d0(RD1E),
-        .d1(ResultW),
-        .d2(ALUResultM),
-        .s(forwardAE),
-        .y(ForwardAEOut)
-    );
+    mux3 forwardA_mux (RD1E, ResultW, ALUResultM, forwardAE, SrcAEforward);
+    mux2 srcA_mux (SrcAEforward, 32'b0, ALUSrcAE, SrcAE);
+    mux3 forwardB_mux (RD2E, ResultW, ALUResultM, forwardBE, WriteDataE);
+    mux3 srcB_mux (WriteDataE, ImmExtE, PCTargetE, ALUSrcBE, SrcBE);
+    adder jal_adder (PCE, ImmExtE, PCTargetE);
+    alu ALU (
+                .A(SrcAE),
+                .B(SrcBE),
+                .ALUControl(ALUControlE),
+                .ALUResult(ALUResultE),
+                .zero(zeroE),
+                .sign(signE)
+                
+            );
     
-    mux3 #(32) forwardBmux (
-        .d0(RD2E),
-        .d1(ResultW),
-        .d2(ALUResultM),
-        .s(forwardBE),
-        .y(WriteDataE)
-    );
-    
-    mux2 #(32) srcAmux (
-        .d0(ForwardAEOut),
-        .d1(PCE),
-        .s(ALUSrcAE),
-        .y(SrcAE)
-    );
-    
-    mux3 #(32) srcBmux (
-        .d0(WriteDataE),
-        .d1(ImmExtE),
-        .d2(32'd4),
-        .s(ALUSrcBE),
-        .y(SrcBE)
-    );
-    
-    alu alu_unit (
-        .a(SrcAE),
-        .b(SrcBE),
-        .ALUControl(ALUControl),
-        .ALUResult(ALUResultE),
-        .Zero(zero),
-        .Sign(sign)
-    );
-    
-    adder pc_target_adder (
-        .a(PCE),
-        .b(ImmExtE),
-        .y(PCTargetE)
-    );
-    
-    // EX/MEM register
-    flopr #(101) EX_MEM_reg (
-        .clk(clk),
-        .reset(reset),
-        .d({ALUResultE, WriteDataE, RdE, PCPlus4E}),
-        .q({ALUResultM, writeDataM, RdM, PCPlus4M})
-    );
-    
-    // Memory stage implemented through inputs/outputs
-    // (memory operations handled externally)
-    
-    // MEM/WB register
-    flopr #(101) MEM_WB_reg (
-        .clk(clk),
-        .reset(reset),
-        .d({ALUResultM, readDataM, RdM, PCPlus4M}),
-        .q({ALUResultW, ReadDataW, RdW, PCPlus4W})
-    );
-    
+    //EX\MEM reg
+    flopr #(101) EX_MEM_reg (clk, reset,
+                            {ALUResultE, WriteDataE, RdE, PCPlus4E},
+                            {ALUResultM, writeDataM, RdM, PCPlus4M}
+                            );
+
+    //MEM\WB reg
+    flopr #(101) MEM_WB_reg (clk, reset,
+                            {ALUResultM, ReadDataM, RdM, PCPlus4M},
+                            {ALUResultW, ReadDataW, RdW, PCPlus4W}
+                            );
     // Writeback stage
-    mux3 #(32) result_mux (
-        .d0(ALUResultW),
-        .d1(ReadDataW),
-        .d2(PCPlus4W),
-        .s(result_srcW),
-        .y(ResultW)
-    );
+    mux3 result_mux (ALUResultW, ReadDataW, PCPlus4W, result_srcW, ResultW);
+    
 endmodule
