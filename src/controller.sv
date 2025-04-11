@@ -10,7 +10,7 @@
                       output logic       MemWriteM,
                       output logic       PCSrcE, ALUSrcAE, PCJalSrcE,
                       output logic [1:0] ALUSrcBE,
-                      output logic       ResultSrcEb0,
+                      output logic       ResultSrcEb0,// used to know if the instruction is related to memory (hazard unit)
                       output logic       RegWriteM,// output for hazard unit
                       output logic       RegWriteW,// output for hazard unit and datapath reg file
                       output logic [2:0] ImmSrcD,

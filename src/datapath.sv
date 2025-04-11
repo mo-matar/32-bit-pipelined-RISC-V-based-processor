@@ -57,7 +57,7 @@ module datapath (
     mux2 jal_jalr_mux (PCTargetE, ALUResultE, PCJalSrcE, jal_jalr_PC);
     mux2 NextPC (PCPlus4F, jal_jalr_PC, PCSrcE, PCNextF);
     flopenr #(32) PC_reg (clk, reset, ~stallF, PCNextF, PCF);
-    adder PC_Plus4_Adder (PCF, 32d'4, PCPlus4F);
+    adder PC_Plus4_Adder (PCF, 4, PCPlus4F);
 
     //IF\ID reg
     flopenrc #(96) IF_ID_reg (clk, reset, flushD, ~stallD,

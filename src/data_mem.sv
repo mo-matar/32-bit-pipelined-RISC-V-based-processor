@@ -9,7 +9,7 @@ module data_mem #(
     input logic [31:0] dataAdr,
     input logic [31:0] writeData,
     input logic writeEnable,
-    output logic readData
+    output logic [31:0] readData
 );
 
 logic [31:0] DATA [0:MEM_SIZE-1];
