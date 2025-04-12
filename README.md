@@ -33,7 +33,6 @@ The following table shows the supported RV32I instructions, their formats, and f
 |            | OR          | R[rd] = R[rs1] \| R[rs2]          | 0110011 | 110,0    | Bitwise OR                          |
 |            | XOR         | R[rd] = R[rs1] ^ R[rs2]           | 0110011 | 100,0    | Bitwise XOR                         |
 |            | SLT         | R[rd] = (R[rs1] < R[rs2]) ? 1 : 0 | 0110011 | 010,0    | Set Less Than (signed)              |
-|            | SLTU        | R[rd] = (R[rs1] < R[rs2]) ? 1 : 0 | 0110011 | 011,0    | Set Less Than Unsigned              |
 |            | SLL         | R[rd] = R[rs1] << R[rs2]          | 0110011 | 001,0    | Shift Left Logical                  |
 |            | SRL         | R[rd] = R[rs1] >> R[rs2]          | 0110011 | 101,0    | Shift Right Logical                 |
 |            | SRA         | R[rd] = R[rs1] >>> R[rs2]         | 0110011 | 101,1    | Shift Right Arithmetic              |
@@ -42,7 +41,9 @@ The following table shows the supported RV32I instructions, their formats, and f
 |            | ORI         | R[rd] = R[rs1] \| imm             | 0010011 | 110      | Bitwise OR Immediate                |
 |            | XORI        | R[rd] = R[rs1] ^ imm              | 0010011 | 100      | Bitwise XOR Immediate               |
 |            | SLTI        | R[rd] = (R[rs1] < imm) ? 1 : 0    | 0010011 | 010      | Set Less Than Immediate (signed)    |
-|            | SLTIU       | R[rd] = (R[rs1] < imm) ? 1 : 0    | 0010011 | 011      | Set Less Than Immediate Unsigned    |
+|            | SLLI        | R[rd] =  R[rs1] <<  uimm          | 0010011 | 001      | shift left logical immediate        |
+|            | SRLI        | R[rd] =  R[rs1] >>  uimm          | 0010011 | 1010000000| shift right logical immediate       |
+|            | SRLI        | R[rd] =  R[rs1] >>>  uimm          | 0010011 | 1010100000| shift right arithmetic immediate    |
 |            | LW          | R[rd] = Mem[R[rs1] + imm]         | 0000011 | 010      | Load Word                           |
 |            | JALR        | R[rd] = PC+4; PC = R[rs1] + imm   | 1100111 | 000      | Jump And Link Register              |
 | **S-type** | SW          | Mem[R[rs1] + imm] = R[rs2]        | 0100011 | 010      | Store Word                          |
@@ -50,11 +51,10 @@ The following table shows the supported RV32I instructions, their formats, and f
 |            | BNE         | if(R[rs1] != R[rs2]) PC += imm    | 1100011 | 001      | Branch if Not Equal                 |
 |            | BLT         | if(R[rs1] < R[rs2]) PC += imm     | 1100011 | 100      | Branch if Less Than (signed)        |
 |            | BGE         | if(R[rs1] >= R[rs2]) PC += imm    | 1100011 | 101      | Branch if Greater or Equal (signed) |
-|            | BLTU        | if(R[rs1] < R[rs2]) PC += imm     | 1100011 | 110      | Branch if Less Than Unsigned        |
-|            | BGEU        | if(R[rs1] >= R[rs2]) PC += imm    | 1100011 | 111      | Branch if Greater or Equal Unsigned |
 | **U-type** | LUI         | R[rd] = imm << 12                 | 0110111 | -        | Load Upper Immediate                |
 |            | AUIPC       | R[rd] = PC + (imm << 12)          | 0010111 | -        | Add Upper Imm to PC                 |
 | **J-type** | JAL         | R[rd] = PC+4; PC += imm           | 1101111 | -        | Jump And Link                       |
+|            | JALR        
 
 ## Module Details
 
