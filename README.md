@@ -42,8 +42,8 @@ The following table shows the supported RV32I instructions, their formats, and f
 |            | XORI        | R[rd] = R[rs1] ^ imm              | 0010011 | 100      | Bitwise XOR Immediate               |
 |            | SLTI        | R[rd] = (R[rs1] < imm) ? 1 : 0    | 0010011 | 010      | Set Less Than Immediate (signed)    |
 |            | SLLI        | R[rd] =  R[rs1] <<  uimm          | 0010011 | 001      | shift left logical immediate        |
-|            | SRLI        | R[rd] =  R[rs1] >>  uimm          | 0010011 | 1010000000| shift right logical immediate       |
-|            | SRLI        | R[rd] =  R[rs1] >>>  uimm          | 0010011 | 1010100000| shift right arithmetic immediate    |
+|            | SRLI        | R[rd] =  R[rs1] >>  uimm          | 0010011 | 101 0000000| shift right logical immediate       |
+|            | SRLI        | R[rd] =  R[rs1] >>>  uimm          | 0010011 | 101 0100000| shift right arithmetic immediate    |
 |            | LW          | R[rd] = Mem[R[rs1] + imm]         | 0000011 | 010      | Load Word                           |
 |            | JALR        | R[rd] = PC+4; PC = R[rs1] + imm   | 1100111 | 000      | Jump And Link Register              |
 | **S-type** | SW          | Mem[R[rs1] + imm] = R[rs2]        | 0100011 | 010      | Store Word                          |
@@ -138,19 +138,10 @@ The project includes several testbenches:
 - **EX/MEM**: Passes execution results to the memory stage
 - **MEM/WB**: Passes memory operation results to the writeback stage
 
-### Control Flow
+## Tools Used
 
-Each instruction passes through all five stages, with control signals propagated alongside data through pipeline registers. The controller generates control signals in the decode stage, and these signals travel through the pipeline to control operations in later stages.
+- **Simulation**: Aldec Active-HDL was used for design verification and debugging through waveform analysis.
 
-### ALU Operations
-
-The ALU supports a comprehensive set of operations defined in `ALUControl_Defines.sv`:
-
-- Basic arithmetic: ADD, SUB
-- Logical: AND, OR, XOR
-- Shifts: SLL, SRL, SRA
-- Comparisons: SLT, SLTU
-- Special: Rotate right (ROR)
 
 ## Helpful Resources
 
