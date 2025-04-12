@@ -1,4 +1,4 @@
-`include "ALUControl_Defines.sv"
+`include "../RTL/ALUControl_Defines.sv"
 module alu (
     input logic [31:0] A,
     input logic [31:0] B,
