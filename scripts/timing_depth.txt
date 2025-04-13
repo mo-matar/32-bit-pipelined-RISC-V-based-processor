@@ -1,0 +1,381 @@
+
+28. Printing statistics.
+
+=== $paramod\flopenr\WIDTH=32 ===
+
+   Number of wires:                  6
+   Number of wire bits:             99
+   Number of public wires:           5
+   Number of public wire bits:      67
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 64
+     $_DFF_PP0_                     32
+     $_MUX_                         32
+
+=== $paramod\flopenrc\WIDTH=96 ===
+
+   Number of wires:                  8
+   Number of wire bits:            388
+   Number of public wires:           6
+   Number of public wire bits:     196
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                288
+     $_DFF_PP0_                     96
+     $_MUX_                        192
+
+=== $paramod\flopr\WIDTH=101 ===
+
+   Number of wires:                  4
+   Number of wire bits:            204
+   Number of public wires:           4
+   Number of public wire bits:     204
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                101
+     $_DFF_PP0_                    101
+
+=== $paramod\flopr\WIDTH=3 ===
+
+   Number of wires:                  4
+   Number of wire bits:              8
+   Number of public wires:           4
+   Number of public wire bits:       8
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $_DFF_PP0_                      3
+
+=== $paramod\flopr\WIDTH=4 ===
+
+   Number of wires:                  4
+   Number of wire bits:             10
+   Number of public wires:           4
+   Number of public wire bits:      10
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $_DFF_PP0_                      4
+
+=== $paramod\floprc\WIDTH=14 ===
+
+   Number of wires:                  6
+   Number of wire bits:             45
+   Number of public wires:           5
+   Number of public wire bits:      31
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 28
+     $_DFF_PP0_                     14
+     $_MUX_                         14
+
+=== $paramod\floprc\WIDTH=175 ===
+
+   Number of wires:                  6
+   Number of wire bits:            528
+   Number of public wires:           5
+   Number of public wire bits:     353
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                350
+     $_DFF_PP0_                    175
+     $_MUX_                        175
+
+=== Instr_mem ===
+
+   Number of wires:               1151
+   Number of wire bits:           9365
+   Number of public wires:        1026
+   Number of public wire bits:    8256
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                694
+     $_AND_                         27
+     $_MUX_                        632
+     $_NOT_                          6
+     $_OR_                           1
+     $_XOR_                         28
+
+=== PCSrc_generator ===
+
+   Number of wires:                 31
+   Number of wire bits:             47
+   Number of public wires:           5
+   Number of public wire bits:       5
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 35
+     $_NOT_                          8
+     $_OR_                          23
+     $_XOR_                          4
+
+=== adder ===
+
+   Number of wires:                102
+   Number of wire bits:            288
+   Number of public wires:           3
+   Number of public wire bits:      96
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                220
+     $_AND_                        105
+     $_OR_                          52
+     $_XOR_                         63
+
+=== alu ===
+
+   Number of wires:                396
+   Number of wire bits:           2315
+   Number of public wires:          10
+   Number of public wire bits:     168
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1825
+     $_AND_                        544
+     $_MUX_                        628
+     $_NOT_                         46
+     $_OR_                         435
+     $_XOR_                        172
+
+=== aludec ===
+
+   Number of wires:                 42
+   Number of wire bits:            111
+   Number of public wires:           6
+   Number of public wire bits:      12
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 61
+     $_AND_                          6
+     $_MUX_                          8
+     $_NOT_                         11
+     $_OR_                          32
+     $_XOR_                          4
+
+=== controller ===
+
+   Number of wires:                 37
+   Number of wire bits:             60
+   Number of public wires:          36
+   Number of public wire bits:      59
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+     $_AND_                          1
+     $_OR_                           1
+     $paramod\flopr\WIDTH=3          1
+     $paramod\flopr\WIDTH=4          1
+     $paramod\floprc\WIDTH=14        1
+     PCSrc_generator                 1
+     aludec                          1
+     maindec                         1
+
+=== data_mem ===
+
+   Number of wires:               5231
+   Number of wire bits:         100554
+   Number of public wires:        1029
+   Number of public wire bits:   32866
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:             100468
+     $_AND_                       2144
+     $_DFF_P_                    32768
+     $_MUX_                      65546
+     $_NOT_                         10
+
+=== datapath ===
+
+   Number of wires:                 61
+   Number of wire bits:           1040
+   Number of public wires:          59
+   Number of public wire bits:    1038
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 19
+     $_NOT_                          2
+     $paramod\flopenr\WIDTH=32       1
+     $paramod\flopenrc\WIDTH=96      1
+     $paramod\flopr\WIDTH=101        2
+     $paramod\floprc\WIDTH=175       1
+     adder                           2
+     alu                             1
+     imm_extender                    1
+     mux2                            3
+     mux3                            4
+     reg_file                        1
+
+=== hazard_unit ===
+
+   Number of wires:                 59
+   Number of wire bits:            125
+   Number of public wires:          18
+   Number of public wire bits:      48
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 81
+     $_AND_                          5
+     $_MUX_                          6
+     $_NOT_                          6
+     $_OR_                          34
+     $_XOR_                         30
+
+=== imm_extender ===
+
+   Number of wires:                 87
+   Number of wire bits:            371
+   Number of public wires:           3
+   Number of public wire bits:      60
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                224
+     $_AND_                         76
+     $_MUX_                         32
+     $_NOT_                          5
+     $_OR_                         108
+     $_XOR_                          3
+
+=== maindec ===
+
+   Number of wires:                 64
+   Number of wire bits:            202
+   Number of public wires:          12
+   Number of public wire bits:      37
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 76
+     $_MUX_                         12
+     $_NOT_                         10
+     $_OR_                          47
+     $_XOR_                          7
+
+=== mux2 ===
+
+   Number of wires:                  4
+   Number of wire bits:             97
+   Number of public wires:           4
+   Number of public wire bits:      97
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 32
+     $_MUX_                         32
+
+=== mux3 ===
+
+   Number of wires:                  6
+   Number of wire bits:            162
+   Number of public wires:           5
+   Number of public wire bits:     130
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 64
+     $_MUX_                         64
+
+=== reg_file ===
+
+   Number of wires:                231
+   Number of wire bits:           4311
+   Number of public wires:          40
+   Number of public wire bits:    1137
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               4231
+     $_AND_                         81
+     $_DFF_N_                     1024
+     $_MUX_                       3109
+     $_NOT_                          5
+     $_OR_                          12
+
+=== riscv ===
+
+   Number of wires:                 36
+   Number of wire bits:            236
+   Number of public wires:          36
+   Number of public wire bits:     236
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     controller                      1
+     datapath                        1
+     hazard_unit                     1
+
+=== top ===
+
+   Number of wires:                  8
+   Number of wire bits:            163
+   Number of public wires:           8
+   Number of public wire bits:     163
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     Instr_mem                       1
+     data_mem                        1
+     riscv                           1
+
+=== design hierarchy ===
+
+   top                               1
+     Instr_mem                       1
+     data_mem                        1
+     riscv                           1
+       controller                    1
+         $paramod\flopr\WIDTH=3      1
+         $paramod\flopr\WIDTH=4      1
+         $paramod\floprc\WIDTH=14      1
+         PCSrc_generator             1
+         aludec                      1
+         maindec                     1
+       datapath                      1
+         $paramod\flopenr\WIDTH=32      1
+         $paramod\flopenrc\WIDTH=96      1
+         $paramod\flopr\WIDTH=101      2
+         $paramod\floprc\WIDTH=175      1
+         adder                       2
+         alu                         1
+         imm_extender                1
+         mux2                        3
+         mux3                        4
+         reg_file                    1
+       hazard_unit                   1
+
+   Number of wires:               7716
+   Number of wire bits:         121901
+   Number of public wires:        2363
+   Number of public wire bits:   46161
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:             109430
+     $_AND_                       3094
+     $_DFF_N_                     1024
+     $_DFF_PP0_                    526
+     $_DFF_P_                    32768
+     $_MUX_                      70738
+     $_NOT_                        109
+     $_OR_                         797
+     $_XOR_                        374
+

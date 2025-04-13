@@ -25,7 +25,7 @@
     logic ALUSrcAD;
     logic [1:0] ALUSrcBD;
     logic [1:0] ALUOp;
-    logic branchTaken;
+    logic branchTaken, PCJalSrcD;
 
 
  maindec md(op, ResultSrcD, MemWriteD, ALUSrcAD, PCJalSrcD, ALUSrcBD, 

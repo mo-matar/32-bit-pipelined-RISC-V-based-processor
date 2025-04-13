@@ -1,0 +1,18 @@
+[options]
+mode bmc
+depth 20
+
+[engines]
+smtbmc
+
+[script]
+# Read dependencies and design
+read -sv ../RTL/ALUControl_Defines.sv
+read -sv ../RTL/modules/*.sv
+read -sv ../RTL/top.sv
+prep -top top
+
+[files]
+../RTL/ALUControl_Defines.sv
+../RTL/modules/*.sv
+../RTL/top.sv

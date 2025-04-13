@@ -1,0 +1,26 @@
+
+28. Executing ABC pass (technology mapping using ABC).
+
+28.1. Extracting gate netlist of module `$paramod\flopenr\WIDTH=32' to `<abc-temp-dir>/input.blif'..
+Extracted 32 gates and 97 wires to a netlist network with 65 inputs and 32 outputs.
+
+28.1.1. Executing ABC.
+Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/scripts/./scripts/synth_gates.lib 
+ABC: usage: read_lib [-SG float] [-M num] [-dnuvwh] <file>
+ABC: 	           reads Liberty library from file
+ABC: 	-S float : the slew parameter used to generate the library [default = 0.00]
+ABC: 	-G float : the gain parameter used to generate the library [default = 0.00]
+ABC: 	-M num   : skip gate classes whose size is less than this [default = 0]
+ABC: 	-d       : toggle dumping the parsed library into file "*_temp.lib" [default = no]
+ABC: 	-n       : toggle replacing gate/pin names by short strings [default = no]
+ABC: 	-u       : toggle setting unit area for all cells [default = no]
+ABC: 	-v       : toggle writing verbose information [default = yes]
+ABC: 	-w       : toggle writing information about skipped gates [default = yes]
+ABC: 	-h       : prints the command summary
+ABC: 	<file>   : the name of a file to read
+ABC: ** cmd error: aborting 'source <abc-temp-dir>/abc.script'
+ERROR: Can't open ABC output file `/tmp/yosys-abc-iknnuo/output.blif'.

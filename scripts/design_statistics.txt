@@ -1,0 +1,3771 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2019  Clifford Wolf <clifford@clifford.at>           |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9 (git sha1 1979e0b)
+
+
+-- Executing script file `design_stats.ys' --
+
+1. Executing Verilog-2005 frontend: ../RTL/ALUControl_Defines.sv
+Parsing SystemVerilog input from `../RTL/ALUControl_Defines.sv' to AST representation.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: ../RTL/modules/Instr_mem.sv
+Parsing SystemVerilog input from `../RTL/modules/Instr_mem.sv' to AST representation.
+Generating RTLIL representation for module `\Instr_mem'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: ../RTL/modules/PcSrc_generator.sv
+Parsing SystemVerilog input from `../RTL/modules/PcSrc_generator.sv' to AST representation.
+Generating RTLIL representation for module `\PCSrc_generator'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: ../RTL/modules/RV32I_core.sv
+Parsing SystemVerilog input from `../RTL/modules/RV32I_core.sv' to AST representation.
+Generating RTLIL representation for module `\riscv'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: ../RTL/modules/adder.sv
+Parsing SystemVerilog input from `../RTL/modules/adder.sv' to AST representation.
+Generating RTLIL representation for module `\adder'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: ../RTL/modules/alu.sv
+Parsing SystemVerilog input from `../RTL/modules/alu.sv' to AST representation.
+Generating RTLIL representation for module `\alu'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: ../RTL/modules/aludec.sv
+Parsing SystemVerilog input from `../RTL/modules/aludec.sv' to AST representation.
+Generating RTLIL representation for module `\aludec'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: ../RTL/modules/controller.sv
+Parsing SystemVerilog input from `../RTL/modules/controller.sv' to AST representation.
+Generating RTLIL representation for module `\controller'.
+../RTL/modules/controller.sv:31: Warning: Identifier `\PCJalSrcD' is implicitly declared.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: ../RTL/modules/data_mem.sv
+Parsing SystemVerilog input from `../RTL/modules/data_mem.sv' to AST representation.
+Generating RTLIL representation for module `\data_mem'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: ../RTL/modules/datapath.sv
+Parsing SystemVerilog input from `../RTL/modules/datapath.sv' to AST representation.
+Generating RTLIL representation for module `\datapath'.
+Successfully finished Verilog frontend.
+
+11. Executing Verilog-2005 frontend: ../RTL/modules/hazard_unit.sv
+Parsing SystemVerilog input from `../RTL/modules/hazard_unit.sv' to AST representation.
+Generating RTLIL representation for module `\hazard_unit'.
+Successfully finished Verilog frontend.
+
+12. Executing Verilog-2005 frontend: ../RTL/modules/imm_extender.sv
+Parsing SystemVerilog input from `../RTL/modules/imm_extender.sv' to AST representation.
+Generating RTLIL representation for module `\imm_extender'.
+Successfully finished Verilog frontend.
+
+13. Executing Verilog-2005 frontend: ../RTL/modules/intermediate_registers.sv
+Parsing SystemVerilog input from `../RTL/modules/intermediate_registers.sv' to AST representation.
+Generating RTLIL representation for module `\flopr'.
+Generating RTLIL representation for module `\flopenr'.
+Generating RTLIL representation for module `\flopenrc'.
+Generating RTLIL representation for module `\floprc'.
+Successfully finished Verilog frontend.
+
+14. Executing Verilog-2005 frontend: ../RTL/modules/maindec.sv
+Parsing SystemVerilog input from `../RTL/modules/maindec.sv' to AST representation.
+Generating RTLIL representation for module `\maindec'.
+Successfully finished Verilog frontend.
+
+15. Executing Verilog-2005 frontend: ../RTL/modules/mux2.sv
+Parsing SystemVerilog input from `../RTL/modules/mux2.sv' to AST representation.
+Generating RTLIL representation for module `\mux2'.
+Successfully finished Verilog frontend.
+
+16. Executing Verilog-2005 frontend: ../RTL/modules/mux3.sv
+Parsing SystemVerilog input from `../RTL/modules/mux3.sv' to AST representation.
+Generating RTLIL representation for module `\mux3'.
+Successfully finished Verilog frontend.
+
+17. Executing Verilog-2005 frontend: ../RTL/modules/reg_file.sv
+Parsing SystemVerilog input from `../RTL/modules/reg_file.sv' to AST representation.
+Generating RTLIL representation for module `\reg_file'.
+Successfully finished Verilog frontend.
+
+18. Executing Verilog-2005 frontend: ../RTL/top.sv
+Parsing SystemVerilog input from `../RTL/top.sv' to AST representation.
+Generating RTLIL representation for module `\top'.
+Successfully finished Verilog frontend.
+
+19. Executing HIERARCHY pass (managing design hierarchy).
+
+19.1. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \data_mem
+Used module:     \Instr_mem
+Used module:     \riscv
+Used module:         \hazard_unit
+Used module:         \controller
+Used module:             \PCSrc_generator
+Used module:             \flopr
+Used module:             \floprc
+Used module:             \aludec
+Used module:             \maindec
+Used module:         \datapath
+Used module:             \mux3
+Used module:             \alu
+Used module:             \adder
+Used module:             \mux2
+Used module:             \imm_extender
+Used module:             \reg_file
+Used module:             \flopenrc
+Used module:             \flopenr
+
+19.2. Executing AST frontend in derive mode using pre-parsed AST for module `\flopr'.
+Parameter 1 (\WIDTH) = 101
+Generating RTLIL representation for module `$paramod\flopr\WIDTH=101'.
+
+19.3. Executing AST frontend in derive mode using pre-parsed AST for module `\flopr'.
+Parameter 1 (\WIDTH) = 101
+Found cached RTLIL representation for module `$paramod\flopr\WIDTH=101'.
+
+19.4. Executing AST frontend in derive mode using pre-parsed AST for module `\floprc'.
+Parameter 1 (\WIDTH) = 175
+Generating RTLIL representation for module `$paramod\floprc\WIDTH=175'.
+
+19.5. Executing AST frontend in derive mode using pre-parsed AST for module `\flopenrc'.
+Parameter 1 (\WIDTH) = 96
+Generating RTLIL representation for module `$paramod\flopenrc\WIDTH=96'.
+
+19.6. Executing AST frontend in derive mode using pre-parsed AST for module `\flopenr'.
+Parameter 1 (\WIDTH) = 32
+Generating RTLIL representation for module `$paramod\flopenr\WIDTH=32'.
+
+19.7. Executing AST frontend in derive mode using pre-parsed AST for module `\flopr'.
+Parameter 1 (\WIDTH) = 3
+Generating RTLIL representation for module `$paramod\flopr\WIDTH=3'.
+
+19.8. Executing AST frontend in derive mode using pre-parsed AST for module `\flopr'.
+Parameter 1 (\WIDTH) = 4
+Generating RTLIL representation for module `$paramod\flopr\WIDTH=4'.
+
+19.9. Executing AST frontend in derive mode using pre-parsed AST for module `\floprc'.
+Parameter 1 (\WIDTH) = 14
+Generating RTLIL representation for module `$paramod\floprc\WIDTH=14'.
+
+19.10. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \data_mem
+Used module:     \Instr_mem
+Used module:     \riscv
+Used module:         \hazard_unit
+Used module:         \controller
+Used module:             \PCSrc_generator
+Used module:             $paramod\flopr\WIDTH=3
+Used module:             $paramod\flopr\WIDTH=4
+Used module:             $paramod\floprc\WIDTH=14
+Used module:             \aludec
+Used module:             \maindec
+Used module:         \datapath
+Used module:             \mux3
+Used module:             $paramod\flopr\WIDTH=101
+Used module:             \alu
+Used module:             \adder
+Used module:             \mux2
+Used module:             $paramod\floprc\WIDTH=175
+Used module:             \imm_extender
+Used module:             \reg_file
+Used module:             $paramod\flopenrc\WIDTH=96
+Used module:             $paramod\flopenr\WIDTH=32
+
+19.11. Analyzing design hierarchy..
+Top module:  \top
+Used module:     \data_mem
+Used module:     \Instr_mem
+Used module:     \riscv
+Used module:         \hazard_unit
+Used module:         \controller
+Used module:             \PCSrc_generator
+Used module:             $paramod\flopr\WIDTH=3
+Used module:             $paramod\flopr\WIDTH=4
+Used module:             $paramod\floprc\WIDTH=14
+Used module:             \aludec
+Used module:             \maindec
+Used module:         \datapath
+Used module:             \mux3
+Used module:             $paramod\flopr\WIDTH=101
+Used module:             \alu
+Used module:             \adder
+Used module:             \mux2
+Used module:             $paramod\floprc\WIDTH=175
+Used module:             \imm_extender
+Used module:             \reg_file
+Used module:             $paramod\flopenrc\WIDTH=96
+Used module:             $paramod\flopenr\WIDTH=32
+Removing unused module `\floprc'.
+Removing unused module `\flopenrc'.
+Removing unused module `\flopenr'.
+Removing unused module `\flopr'.
+Removed 4 unused modules.
+Mapping positional arguments of cell top.Data_memory (data_mem).
+Mapping positional arguments of cell top.Instruction_memory (Instr_mem).
+Mapping positional arguments of cell top.core (riscv).
+Mapping positional arguments of cell datapath.result_mux (mux3).
+Mapping positional arguments of cell datapath.MEM_WB_reg ($paramod\flopr\WIDTH=101).
+Mapping positional arguments of cell datapath.EX_MEM_reg ($paramod\flopr\WIDTH=101).
+Mapping positional arguments of cell datapath.jal_adder (adder).
+Mapping positional arguments of cell datapath.srcB_mux (mux3).
+Mapping positional arguments of cell datapath.forwardB_mux (mux3).
+Mapping positional arguments of cell datapath.srcA_mux (mux2).
+Mapping positional arguments of cell datapath.forwardA_mux (mux3).
+Mapping positional arguments of cell datapath.ID_EX_reg ($paramod\floprc\WIDTH=175).
+Mapping positional arguments of cell datapath.IF_ID_reg ($paramod\flopenrc\WIDTH=96).
+Mapping positional arguments of cell datapath.PC_Plus4_Adder (adder).
+Mapping positional arguments of cell datapath.PC_reg ($paramod\flopenr\WIDTH=32).
+Mapping positional arguments of cell datapath.NextPC (mux2).
+Mapping positional arguments of cell datapath.jal_jalr_mux (mux2).
+Mapping positional arguments of cell controller.branch_taken_generator (PCSrc_generator).
+Mapping positional arguments of cell controller.controlRegW ($paramod\flopr\WIDTH=3).
+Mapping positional arguments of cell controller.controlRegM ($paramod\flopr\WIDTH=4).
+Mapping positional arguments of cell controller.controlRegE ($paramod\floprc\WIDTH=14).
+Mapping positional arguments of cell controller.ad (aludec).
+Mapping positional arguments of cell controller.md (maindec).
+Mapping positional arguments of cell riscv.h (hazard_unit).
+Mapping positional arguments of cell riscv.c (controller).
+Mapping positional arguments of cell riscv.dp (datapath).
+
+20. Executing PROC pass (convert processes to netlists).
+
+20.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `Instr_mem.$proc$../RTL/modules/Instr_mem.sv:15$9'.
+Cleaned up 0 empty switches.
+
+20.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$../RTL/modules/intermediate_registers.sv:35$101 in module $paramod\flopenrc\WIDTH=96.
+Marked 2 switch rules as full_case in process $proc$../RTL/modules/intermediate_registers.sv:48$100 in module $paramod\floprc\WIDTH=175.
+Marked 1 switch rules as full_case in process $proc$../RTL/modules/intermediate_registers.sv:15$99 in module $paramod\flopr\WIDTH=101.
+Marked 1 switch rules as full_case in process $proc$../RTL/modules/maindec.sv:13$81 in module maindec.
+Marked 2 switch rules as full_case in process $proc$../RTL/modules/intermediate_registers.sv:48$105 in module $paramod\floprc\WIDTH=14.
+Marked 1 switch rules as full_case in process $proc$../RTL/modules/intermediate_registers.sv:15$104 in module $paramod\flopr\WIDTH=4.
+Marked 1 switch rules as full_case in process $proc$../RTL/modules/intermediate_registers.sv:15$103 in module $paramod\flopr\WIDTH=3.
+Marked 1 switch rules as full_case in process $proc$../RTL/modules/intermediate_registers.sv:25$102 in module $paramod\flopenr\WIDTH=32.
+Marked 1 switch rules as full_case in process $proc$../RTL/modules/imm_extender.sv:7$76 in module imm_extender.
+Marked 6 switch rules as full_case in process $proc$../RTL/modules/hazard_unit.sv:11$60 in module hazard_unit.
+Removed 1 dead cases from process $proc$../RTL/modules/aludec.sv:9$45 in module aludec.
+Marked 2 switch rules as full_case in process $proc$../RTL/modules/aludec.sv:9$45 in module aludec.
+Marked 1 switch rules as full_case in process $proc$../RTL/modules/alu.sv:17$24 in module alu.
+Marked 1 switch rules as full_case in process $proc$../RTL/modules/PcSrc_generator.sv:9$10 in module PCSrc_generator.
+Removed a total of 1 dead cases.
+
+20.3. Executing PROC_INIT pass (extract init attributes).
+
+20.4. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset in `$paramod\flopenrc\WIDTH=96.$proc$../RTL/modules/intermediate_registers.sv:35$101'.
+Found async reset \reset in `$paramod\floprc\WIDTH=175.$proc$../RTL/modules/intermediate_registers.sv:48$100'.
+Found async reset \reset in `$paramod\flopr\WIDTH=101.$proc$../RTL/modules/intermediate_registers.sv:15$99'.
+Found async reset \reset in `$paramod\floprc\WIDTH=14.$proc$../RTL/modules/intermediate_registers.sv:48$105'.
+Found async reset \reset in `$paramod\flopr\WIDTH=4.$proc$../RTL/modules/intermediate_registers.sv:15$104'.
+Found async reset \reset in `$paramod\flopr\WIDTH=3.$proc$../RTL/modules/intermediate_registers.sv:15$103'.
+Found async reset \reset in `$paramod\flopenr\WIDTH=32.$proc$../RTL/modules/intermediate_registers.sv:25$102'.
+
+20.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\flopenrc\WIDTH=96.$proc$../RTL/modules/intermediate_registers.sv:35$101'.
+     1/1: $0\q[95:0]
+Creating decoders for process `$paramod\floprc\WIDTH=175.$proc$../RTL/modules/intermediate_registers.sv:48$100'.
+     1/1: $0\q[174:0]
+Creating decoders for process `$paramod\flopr\WIDTH=101.$proc$../RTL/modules/intermediate_registers.sv:15$99'.
+     1/1: $0\q[100:0]
+Creating decoders for process `\reg_file.$proc$../RTL/modules/reg_file.sv:10$86'.
+     1/3: $0$memwr$\registers$../RTL/modules/reg_file.sv:11$85_EN[31:0]$89
+     2/3: $0$memwr$\registers$../RTL/modules/reg_file.sv:11$85_DATA[31:0]$87
+     3/3: $0$memwr$\registers$../RTL/modules/reg_file.sv:11$85_ADDR[4:0]$88
+Creating decoders for process `\maindec.$proc$../RTL/modules/maindec.sv:13$81'.
+     1/2: $1\controls[14:0]
+     2/2: $0\controls[14:0]
+Creating decoders for process `$paramod\floprc\WIDTH=14.$proc$../RTL/modules/intermediate_registers.sv:48$105'.
+     1/1: $0\q[13:0]
+Creating decoders for process `$paramod\flopr\WIDTH=4.$proc$../RTL/modules/intermediate_registers.sv:15$104'.
+     1/1: $0\q[3:0]
+Creating decoders for process `$paramod\flopr\WIDTH=3.$proc$../RTL/modules/intermediate_registers.sv:15$103'.
+     1/1: $0\q[2:0]
+Creating decoders for process `$paramod\flopenr\WIDTH=32.$proc$../RTL/modules/intermediate_registers.sv:25$102'.
+     1/1: $0\q[31:0]
+Creating decoders for process `\imm_extender.$proc$../RTL/modules/imm_extender.sv:7$76'.
+     1/2: $1\imm[31:0]
+     2/2: $0\imm[31:0]
+Creating decoders for process `\hazard_unit.$proc$../RTL/modules/hazard_unit.sv:11$60'.
+     1/8: $3\ForwardBE[1:0]
+     2/8: $2\ForwardBE[1:0]
+     3/8: $1\ForwardBE[1:0]
+     4/8: $3\ForwardAE[1:0]
+     5/8: $2\ForwardAE[1:0]
+     6/8: $1\ForwardAE[1:0]
+     7/8: $0\ForwardBE[1:0]
+     8/8: $0\ForwardAE[1:0]
+Creating decoders for process `\data_mem.$proc$../RTL/modules/data_mem.sv:19$53'.
+     1/3: $0$memwr$\DATA$../RTL/modules/data_mem.sv:21$51_EN[31:0]$56
+     2/3: $0$memwr$\DATA$../RTL/modules/data_mem.sv:21$51_DATA[31:0]$55
+     3/3: $0$memwr$\DATA$../RTL/modules/data_mem.sv:21$51_ADDR[29:0]$54
+Creating decoders for process `\aludec.$proc$../RTL/modules/aludec.sv:9$45'.
+     1/3: $2\ALUControl[3:0]
+     2/3: $1\ALUControl[3:0]
+     3/3: $0\ALUControl[3:0]
+Creating decoders for process `\alu.$proc$../RTL/modules/alu.sv:17$24'.
+     1/2: $1\ALUResult[31:0]
+     2/2: $0\ALUResult[31:0]
+Creating decoders for process `\PCSrc_generator.$proc$../RTL/modules/PcSrc_generator.sv:9$10'.
+     1/2: $1\taken[0:0]
+     2/2: $0\taken[0:0]
+
+20.6. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\maindec.\controls' from process `\maindec.$proc$../RTL/modules/maindec.sv:13$81'.
+No latch inferred for signal `\imm_extender.\imm' from process `\imm_extender.$proc$../RTL/modules/imm_extender.sv:7$76'.
+No latch inferred for signal `\hazard_unit.\ForwardAE' from process `\hazard_unit.$proc$../RTL/modules/hazard_unit.sv:11$60'.
+No latch inferred for signal `\hazard_unit.\ForwardBE' from process `\hazard_unit.$proc$../RTL/modules/hazard_unit.sv:11$60'.
+No latch inferred for signal `\aludec.\ALUControl' from process `\aludec.$proc$../RTL/modules/aludec.sv:9$45'.
+No latch inferred for signal `\alu.\ALUResult' from process `\alu.$proc$../RTL/modules/alu.sv:17$24'.
+No latch inferred for signal `\PCSrc_generator.\taken' from process `\PCSrc_generator.$proc$../RTL/modules/PcSrc_generator.sv:9$10'.
+
+20.7. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod\flopenrc\WIDTH=96.\q' using process `$paramod\flopenrc\WIDTH=96.$proc$../RTL/modules/intermediate_registers.sv:35$101'.
+  created $adff cell `$procdff$226' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\floprc\WIDTH=175.\q' using process `$paramod\floprc\WIDTH=175.$proc$../RTL/modules/intermediate_registers.sv:48$100'.
+  created $adff cell `$procdff$227' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\flopr\WIDTH=101.\q' using process `$paramod\flopr\WIDTH=101.$proc$../RTL/modules/intermediate_registers.sv:15$99'.
+  created $adff cell `$procdff$228' with positive edge clock and positive level reset.
+Creating register for signal `\reg_file.$memwr$\registers$../RTL/modules/reg_file.sv:11$85_DATA' using process `\reg_file.$proc$../RTL/modules/reg_file.sv:10$86'.
+  created $dff cell `$procdff$229' with negative edge clock.
+Creating register for signal `\reg_file.$memwr$\registers$../RTL/modules/reg_file.sv:11$85_ADDR' using process `\reg_file.$proc$../RTL/modules/reg_file.sv:10$86'.
+  created $dff cell `$procdff$230' with negative edge clock.
+Creating register for signal `\reg_file.$memwr$\registers$../RTL/modules/reg_file.sv:11$85_EN' using process `\reg_file.$proc$../RTL/modules/reg_file.sv:10$86'.
+  created $dff cell `$procdff$231' with negative edge clock.
+Creating register for signal `$paramod\floprc\WIDTH=14.\q' using process `$paramod\floprc\WIDTH=14.$proc$../RTL/modules/intermediate_registers.sv:48$105'.
+  created $adff cell `$procdff$232' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\flopr\WIDTH=4.\q' using process `$paramod\flopr\WIDTH=4.$proc$../RTL/modules/intermediate_registers.sv:15$104'.
+  created $adff cell `$procdff$233' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\flopr\WIDTH=3.\q' using process `$paramod\flopr\WIDTH=3.$proc$../RTL/modules/intermediate_registers.sv:15$103'.
+  created $adff cell `$procdff$234' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\flopenr\WIDTH=32.\q' using process `$paramod\flopenr\WIDTH=32.$proc$../RTL/modules/intermediate_registers.sv:25$102'.
+  created $adff cell `$procdff$235' with positive edge clock and positive level reset.
+Creating register for signal `\data_mem.$memwr$\DATA$../RTL/modules/data_mem.sv:21$51_ADDR' using process `\data_mem.$proc$../RTL/modules/data_mem.sv:19$53'.
+  created $dff cell `$procdff$236' with positive edge clock.
+Creating register for signal `\data_mem.$memwr$\DATA$../RTL/modules/data_mem.sv:21$51_DATA' using process `\data_mem.$proc$../RTL/modules/data_mem.sv:19$53'.
+  created $dff cell `$procdff$237' with positive edge clock.
+Creating register for signal `\data_mem.$memwr$\DATA$../RTL/modules/data_mem.sv:21$51_EN' using process `\data_mem.$proc$../RTL/modules/data_mem.sv:19$53'.
+  created $dff cell `$procdff$238' with positive edge clock.
+
+20.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `$paramod\flopenrc\WIDTH=96.$proc$../RTL/modules/intermediate_registers.sv:35$101'.
+Removing empty process `$paramod\flopenrc\WIDTH=96.$proc$../RTL/modules/intermediate_registers.sv:35$101'.
+Found and cleaned up 1 empty switch in `$paramod\floprc\WIDTH=175.$proc$../RTL/modules/intermediate_registers.sv:48$100'.
+Removing empty process `$paramod\floprc\WIDTH=175.$proc$../RTL/modules/intermediate_registers.sv:48$100'.
+Removing empty process `$paramod\flopr\WIDTH=101.$proc$../RTL/modules/intermediate_registers.sv:15$99'.
+Found and cleaned up 1 empty switch in `\reg_file.$proc$../RTL/modules/reg_file.sv:10$86'.
+Removing empty process `reg_file.$proc$../RTL/modules/reg_file.sv:10$86'.
+Found and cleaned up 1 empty switch in `\maindec.$proc$../RTL/modules/maindec.sv:13$81'.
+Removing empty process `maindec.$proc$../RTL/modules/maindec.sv:13$81'.
+Found and cleaned up 1 empty switch in `$paramod\floprc\WIDTH=14.$proc$../RTL/modules/intermediate_registers.sv:48$105'.
+Removing empty process `$paramod\floprc\WIDTH=14.$proc$../RTL/modules/intermediate_registers.sv:48$105'.
+Removing empty process `$paramod\flopr\WIDTH=4.$proc$../RTL/modules/intermediate_registers.sv:15$104'.
+Removing empty process `$paramod\flopr\WIDTH=3.$proc$../RTL/modules/intermediate_registers.sv:15$103'.
+Found and cleaned up 1 empty switch in `$paramod\flopenr\WIDTH=32.$proc$../RTL/modules/intermediate_registers.sv:25$102'.
+Removing empty process `$paramod\flopenr\WIDTH=32.$proc$../RTL/modules/intermediate_registers.sv:25$102'.
+Found and cleaned up 1 empty switch in `\imm_extender.$proc$../RTL/modules/imm_extender.sv:7$76'.
+Removing empty process `imm_extender.$proc$../RTL/modules/imm_extender.sv:7$76'.
+Found and cleaned up 6 empty switches in `\hazard_unit.$proc$../RTL/modules/hazard_unit.sv:11$60'.
+Removing empty process `hazard_unit.$proc$../RTL/modules/hazard_unit.sv:11$60'.
+Found and cleaned up 1 empty switch in `\data_mem.$proc$../RTL/modules/data_mem.sv:19$53'.
+Removing empty process `data_mem.$proc$../RTL/modules/data_mem.sv:19$53'.
+Found and cleaned up 2 empty switches in `\aludec.$proc$../RTL/modules/aludec.sv:9$45'.
+Removing empty process `aludec.$proc$../RTL/modules/aludec.sv:9$45'.
+Found and cleaned up 1 empty switch in `\alu.$proc$../RTL/modules/alu.sv:17$24'.
+Removing empty process `alu.$proc$../RTL/modules/alu.sv:17$24'.
+Found and cleaned up 1 empty switch in `\PCSrc_generator.$proc$../RTL/modules/PcSrc_generator.sv:9$10'.
+Removing empty process `PCSrc_generator.$proc$../RTL/modules/PcSrc_generator.sv:9$10'.
+Cleaned up 19 empty switches.
+
+21. Executing OPT pass (performing simple optimizations).
+
+21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\flopenrc\WIDTH=96.
+Optimizing module $paramod\floprc\WIDTH=175.
+Optimizing module $paramod\flopr\WIDTH=101.
+Optimizing module top.
+Optimizing module reg_file.
+<suppressed ~3 debug messages>
+Optimizing module mux3.
+Optimizing module mux2.
+Optimizing module maindec.
+<suppressed ~1 debug messages>
+Optimizing module $paramod\floprc\WIDTH=14.
+Optimizing module $paramod\flopr\WIDTH=4.
+Optimizing module $paramod\flopr\WIDTH=3.
+Optimizing module $paramod\flopenr\WIDTH=32.
+Optimizing module imm_extender.
+<suppressed ~1 debug messages>
+Optimizing module hazard_unit.
+<suppressed ~2 debug messages>
+Optimizing module datapath.
+Optimizing module data_mem.
+Optimizing module controller.
+Optimizing module aludec.
+<suppressed ~3 debug messages>
+Optimizing module alu.
+<suppressed ~3 debug messages>
+Optimizing module adder.
+Optimizing module riscv.
+Optimizing module PCSrc_generator.
+Optimizing module Instr_mem.
+
+21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\flopenrc\WIDTH=96'.
+Finding identical cells in module `$paramod\floprc\WIDTH=175'.
+Finding identical cells in module `$paramod\flopr\WIDTH=101'.
+Finding identical cells in module `\top'.
+Finding identical cells in module `\reg_file'.
+Finding identical cells in module `\mux3'.
+Finding identical cells in module `\mux2'.
+Finding identical cells in module `\maindec'.
+Finding identical cells in module `$paramod\floprc\WIDTH=14'.
+Finding identical cells in module `$paramod\flopr\WIDTH=4'.
+Finding identical cells in module `$paramod\flopr\WIDTH=3'.
+Finding identical cells in module `$paramod\flopenr\WIDTH=32'.
+Finding identical cells in module `\imm_extender'.
+Finding identical cells in module `\hazard_unit'.
+Finding identical cells in module `\datapath'.
+Finding identical cells in module `\data_mem'.
+Finding identical cells in module `\controller'.
+Finding identical cells in module `\aludec'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\alu'.
+<suppressed ~18 debug messages>
+Finding identical cells in module `\adder'.
+Finding identical cells in module `\riscv'.
+Finding identical cells in module `\PCSrc_generator'.
+Finding identical cells in module `\Instr_mem'.
+Removed a total of 8 cells.
+
+21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\flopenrc\WIDTH=96..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=175..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=101..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \maindec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=14..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopenr\WIDTH=32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \imm_extender..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \hazard_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$175.
+    dead port 2/2 on $mux $procmux$169.
+    dead port 1/2 on $mux $procmux$167.
+    dead port 2/2 on $mux $procmux$157.
+    dead port 2/2 on $mux $procmux$151.
+    dead port 1/2 on $mux $procmux$149.
+Running muxtree optimizer on module \datapath..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \data_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \controller..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \aludec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/3 on $pmux $procmux$196.
+    dead port 2/3 on $pmux $procmux$196.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \riscv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \PCSrc_generator..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Instr_mem..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 8 multiplexer ports.
+<suppressed ~22 debug messages>
+
+21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\flopenrc\WIDTH=96.
+  Optimizing cells in module $paramod\floprc\WIDTH=175.
+  Optimizing cells in module $paramod\flopr\WIDTH=101.
+  Optimizing cells in module \top.
+  Optimizing cells in module \reg_file.
+    Consolidated identical input bits for $mux cell $procmux$114:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$procmux$114_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$114_Y [0]
+      New connections: $procmux$114_Y [31:1] = { $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] $procmux$114_Y [0] }
+  Optimizing cells in module \reg_file.
+  Optimizing cells in module \mux3.
+  Optimizing cells in module \mux2.
+  Optimizing cells in module \maindec.
+  Optimizing cells in module $paramod\floprc\WIDTH=14.
+  Optimizing cells in module $paramod\flopr\WIDTH=4.
+  Optimizing cells in module $paramod\flopr\WIDTH=3.
+  Optimizing cells in module $paramod\flopenr\WIDTH=32.
+  Optimizing cells in module \imm_extender.
+  Optimizing cells in module \hazard_unit.
+  Optimizing cells in module \datapath.
+  Optimizing cells in module \data_mem.
+    Consolidated identical input bits for $mux cell $procmux$180:
+      Old ports: A=0, B=32'11111111111111111111111111111111, Y=$procmux$180_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$180_Y [0]
+      New connections: $procmux$180_Y [31:1] = { $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] $procmux$180_Y [0] }
+  Optimizing cells in module \data_mem.
+  Optimizing cells in module \controller.
+  Optimizing cells in module \aludec.
+  Optimizing cells in module \alu.
+    New ctrl vector for $pmux cell $procmux$204: { $auto$opt_reduce.cc:132:opt_mux$240 $procmux$213_CMP $procmux$212_CMP $procmux$211_CMP $procmux$210_CMP $procmux$209_CMP $procmux$208_CMP $procmux$207_CMP $procmux$206_CMP $procmux$205_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$239: { $procmux$214_CMP $procmux$215_CMP }
+  Optimizing cells in module \alu.
+  Optimizing cells in module \adder.
+  Optimizing cells in module \riscv.
+  Optimizing cells in module \PCSrc_generator.
+    New ctrl vector for $pmux cell $procmux$217: $auto$opt_reduce.cc:132:opt_mux$242
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$241: { $procmux$221_CMP $procmux$218_CMP $procmux$219_CMP $procmux$220_CMP $procmux$222_CMP $procmux$223_CMP $procmux$224_CMP $procmux$225_CMP }
+  Optimizing cells in module \PCSrc_generator.
+  Optimizing cells in module \Instr_mem.
+Performed a total of 6 changes.
+
+21.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\flopenrc\WIDTH=96'.
+Finding identical cells in module `$paramod\floprc\WIDTH=175'.
+Finding identical cells in module `$paramod\flopr\WIDTH=101'.
+Finding identical cells in module `\top'.
+Finding identical cells in module `\reg_file'.
+Finding identical cells in module `\mux3'.
+Finding identical cells in module `\mux2'.
+Finding identical cells in module `\maindec'.
+Finding identical cells in module `$paramod\floprc\WIDTH=14'.
+Finding identical cells in module `$paramod\flopr\WIDTH=4'.
+Finding identical cells in module `$paramod\flopr\WIDTH=3'.
+Finding identical cells in module `$paramod\flopenr\WIDTH=32'.
+Finding identical cells in module `\imm_extender'.
+Finding identical cells in module `\hazard_unit'.
+Finding identical cells in module `\datapath'.
+Finding identical cells in module `\data_mem'.
+Finding identical cells in module `\controller'.
+Finding identical cells in module `\aludec'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\adder'.
+Finding identical cells in module `\riscv'.
+Finding identical cells in module `\PCSrc_generator'.
+Finding identical cells in module `\Instr_mem'.
+Removed a total of 0 cells.
+
+21.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+21.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\flopenrc\WIDTH=96..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=175..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=101..
+Finding unused cells or wires in module \top..
+Finding unused cells or wires in module \reg_file..
+Finding unused cells or wires in module \mux3..
+Finding unused cells or wires in module \mux2..
+Finding unused cells or wires in module \maindec..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=14..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=4..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=3..
+Finding unused cells or wires in module $paramod\flopenr\WIDTH=32..
+Finding unused cells or wires in module \imm_extender..
+Finding unused cells or wires in module \hazard_unit..
+Finding unused cells or wires in module \datapath..
+Finding unused cells or wires in module \data_mem..
+Finding unused cells or wires in module \controller..
+Finding unused cells or wires in module \aludec..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \adder..
+Finding unused cells or wires in module \riscv..
+Finding unused cells or wires in module \PCSrc_generator..
+Finding unused cells or wires in module \Instr_mem..
+Removed 0 unused cells and 96 unused wires.
+<suppressed ~20 debug messages>
+
+21.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\flopenr\WIDTH=32.
+Optimizing module $paramod\flopenrc\WIDTH=96.
+Optimizing module $paramod\flopr\WIDTH=101.
+Optimizing module $paramod\flopr\WIDTH=3.
+Optimizing module $paramod\flopr\WIDTH=4.
+Optimizing module $paramod\floprc\WIDTH=14.
+Optimizing module $paramod\floprc\WIDTH=175.
+Optimizing module Instr_mem.
+Optimizing module PCSrc_generator.
+Optimizing module adder.
+Optimizing module alu.
+Optimizing module aludec.
+Optimizing module controller.
+Optimizing module data_mem.
+Optimizing module datapath.
+Optimizing module hazard_unit.
+Optimizing module imm_extender.
+Optimizing module maindec.
+Optimizing module mux2.
+Optimizing module mux3.
+Optimizing module reg_file.
+Optimizing module riscv.
+Optimizing module top.
+
+21.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+21.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\flopenr\WIDTH=32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopenrc\WIDTH=96..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=101..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=14..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=175..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Instr_mem..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \PCSrc_generator..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \aludec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \controller..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \data_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \datapath..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \hazard_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \imm_extender..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \maindec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \riscv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+21.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\flopenr\WIDTH=32.
+  Optimizing cells in module $paramod\flopenrc\WIDTH=96.
+  Optimizing cells in module $paramod\flopr\WIDTH=101.
+  Optimizing cells in module $paramod\flopr\WIDTH=3.
+  Optimizing cells in module $paramod\flopr\WIDTH=4.
+  Optimizing cells in module $paramod\floprc\WIDTH=14.
+  Optimizing cells in module $paramod\floprc\WIDTH=175.
+  Optimizing cells in module \Instr_mem.
+  Optimizing cells in module \PCSrc_generator.
+  Optimizing cells in module \adder.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \aludec.
+  Optimizing cells in module \controller.
+  Optimizing cells in module \data_mem.
+  Optimizing cells in module \datapath.
+  Optimizing cells in module \hazard_unit.
+  Optimizing cells in module \imm_extender.
+  Optimizing cells in module \maindec.
+  Optimizing cells in module \mux2.
+  Optimizing cells in module \mux3.
+  Optimizing cells in module \reg_file.
+  Optimizing cells in module \riscv.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+21.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\flopenr\WIDTH=32'.
+Finding identical cells in module `$paramod\flopenrc\WIDTH=96'.
+Finding identical cells in module `$paramod\flopr\WIDTH=101'.
+Finding identical cells in module `$paramod\flopr\WIDTH=3'.
+Finding identical cells in module `$paramod\flopr\WIDTH=4'.
+Finding identical cells in module `$paramod\floprc\WIDTH=14'.
+Finding identical cells in module `$paramod\floprc\WIDTH=175'.
+Finding identical cells in module `\Instr_mem'.
+Finding identical cells in module `\PCSrc_generator'.
+Finding identical cells in module `\adder'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\aludec'.
+Finding identical cells in module `\controller'.
+Finding identical cells in module `\data_mem'.
+Finding identical cells in module `\datapath'.
+Finding identical cells in module `\hazard_unit'.
+Finding identical cells in module `\imm_extender'.
+Finding identical cells in module `\maindec'.
+Finding identical cells in module `\mux2'.
+Finding identical cells in module `\mux3'.
+Finding identical cells in module `\reg_file'.
+Finding identical cells in module `\riscv'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+21.13. Executing OPT_RMDFF pass (remove dff with constant values).
+
+21.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\flopenr\WIDTH=32..
+Finding unused cells or wires in module $paramod\flopenrc\WIDTH=96..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=101..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=3..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=4..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=14..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=175..
+Finding unused cells or wires in module \Instr_mem..
+Finding unused cells or wires in module \PCSrc_generator..
+Finding unused cells or wires in module \adder..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \aludec..
+Finding unused cells or wires in module \controller..
+Finding unused cells or wires in module \data_mem..
+Finding unused cells or wires in module \datapath..
+Finding unused cells or wires in module \hazard_unit..
+Finding unused cells or wires in module \imm_extender..
+Finding unused cells or wires in module \maindec..
+Finding unused cells or wires in module \mux2..
+Finding unused cells or wires in module \mux3..
+Finding unused cells or wires in module \reg_file..
+Finding unused cells or wires in module \riscv..
+Finding unused cells or wires in module \top..
+
+21.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\flopenr\WIDTH=32.
+Optimizing module $paramod\flopenrc\WIDTH=96.
+Optimizing module $paramod\flopr\WIDTH=101.
+Optimizing module $paramod\flopr\WIDTH=3.
+Optimizing module $paramod\flopr\WIDTH=4.
+Optimizing module $paramod\floprc\WIDTH=14.
+Optimizing module $paramod\floprc\WIDTH=175.
+Optimizing module Instr_mem.
+Optimizing module PCSrc_generator.
+Optimizing module adder.
+Optimizing module alu.
+Optimizing module aludec.
+Optimizing module controller.
+Optimizing module data_mem.
+Optimizing module datapath.
+Optimizing module hazard_unit.
+Optimizing module imm_extender.
+Optimizing module maindec.
+Optimizing module mux2.
+Optimizing module mux3.
+Optimizing module reg_file.
+Optimizing module riscv.
+Optimizing module top.
+
+21.16. Finished OPT passes. (There is nothing left to do.)
+
+22. Executing FSM pass (extract and optimize FSM).
+
+22.1. Executing FSM_DETECT pass (finding FSMs in design).
+Not marking data_mem.$memwr$\DATA$../RTL/modules/data_mem.sv:21$51_EN as FSM state register:
+    Users of register don't seem to benefit from recoding.
+Not marking reg_file.$memwr$\registers$../RTL/modules/reg_file.sv:11$85_EN as FSM state register:
+    Users of register don't seem to benefit from recoding.
+
+22.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+22.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+22.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\flopenr\WIDTH=32..
+Finding unused cells or wires in module $paramod\flopenrc\WIDTH=96..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=101..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=3..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=4..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=14..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=175..
+Finding unused cells or wires in module \Instr_mem..
+Finding unused cells or wires in module \PCSrc_generator..
+Finding unused cells or wires in module \adder..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \aludec..
+Finding unused cells or wires in module \controller..
+Finding unused cells or wires in module \data_mem..
+Finding unused cells or wires in module \datapath..
+Finding unused cells or wires in module \hazard_unit..
+Finding unused cells or wires in module \imm_extender..
+Finding unused cells or wires in module \maindec..
+Finding unused cells or wires in module \mux2..
+Finding unused cells or wires in module \mux3..
+Finding unused cells or wires in module \reg_file..
+Finding unused cells or wires in module \riscv..
+Finding unused cells or wires in module \top..
+
+22.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+22.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+22.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+22.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+23. Executing OPT pass (performing simple optimizations).
+
+23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\flopenr\WIDTH=32.
+Optimizing module $paramod\flopenrc\WIDTH=96.
+Optimizing module $paramod\flopr\WIDTH=101.
+Optimizing module $paramod\flopr\WIDTH=3.
+Optimizing module $paramod\flopr\WIDTH=4.
+Optimizing module $paramod\floprc\WIDTH=14.
+Optimizing module $paramod\floprc\WIDTH=175.
+Optimizing module Instr_mem.
+Optimizing module PCSrc_generator.
+Optimizing module adder.
+Optimizing module alu.
+Optimizing module aludec.
+Optimizing module controller.
+Optimizing module data_mem.
+Optimizing module datapath.
+Optimizing module hazard_unit.
+Optimizing module imm_extender.
+Optimizing module maindec.
+Optimizing module mux2.
+Optimizing module mux3.
+Optimizing module reg_file.
+Optimizing module riscv.
+Optimizing module top.
+
+23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\flopenr\WIDTH=32'.
+Finding identical cells in module `$paramod\flopenrc\WIDTH=96'.
+Finding identical cells in module `$paramod\flopr\WIDTH=101'.
+Finding identical cells in module `$paramod\flopr\WIDTH=3'.
+Finding identical cells in module `$paramod\flopr\WIDTH=4'.
+Finding identical cells in module `$paramod\floprc\WIDTH=14'.
+Finding identical cells in module `$paramod\floprc\WIDTH=175'.
+Finding identical cells in module `\Instr_mem'.
+Finding identical cells in module `\PCSrc_generator'.
+Finding identical cells in module `\adder'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\aludec'.
+Finding identical cells in module `\controller'.
+Finding identical cells in module `\data_mem'.
+Finding identical cells in module `\datapath'.
+Finding identical cells in module `\hazard_unit'.
+Finding identical cells in module `\imm_extender'.
+Finding identical cells in module `\maindec'.
+Finding identical cells in module `\mux2'.
+Finding identical cells in module `\mux3'.
+Finding identical cells in module `\reg_file'.
+Finding identical cells in module `\riscv'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+23.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\flopenr\WIDTH=32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopenrc\WIDTH=96..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=101..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=14..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=175..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Instr_mem..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \PCSrc_generator..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \aludec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \controller..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \data_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \datapath..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \hazard_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \imm_extender..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \maindec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \riscv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+23.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\flopenr\WIDTH=32.
+  Optimizing cells in module $paramod\flopenrc\WIDTH=96.
+  Optimizing cells in module $paramod\flopr\WIDTH=101.
+  Optimizing cells in module $paramod\flopr\WIDTH=3.
+  Optimizing cells in module $paramod\flopr\WIDTH=4.
+  Optimizing cells in module $paramod\floprc\WIDTH=14.
+  Optimizing cells in module $paramod\floprc\WIDTH=175.
+  Optimizing cells in module \Instr_mem.
+  Optimizing cells in module \PCSrc_generator.
+  Optimizing cells in module \adder.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \aludec.
+  Optimizing cells in module \controller.
+  Optimizing cells in module \data_mem.
+  Optimizing cells in module \datapath.
+  Optimizing cells in module \hazard_unit.
+  Optimizing cells in module \imm_extender.
+  Optimizing cells in module \maindec.
+  Optimizing cells in module \mux2.
+  Optimizing cells in module \mux3.
+  Optimizing cells in module \reg_file.
+  Optimizing cells in module \riscv.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+23.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\flopenr\WIDTH=32'.
+Finding identical cells in module `$paramod\flopenrc\WIDTH=96'.
+Finding identical cells in module `$paramod\flopr\WIDTH=101'.
+Finding identical cells in module `$paramod\flopr\WIDTH=3'.
+Finding identical cells in module `$paramod\flopr\WIDTH=4'.
+Finding identical cells in module `$paramod\floprc\WIDTH=14'.
+Finding identical cells in module `$paramod\floprc\WIDTH=175'.
+Finding identical cells in module `\Instr_mem'.
+Finding identical cells in module `\PCSrc_generator'.
+Finding identical cells in module `\adder'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\aludec'.
+Finding identical cells in module `\controller'.
+Finding identical cells in module `\data_mem'.
+Finding identical cells in module `\datapath'.
+Finding identical cells in module `\hazard_unit'.
+Finding identical cells in module `\imm_extender'.
+Finding identical cells in module `\maindec'.
+Finding identical cells in module `\mux2'.
+Finding identical cells in module `\mux3'.
+Finding identical cells in module `\reg_file'.
+Finding identical cells in module `\riscv'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+23.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+23.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\flopenr\WIDTH=32..
+Finding unused cells or wires in module $paramod\flopenrc\WIDTH=96..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=101..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=3..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=4..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=14..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=175..
+Finding unused cells or wires in module \Instr_mem..
+Finding unused cells or wires in module \PCSrc_generator..
+Finding unused cells or wires in module \adder..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \aludec..
+Finding unused cells or wires in module \controller..
+Finding unused cells or wires in module \data_mem..
+Finding unused cells or wires in module \datapath..
+Finding unused cells or wires in module \hazard_unit..
+Finding unused cells or wires in module \imm_extender..
+Finding unused cells or wires in module \maindec..
+Finding unused cells or wires in module \mux2..
+Finding unused cells or wires in module \mux3..
+Finding unused cells or wires in module \reg_file..
+Finding unused cells or wires in module \riscv..
+Finding unused cells or wires in module \top..
+
+23.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\flopenr\WIDTH=32.
+Optimizing module $paramod\flopenrc\WIDTH=96.
+Optimizing module $paramod\flopr\WIDTH=101.
+Optimizing module $paramod\flopr\WIDTH=3.
+Optimizing module $paramod\flopr\WIDTH=4.
+Optimizing module $paramod\floprc\WIDTH=14.
+Optimizing module $paramod\floprc\WIDTH=175.
+Optimizing module Instr_mem.
+Optimizing module PCSrc_generator.
+Optimizing module adder.
+Optimizing module alu.
+Optimizing module aludec.
+Optimizing module controller.
+Optimizing module data_mem.
+Optimizing module datapath.
+Optimizing module hazard_unit.
+Optimizing module imm_extender.
+Optimizing module maindec.
+Optimizing module mux2.
+Optimizing module mux3.
+Optimizing module reg_file.
+Optimizing module riscv.
+Optimizing module top.
+
+23.9. Finished OPT passes. (There is nothing left to do.)
+
+24. Executing MEMORY pass.
+
+24.1. Executing MEMORY_DFF pass (merging $dff cells to $memrd and $memwr).
+Checking cell `$memrd$\memory$../RTL/modules/Instr_mem.sv:10$7' in module `\Instr_mem': no (compatible) $dff found.
+Checking cell `$memrd$\memory$../RTL/modules/Instr_mem.sv:11$5' in module `\Instr_mem': no (compatible) $dff found.
+Checking cell `$memrd$\memory$../RTL/modules/Instr_mem.sv:12$3' in module `\Instr_mem': no (compatible) $dff found.
+Checking cell `$memrd$\memory$../RTL/modules/Instr_mem.sv:13$1' in module `\Instr_mem': no (compatible) $dff found.
+Checking cell `$memwr$\DATA$../RTL/modules/data_mem.sv:21$57' in module `\data_mem': merged $dff to cell.
+Checking cell `$memrd$\DATA$../RTL/modules/data_mem.sv:16$52' in module `\data_mem': no (compatible) $dff found.
+Checking cell `$memwr$\registers$../RTL/modules/reg_file.sv:11$98' in module `\reg_file': merged $dff to cell.
+Checking cell `$memrd$\registers$../RTL/modules/reg_file.sv:16$93' in module `\reg_file': no (compatible) $dff found.
+Checking cell `$memrd$\registers$../RTL/modules/reg_file.sv:17$96' in module `\reg_file': no (compatible) $dff found.
+
+24.2. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\flopenr\WIDTH=32..
+Finding unused cells or wires in module $paramod\flopenrc\WIDTH=96..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=101..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=3..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=4..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=14..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=175..
+Finding unused cells or wires in module \Instr_mem..
+Finding unused cells or wires in module \PCSrc_generator..
+Finding unused cells or wires in module \adder..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \aludec..
+Finding unused cells or wires in module \controller..
+Finding unused cells or wires in module \data_mem..
+Finding unused cells or wires in module \datapath..
+Finding unused cells or wires in module \hazard_unit..
+Finding unused cells or wires in module \imm_extender..
+Finding unused cells or wires in module \maindec..
+Finding unused cells or wires in module \mux2..
+Finding unused cells or wires in module \mux3..
+Finding unused cells or wires in module \reg_file..
+Finding unused cells or wires in module \riscv..
+Finding unused cells or wires in module \top..
+Removed 8 unused cells and 8 unused wires.
+<suppressed ~10 debug messages>
+
+24.3. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+24.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\flopenr\WIDTH=32..
+Finding unused cells or wires in module $paramod\flopenrc\WIDTH=96..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=101..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=3..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=4..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=14..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=175..
+Finding unused cells or wires in module \Instr_mem..
+Finding unused cells or wires in module \PCSrc_generator..
+Finding unused cells or wires in module \adder..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \aludec..
+Finding unused cells or wires in module \controller..
+Finding unused cells or wires in module \data_mem..
+Finding unused cells or wires in module \datapath..
+Finding unused cells or wires in module \hazard_unit..
+Finding unused cells or wires in module \imm_extender..
+Finding unused cells or wires in module \maindec..
+Finding unused cells or wires in module \mux2..
+Finding unused cells or wires in module \mux3..
+Finding unused cells or wires in module \reg_file..
+Finding unused cells or wires in module \riscv..
+Finding unused cells or wires in module \top..
+
+24.5. Executing MEMORY_COLLECT pass (generating $mem cells).
+Collecting $memrd, $memwr and $meminit for memory `\memory' in module `\Instr_mem':
+  $meminit$\memory$../RTL/modules/Instr_mem.sv:16$8 ($meminit)
+  $memrd$\memory$../RTL/modules/Instr_mem.sv:13$1 ($memrd)
+  $memrd$\memory$../RTL/modules/Instr_mem.sv:12$3 ($memrd)
+  $memrd$\memory$../RTL/modules/Instr_mem.sv:11$5 ($memrd)
+  $memrd$\memory$../RTL/modules/Instr_mem.sv:10$7 ($memrd)
+Collecting $memrd, $memwr and $meminit for memory `\DATA' in module `\data_mem':
+  $memwr$\DATA$../RTL/modules/data_mem.sv:21$57 ($memwr)
+  $memrd$\DATA$../RTL/modules/data_mem.sv:16$52 ($memrd)
+Collecting $memrd, $memwr and $meminit for memory `\registers' in module `\reg_file':
+  $memwr$\registers$../RTL/modules/reg_file.sv:11$98 ($memwr)
+  $memrd$\registers$../RTL/modules/reg_file.sv:16$93 ($memrd)
+  $memrd$\registers$../RTL/modules/reg_file.sv:17$96 ($memrd)
+
+24.6. Executing MEMORY_MAP pass (converting $mem cells to logic and flip-flops).
+Mapping memory cell \memory in module \Instr_mem:
+  created 1024 $dff cells and 0 static cells of width 8.
+  read interface: 0 $dff and 4092 $mux cells.
+  write interface: 0 write mux blocks.
+Mapping memory cell \DATA in module \data_mem:
+  created 1024 $dff cells and 0 static cells of width 32.
+  read interface: 0 $dff and 1023 $mux cells.
+  write interface: 1024 write mux blocks.
+Mapping memory cell \registers in module \reg_file:
+  created 32 $dff cells and 0 static cells of width 32.
+  read interface: 0 $dff and 62 $mux cells.
+  write interface: 32 write mux blocks.
+
+25. Executing OPT pass (performing simple optimizations).
+
+25.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\flopenr\WIDTH=32.
+Optimizing module $paramod\flopenrc\WIDTH=96.
+Optimizing module $paramod\flopr\WIDTH=101.
+Optimizing module $paramod\flopr\WIDTH=3.
+Optimizing module $paramod\flopr\WIDTH=4.
+Optimizing module $paramod\floprc\WIDTH=14.
+Optimizing module $paramod\floprc\WIDTH=175.
+Optimizing module Instr_mem.
+Optimizing module PCSrc_generator.
+Optimizing module adder.
+Optimizing module alu.
+Optimizing module aludec.
+Optimizing module controller.
+Optimizing module data_mem.
+<suppressed ~20 debug messages>
+Optimizing module datapath.
+Optimizing module hazard_unit.
+Optimizing module imm_extender.
+Optimizing module maindec.
+Optimizing module mux2.
+Optimizing module mux3.
+Optimizing module reg_file.
+<suppressed ~10 debug messages>
+Optimizing module riscv.
+Optimizing module top.
+
+25.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\flopenr\WIDTH=32'.
+Finding identical cells in module `$paramod\flopenrc\WIDTH=96'.
+Finding identical cells in module `$paramod\flopr\WIDTH=101'.
+Finding identical cells in module `$paramod\flopr\WIDTH=3'.
+Finding identical cells in module `$paramod\flopr\WIDTH=4'.
+Finding identical cells in module `$paramod\floprc\WIDTH=14'.
+Finding identical cells in module `$paramod\floprc\WIDTH=175'.
+Finding identical cells in module `\Instr_mem'.
+Finding identical cells in module `\PCSrc_generator'.
+Finding identical cells in module `\adder'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\aludec'.
+Finding identical cells in module `\controller'.
+Finding identical cells in module `\data_mem'.
+Finding identical cells in module `\datapath'.
+Finding identical cells in module `\hazard_unit'.
+Finding identical cells in module `\imm_extender'.
+Finding identical cells in module `\maindec'.
+Finding identical cells in module `\mux2'.
+Finding identical cells in module `\mux3'.
+Finding identical cells in module `\reg_file'.
+Finding identical cells in module `\riscv'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+25.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\flopenr\WIDTH=32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopenrc\WIDTH=96..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=101..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=14..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=175..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Instr_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \PCSrc_generator..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \aludec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \controller..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \data_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \datapath..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \hazard_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \imm_extender..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \maindec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \riscv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~1083 debug messages>
+
+25.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\flopenr\WIDTH=32.
+  Optimizing cells in module $paramod\flopenrc\WIDTH=96.
+  Optimizing cells in module $paramod\flopr\WIDTH=101.
+  Optimizing cells in module $paramod\flopr\WIDTH=3.
+  Optimizing cells in module $paramod\flopr\WIDTH=4.
+  Optimizing cells in module $paramod\floprc\WIDTH=14.
+  Optimizing cells in module $paramod\floprc\WIDTH=175.
+  Optimizing cells in module \Instr_mem.
+  Optimizing cells in module \PCSrc_generator.
+  Optimizing cells in module \adder.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \aludec.
+  Optimizing cells in module \controller.
+  Optimizing cells in module \data_mem.
+  Optimizing cells in module \datapath.
+  Optimizing cells in module \hazard_unit.
+  Optimizing cells in module \imm_extender.
+  Optimizing cells in module \maindec.
+  Optimizing cells in module \mux2.
+  Optimizing cells in module \mux3.
+  Optimizing cells in module \reg_file.
+  Optimizing cells in module \riscv.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+25.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\flopenr\WIDTH=32'.
+Finding identical cells in module `$paramod\flopenrc\WIDTH=96'.
+Finding identical cells in module `$paramod\flopr\WIDTH=101'.
+Finding identical cells in module `$paramod\flopr\WIDTH=3'.
+Finding identical cells in module `$paramod\flopr\WIDTH=4'.
+Finding identical cells in module `$paramod\floprc\WIDTH=14'.
+Finding identical cells in module `$paramod\floprc\WIDTH=175'.
+Finding identical cells in module `\Instr_mem'.
+Finding identical cells in module `\PCSrc_generator'.
+Finding identical cells in module `\adder'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\aludec'.
+Finding identical cells in module `\controller'.
+Finding identical cells in module `\data_mem'.
+Finding identical cells in module `\datapath'.
+Finding identical cells in module `\hazard_unit'.
+Finding identical cells in module `\imm_extender'.
+Finding identical cells in module `\maindec'.
+Finding identical cells in module `\mux2'.
+Finding identical cells in module `\mux3'.
+Finding identical cells in module `\reg_file'.
+Finding identical cells in module `\riscv'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+25.6. Executing OPT_RMDFF pass (remove dff with constant values).
+Removing $memory\memory[1023]$2296 ($dff) from module Instr_mem.
+Removing $memory\memory[1022]$2294 ($dff) from module Instr_mem.
+Removing $memory\memory[1021]$2292 ($dff) from module Instr_mem.
+Removing $memory\memory[1020]$2290 ($dff) from module Instr_mem.
+Removing $memory\memory[1019]$2288 ($dff) from module Instr_mem.
+Removing $memory\memory[1018]$2286 ($dff) from module Instr_mem.
+Removing $memory\memory[1017]$2284 ($dff) from module Instr_mem.
+Removing $memory\memory[1016]$2282 ($dff) from module Instr_mem.
+Removing $memory\memory[1015]$2280 ($dff) from module Instr_mem.
+Removing $memory\memory[1014]$2278 ($dff) from module Instr_mem.
+Removing $memory\memory[1013]$2276 ($dff) from module Instr_mem.
+Removing $memory\memory[1012]$2274 ($dff) from module Instr_mem.
+Removing $memory\memory[1011]$2272 ($dff) from module Instr_mem.
+Removing $memory\memory[1010]$2270 ($dff) from module Instr_mem.
+Removing $memory\memory[1009]$2268 ($dff) from module Instr_mem.
+Removing $memory\memory[1008]$2266 ($dff) from module Instr_mem.
+Removing $memory\memory[1007]$2264 ($dff) from module Instr_mem.
+Removing $memory\memory[1006]$2262 ($dff) from module Instr_mem.
+Removing $memory\memory[1005]$2260 ($dff) from module Instr_mem.
+Removing $memory\memory[1004]$2258 ($dff) from module Instr_mem.
+Removing $memory\memory[1003]$2256 ($dff) from module Instr_mem.
+Removing $memory\memory[1002]$2254 ($dff) from module Instr_mem.
+Removing $memory\memory[1001]$2252 ($dff) from module Instr_mem.
+Removing $memory\memory[1000]$2250 ($dff) from module Instr_mem.
+Removing $memory\memory[999]$2248 ($dff) from module Instr_mem.
+Removing $memory\memory[998]$2246 ($dff) from module Instr_mem.
+Removing $memory\memory[997]$2244 ($dff) from module Instr_mem.
+Removing $memory\memory[996]$2242 ($dff) from module Instr_mem.
+Removing $memory\memory[995]$2240 ($dff) from module Instr_mem.
+Removing $memory\memory[994]$2238 ($dff) from module Instr_mem.
+Removing $memory\memory[993]$2236 ($dff) from module Instr_mem.
+Removing $memory\memory[992]$2234 ($dff) from module Instr_mem.
+Removing $memory\memory[991]$2232 ($dff) from module Instr_mem.
+Removing $memory\memory[990]$2230 ($dff) from module Instr_mem.
+Removing $memory\memory[989]$2228 ($dff) from module Instr_mem.
+Removing $memory\memory[988]$2226 ($dff) from module Instr_mem.
+Removing $memory\memory[987]$2224 ($dff) from module Instr_mem.
+Removing $memory\memory[986]$2222 ($dff) from module Instr_mem.
+Removing $memory\memory[985]$2220 ($dff) from module Instr_mem.
+Removing $memory\memory[984]$2218 ($dff) from module Instr_mem.
+Removing $memory\memory[983]$2216 ($dff) from module Instr_mem.
+Removing $memory\memory[982]$2214 ($dff) from module Instr_mem.
+Removing $memory\memory[981]$2212 ($dff) from module Instr_mem.
+Removing $memory\memory[980]$2210 ($dff) from module Instr_mem.
+Removing $memory\memory[979]$2208 ($dff) from module Instr_mem.
+Removing $memory\memory[978]$2206 ($dff) from module Instr_mem.
+Removing $memory\memory[977]$2204 ($dff) from module Instr_mem.
+Removing $memory\memory[976]$2202 ($dff) from module Instr_mem.
+Removing $memory\memory[975]$2200 ($dff) from module Instr_mem.
+Removing $memory\memory[974]$2198 ($dff) from module Instr_mem.
+Removing $memory\memory[973]$2196 ($dff) from module Instr_mem.
+Removing $memory\memory[972]$2194 ($dff) from module Instr_mem.
+Removing $memory\memory[971]$2192 ($dff) from module Instr_mem.
+Removing $memory\memory[970]$2190 ($dff) from module Instr_mem.
+Removing $memory\memory[969]$2188 ($dff) from module Instr_mem.
+Removing $memory\memory[968]$2186 ($dff) from module Instr_mem.
+Removing $memory\memory[967]$2184 ($dff) from module Instr_mem.
+Removing $memory\memory[966]$2182 ($dff) from module Instr_mem.
+Removing $memory\memory[965]$2180 ($dff) from module Instr_mem.
+Removing $memory\memory[964]$2178 ($dff) from module Instr_mem.
+Removing $memory\memory[963]$2176 ($dff) from module Instr_mem.
+Removing $memory\memory[962]$2174 ($dff) from module Instr_mem.
+Removing $memory\memory[961]$2172 ($dff) from module Instr_mem.
+Removing $memory\memory[960]$2170 ($dff) from module Instr_mem.
+Removing $memory\memory[959]$2168 ($dff) from module Instr_mem.
+Removing $memory\memory[958]$2166 ($dff) from module Instr_mem.
+Removing $memory\memory[957]$2164 ($dff) from module Instr_mem.
+Removing $memory\memory[956]$2162 ($dff) from module Instr_mem.
+Removing $memory\memory[955]$2160 ($dff) from module Instr_mem.
+Removing $memory\memory[954]$2158 ($dff) from module Instr_mem.
+Removing $memory\memory[953]$2156 ($dff) from module Instr_mem.
+Removing $memory\memory[952]$2154 ($dff) from module Instr_mem.
+Removing $memory\memory[951]$2152 ($dff) from module Instr_mem.
+Removing $memory\memory[950]$2150 ($dff) from module Instr_mem.
+Removing $memory\memory[949]$2148 ($dff) from module Instr_mem.
+Removing $memory\memory[948]$2146 ($dff) from module Instr_mem.
+Removing $memory\memory[947]$2144 ($dff) from module Instr_mem.
+Removing $memory\memory[946]$2142 ($dff) from module Instr_mem.
+Removing $memory\memory[945]$2140 ($dff) from module Instr_mem.
+Removing $memory\memory[944]$2138 ($dff) from module Instr_mem.
+Removing $memory\memory[943]$2136 ($dff) from module Instr_mem.
+Removing $memory\memory[942]$2134 ($dff) from module Instr_mem.
+Removing $memory\memory[941]$2132 ($dff) from module Instr_mem.
+Removing $memory\memory[940]$2130 ($dff) from module Instr_mem.
+Removing $memory\memory[939]$2128 ($dff) from module Instr_mem.
+Removing $memory\memory[938]$2126 ($dff) from module Instr_mem.
+Removing $memory\memory[937]$2124 ($dff) from module Instr_mem.
+Removing $memory\memory[936]$2122 ($dff) from module Instr_mem.
+Removing $memory\memory[935]$2120 ($dff) from module Instr_mem.
+Removing $memory\memory[934]$2118 ($dff) from module Instr_mem.
+Removing $memory\memory[933]$2116 ($dff) from module Instr_mem.
+Removing $memory\memory[932]$2114 ($dff) from module Instr_mem.
+Removing $memory\memory[931]$2112 ($dff) from module Instr_mem.
+Removing $memory\memory[930]$2110 ($dff) from module Instr_mem.
+Removing $memory\memory[929]$2108 ($dff) from module Instr_mem.
+Removing $memory\memory[928]$2106 ($dff) from module Instr_mem.
+Removing $memory\memory[927]$2104 ($dff) from module Instr_mem.
+Removing $memory\memory[926]$2102 ($dff) from module Instr_mem.
+Removing $memory\memory[925]$2100 ($dff) from module Instr_mem.
+Removing $memory\memory[924]$2098 ($dff) from module Instr_mem.
+Removing $memory\memory[923]$2096 ($dff) from module Instr_mem.
+Removing $memory\memory[922]$2094 ($dff) from module Instr_mem.
+Removing $memory\memory[921]$2092 ($dff) from module Instr_mem.
+Removing $memory\memory[920]$2090 ($dff) from module Instr_mem.
+Removing $memory\memory[919]$2088 ($dff) from module Instr_mem.
+Removing $memory\memory[918]$2086 ($dff) from module Instr_mem.
+Removing $memory\memory[917]$2084 ($dff) from module Instr_mem.
+Removing $memory\memory[916]$2082 ($dff) from module Instr_mem.
+Removing $memory\memory[915]$2080 ($dff) from module Instr_mem.
+Removing $memory\memory[914]$2078 ($dff) from module Instr_mem.
+Removing $memory\memory[913]$2076 ($dff) from module Instr_mem.
+Removing $memory\memory[912]$2074 ($dff) from module Instr_mem.
+Removing $memory\memory[911]$2072 ($dff) from module Instr_mem.
+Removing $memory\memory[910]$2070 ($dff) from module Instr_mem.
+Removing $memory\memory[909]$2068 ($dff) from module Instr_mem.
+Removing $memory\memory[908]$2066 ($dff) from module Instr_mem.
+Removing $memory\memory[907]$2064 ($dff) from module Instr_mem.
+Removing $memory\memory[906]$2062 ($dff) from module Instr_mem.
+Removing $memory\memory[905]$2060 ($dff) from module Instr_mem.
+Removing $memory\memory[904]$2058 ($dff) from module Instr_mem.
+Removing $memory\memory[903]$2056 ($dff) from module Instr_mem.
+Removing $memory\memory[902]$2054 ($dff) from module Instr_mem.
+Removing $memory\memory[901]$2052 ($dff) from module Instr_mem.
+Removing $memory\memory[900]$2050 ($dff) from module Instr_mem.
+Removing $memory\memory[899]$2048 ($dff) from module Instr_mem.
+Removing $memory\memory[898]$2046 ($dff) from module Instr_mem.
+Removing $memory\memory[897]$2044 ($dff) from module Instr_mem.
+Removing $memory\memory[896]$2042 ($dff) from module Instr_mem.
+Removing $memory\memory[895]$2040 ($dff) from module Instr_mem.
+Removing $memory\memory[894]$2038 ($dff) from module Instr_mem.
+Removing $memory\memory[893]$2036 ($dff) from module Instr_mem.
+Removing $memory\memory[892]$2034 ($dff) from module Instr_mem.
+Removing $memory\memory[891]$2032 ($dff) from module Instr_mem.
+Removing $memory\memory[890]$2030 ($dff) from module Instr_mem.
+Removing $memory\memory[889]$2028 ($dff) from module Instr_mem.
+Removing $memory\memory[888]$2026 ($dff) from module Instr_mem.
+Removing $memory\memory[887]$2024 ($dff) from module Instr_mem.
+Removing $memory\memory[886]$2022 ($dff) from module Instr_mem.
+Removing $memory\memory[885]$2020 ($dff) from module Instr_mem.
+Removing $memory\memory[884]$2018 ($dff) from module Instr_mem.
+Removing $memory\memory[883]$2016 ($dff) from module Instr_mem.
+Removing $memory\memory[882]$2014 ($dff) from module Instr_mem.
+Removing $memory\memory[881]$2012 ($dff) from module Instr_mem.
+Removing $memory\memory[880]$2010 ($dff) from module Instr_mem.
+Removing $memory\memory[879]$2008 ($dff) from module Instr_mem.
+Removing $memory\memory[878]$2006 ($dff) from module Instr_mem.
+Removing $memory\memory[877]$2004 ($dff) from module Instr_mem.
+Removing $memory\memory[876]$2002 ($dff) from module Instr_mem.
+Removing $memory\memory[875]$2000 ($dff) from module Instr_mem.
+Removing $memory\memory[874]$1998 ($dff) from module Instr_mem.
+Removing $memory\memory[873]$1996 ($dff) from module Instr_mem.
+Removing $memory\memory[872]$1994 ($dff) from module Instr_mem.
+Removing $memory\memory[871]$1992 ($dff) from module Instr_mem.
+Removing $memory\memory[870]$1990 ($dff) from module Instr_mem.
+Removing $memory\memory[869]$1988 ($dff) from module Instr_mem.
+Removing $memory\memory[868]$1986 ($dff) from module Instr_mem.
+Removing $memory\memory[867]$1984 ($dff) from module Instr_mem.
+Removing $memory\memory[866]$1982 ($dff) from module Instr_mem.
+Removing $memory\memory[865]$1980 ($dff) from module Instr_mem.
+Removing $memory\memory[864]$1978 ($dff) from module Instr_mem.
+Removing $memory\memory[863]$1976 ($dff) from module Instr_mem.
+Removing $memory\memory[862]$1974 ($dff) from module Instr_mem.
+Removing $memory\memory[861]$1972 ($dff) from module Instr_mem.
+Removing $memory\memory[860]$1970 ($dff) from module Instr_mem.
+Removing $memory\memory[859]$1968 ($dff) from module Instr_mem.
+Removing $memory\memory[858]$1966 ($dff) from module Instr_mem.
+Removing $memory\memory[857]$1964 ($dff) from module Instr_mem.
+Removing $memory\memory[856]$1962 ($dff) from module Instr_mem.
+Removing $memory\memory[855]$1960 ($dff) from module Instr_mem.
+Removing $memory\memory[854]$1958 ($dff) from module Instr_mem.
+Removing $memory\memory[853]$1956 ($dff) from module Instr_mem.
+Removing $memory\memory[852]$1954 ($dff) from module Instr_mem.
+Removing $memory\memory[851]$1952 ($dff) from module Instr_mem.
+Removing $memory\memory[850]$1950 ($dff) from module Instr_mem.
+Removing $memory\memory[849]$1948 ($dff) from module Instr_mem.
+Removing $memory\memory[848]$1946 ($dff) from module Instr_mem.
+Removing $memory\memory[847]$1944 ($dff) from module Instr_mem.
+Removing $memory\memory[846]$1942 ($dff) from module Instr_mem.
+Removing $memory\memory[845]$1940 ($dff) from module Instr_mem.
+Removing $memory\memory[844]$1938 ($dff) from module Instr_mem.
+Removing $memory\memory[843]$1936 ($dff) from module Instr_mem.
+Removing $memory\memory[842]$1934 ($dff) from module Instr_mem.
+Removing $memory\memory[841]$1932 ($dff) from module Instr_mem.
+Removing $memory\memory[840]$1930 ($dff) from module Instr_mem.
+Removing $memory\memory[839]$1928 ($dff) from module Instr_mem.
+Removing $memory\memory[838]$1926 ($dff) from module Instr_mem.
+Removing $memory\memory[837]$1924 ($dff) from module Instr_mem.
+Removing $memory\memory[836]$1922 ($dff) from module Instr_mem.
+Removing $memory\memory[835]$1920 ($dff) from module Instr_mem.
+Removing $memory\memory[834]$1918 ($dff) from module Instr_mem.
+Removing $memory\memory[833]$1916 ($dff) from module Instr_mem.
+Removing $memory\memory[832]$1914 ($dff) from module Instr_mem.
+Removing $memory\memory[831]$1912 ($dff) from module Instr_mem.
+Removing $memory\memory[830]$1910 ($dff) from module Instr_mem.
+Removing $memory\memory[829]$1908 ($dff) from module Instr_mem.
+Removing $memory\memory[828]$1906 ($dff) from module Instr_mem.
+Removing $memory\memory[827]$1904 ($dff) from module Instr_mem.
+Removing $memory\memory[826]$1902 ($dff) from module Instr_mem.
+Removing $memory\memory[825]$1900 ($dff) from module Instr_mem.
+Removing $memory\memory[824]$1898 ($dff) from module Instr_mem.
+Removing $memory\memory[823]$1896 ($dff) from module Instr_mem.
+Removing $memory\memory[822]$1894 ($dff) from module Instr_mem.
+Removing $memory\memory[821]$1892 ($dff) from module Instr_mem.
+Removing $memory\memory[820]$1890 ($dff) from module Instr_mem.
+Removing $memory\memory[819]$1888 ($dff) from module Instr_mem.
+Removing $memory\memory[818]$1886 ($dff) from module Instr_mem.
+Removing $memory\memory[817]$1884 ($dff) from module Instr_mem.
+Removing $memory\memory[816]$1882 ($dff) from module Instr_mem.
+Removing $memory\memory[815]$1880 ($dff) from module Instr_mem.
+Removing $memory\memory[814]$1878 ($dff) from module Instr_mem.
+Removing $memory\memory[813]$1876 ($dff) from module Instr_mem.
+Removing $memory\memory[812]$1874 ($dff) from module Instr_mem.
+Removing $memory\memory[811]$1872 ($dff) from module Instr_mem.
+Removing $memory\memory[810]$1870 ($dff) from module Instr_mem.
+Removing $memory\memory[809]$1868 ($dff) from module Instr_mem.
+Removing $memory\memory[808]$1866 ($dff) from module Instr_mem.
+Removing $memory\memory[807]$1864 ($dff) from module Instr_mem.
+Removing $memory\memory[806]$1862 ($dff) from module Instr_mem.
+Removing $memory\memory[805]$1860 ($dff) from module Instr_mem.
+Removing $memory\memory[804]$1858 ($dff) from module Instr_mem.
+Removing $memory\memory[803]$1856 ($dff) from module Instr_mem.
+Removing $memory\memory[802]$1854 ($dff) from module Instr_mem.
+Removing $memory\memory[801]$1852 ($dff) from module Instr_mem.
+Removing $memory\memory[800]$1850 ($dff) from module Instr_mem.
+Removing $memory\memory[799]$1848 ($dff) from module Instr_mem.
+Removing $memory\memory[798]$1846 ($dff) from module Instr_mem.
+Removing $memory\memory[797]$1844 ($dff) from module Instr_mem.
+Removing $memory\memory[796]$1842 ($dff) from module Instr_mem.
+Removing $memory\memory[795]$1840 ($dff) from module Instr_mem.
+Removing $memory\memory[794]$1838 ($dff) from module Instr_mem.
+Removing $memory\memory[793]$1836 ($dff) from module Instr_mem.
+Removing $memory\memory[792]$1834 ($dff) from module Instr_mem.
+Removing $memory\memory[791]$1832 ($dff) from module Instr_mem.
+Removing $memory\memory[790]$1830 ($dff) from module Instr_mem.
+Removing $memory\memory[789]$1828 ($dff) from module Instr_mem.
+Removing $memory\memory[788]$1826 ($dff) from module Instr_mem.
+Removing $memory\memory[787]$1824 ($dff) from module Instr_mem.
+Removing $memory\memory[786]$1822 ($dff) from module Instr_mem.
+Removing $memory\memory[785]$1820 ($dff) from module Instr_mem.
+Removing $memory\memory[784]$1818 ($dff) from module Instr_mem.
+Removing $memory\memory[783]$1816 ($dff) from module Instr_mem.
+Removing $memory\memory[782]$1814 ($dff) from module Instr_mem.
+Removing $memory\memory[781]$1812 ($dff) from module Instr_mem.
+Removing $memory\memory[780]$1810 ($dff) from module Instr_mem.
+Removing $memory\memory[779]$1808 ($dff) from module Instr_mem.
+Removing $memory\memory[778]$1806 ($dff) from module Instr_mem.
+Removing $memory\memory[777]$1804 ($dff) from module Instr_mem.
+Removing $memory\memory[776]$1802 ($dff) from module Instr_mem.
+Removing $memory\memory[775]$1800 ($dff) from module Instr_mem.
+Removing $memory\memory[774]$1798 ($dff) from module Instr_mem.
+Removing $memory\memory[773]$1796 ($dff) from module Instr_mem.
+Removing $memory\memory[772]$1794 ($dff) from module Instr_mem.
+Removing $memory\memory[771]$1792 ($dff) from module Instr_mem.
+Removing $memory\memory[770]$1790 ($dff) from module Instr_mem.
+Removing $memory\memory[769]$1788 ($dff) from module Instr_mem.
+Removing $memory\memory[768]$1786 ($dff) from module Instr_mem.
+Removing $memory\memory[767]$1784 ($dff) from module Instr_mem.
+Removing $memory\memory[766]$1782 ($dff) from module Instr_mem.
+Removing $memory\memory[765]$1780 ($dff) from module Instr_mem.
+Removing $memory\memory[764]$1778 ($dff) from module Instr_mem.
+Removing $memory\memory[763]$1776 ($dff) from module Instr_mem.
+Removing $memory\memory[762]$1774 ($dff) from module Instr_mem.
+Removing $memory\memory[761]$1772 ($dff) from module Instr_mem.
+Removing $memory\memory[760]$1770 ($dff) from module Instr_mem.
+Removing $memory\memory[759]$1768 ($dff) from module Instr_mem.
+Removing $memory\memory[758]$1766 ($dff) from module Instr_mem.
+Removing $memory\memory[757]$1764 ($dff) from module Instr_mem.
+Removing $memory\memory[756]$1762 ($dff) from module Instr_mem.
+Removing $memory\memory[755]$1760 ($dff) from module Instr_mem.
+Removing $memory\memory[754]$1758 ($dff) from module Instr_mem.
+Removing $memory\memory[753]$1756 ($dff) from module Instr_mem.
+Removing $memory\memory[752]$1754 ($dff) from module Instr_mem.
+Removing $memory\memory[751]$1752 ($dff) from module Instr_mem.
+Removing $memory\memory[750]$1750 ($dff) from module Instr_mem.
+Removing $memory\memory[749]$1748 ($dff) from module Instr_mem.
+Removing $memory\memory[748]$1746 ($dff) from module Instr_mem.
+Removing $memory\memory[747]$1744 ($dff) from module Instr_mem.
+Removing $memory\memory[746]$1742 ($dff) from module Instr_mem.
+Removing $memory\memory[745]$1740 ($dff) from module Instr_mem.
+Removing $memory\memory[744]$1738 ($dff) from module Instr_mem.
+Removing $memory\memory[743]$1736 ($dff) from module Instr_mem.
+Removing $memory\memory[742]$1734 ($dff) from module Instr_mem.
+Removing $memory\memory[741]$1732 ($dff) from module Instr_mem.
+Removing $memory\memory[740]$1730 ($dff) from module Instr_mem.
+Removing $memory\memory[739]$1728 ($dff) from module Instr_mem.
+Removing $memory\memory[738]$1726 ($dff) from module Instr_mem.
+Removing $memory\memory[737]$1724 ($dff) from module Instr_mem.
+Removing $memory\memory[736]$1722 ($dff) from module Instr_mem.
+Removing $memory\memory[735]$1720 ($dff) from module Instr_mem.
+Removing $memory\memory[734]$1718 ($dff) from module Instr_mem.
+Removing $memory\memory[733]$1716 ($dff) from module Instr_mem.
+Removing $memory\memory[732]$1714 ($dff) from module Instr_mem.
+Removing $memory\memory[731]$1712 ($dff) from module Instr_mem.
+Removing $memory\memory[730]$1710 ($dff) from module Instr_mem.
+Removing $memory\memory[729]$1708 ($dff) from module Instr_mem.
+Removing $memory\memory[728]$1706 ($dff) from module Instr_mem.
+Removing $memory\memory[727]$1704 ($dff) from module Instr_mem.
+Removing $memory\memory[726]$1702 ($dff) from module Instr_mem.
+Removing $memory\memory[725]$1700 ($dff) from module Instr_mem.
+Removing $memory\memory[724]$1698 ($dff) from module Instr_mem.
+Removing $memory\memory[723]$1696 ($dff) from module Instr_mem.
+Removing $memory\memory[722]$1694 ($dff) from module Instr_mem.
+Removing $memory\memory[721]$1692 ($dff) from module Instr_mem.
+Removing $memory\memory[720]$1690 ($dff) from module Instr_mem.
+Removing $memory\memory[719]$1688 ($dff) from module Instr_mem.
+Removing $memory\memory[718]$1686 ($dff) from module Instr_mem.
+Removing $memory\memory[717]$1684 ($dff) from module Instr_mem.
+Removing $memory\memory[716]$1682 ($dff) from module Instr_mem.
+Removing $memory\memory[715]$1680 ($dff) from module Instr_mem.
+Removing $memory\memory[714]$1678 ($dff) from module Instr_mem.
+Removing $memory\memory[713]$1676 ($dff) from module Instr_mem.
+Removing $memory\memory[712]$1674 ($dff) from module Instr_mem.
+Removing $memory\memory[711]$1672 ($dff) from module Instr_mem.
+Removing $memory\memory[710]$1670 ($dff) from module Instr_mem.
+Removing $memory\memory[709]$1668 ($dff) from module Instr_mem.
+Removing $memory\memory[708]$1666 ($dff) from module Instr_mem.
+Removing $memory\memory[707]$1664 ($dff) from module Instr_mem.
+Removing $memory\memory[706]$1662 ($dff) from module Instr_mem.
+Removing $memory\memory[705]$1660 ($dff) from module Instr_mem.
+Removing $memory\memory[704]$1658 ($dff) from module Instr_mem.
+Removing $memory\memory[703]$1656 ($dff) from module Instr_mem.
+Removing $memory\memory[702]$1654 ($dff) from module Instr_mem.
+Removing $memory\memory[701]$1652 ($dff) from module Instr_mem.
+Removing $memory\memory[700]$1650 ($dff) from module Instr_mem.
+Removing $memory\memory[699]$1648 ($dff) from module Instr_mem.
+Removing $memory\memory[698]$1646 ($dff) from module Instr_mem.
+Removing $memory\memory[697]$1644 ($dff) from module Instr_mem.
+Removing $memory\memory[696]$1642 ($dff) from module Instr_mem.
+Removing $memory\memory[695]$1640 ($dff) from module Instr_mem.
+Removing $memory\memory[694]$1638 ($dff) from module Instr_mem.
+Removing $memory\memory[693]$1636 ($dff) from module Instr_mem.
+Removing $memory\memory[692]$1634 ($dff) from module Instr_mem.
+Removing $memory\memory[691]$1632 ($dff) from module Instr_mem.
+Removing $memory\memory[690]$1630 ($dff) from module Instr_mem.
+Removing $memory\memory[689]$1628 ($dff) from module Instr_mem.
+Removing $memory\memory[688]$1626 ($dff) from module Instr_mem.
+Removing $memory\memory[687]$1624 ($dff) from module Instr_mem.
+Removing $memory\memory[686]$1622 ($dff) from module Instr_mem.
+Removing $memory\memory[685]$1620 ($dff) from module Instr_mem.
+Removing $memory\memory[684]$1618 ($dff) from module Instr_mem.
+Removing $memory\memory[683]$1616 ($dff) from module Instr_mem.
+Removing $memory\memory[682]$1614 ($dff) from module Instr_mem.
+Removing $memory\memory[681]$1612 ($dff) from module Instr_mem.
+Removing $memory\memory[680]$1610 ($dff) from module Instr_mem.
+Removing $memory\memory[679]$1608 ($dff) from module Instr_mem.
+Removing $memory\memory[678]$1606 ($dff) from module Instr_mem.
+Removing $memory\memory[677]$1604 ($dff) from module Instr_mem.
+Removing $memory\memory[676]$1602 ($dff) from module Instr_mem.
+Removing $memory\memory[675]$1600 ($dff) from module Instr_mem.
+Removing $memory\memory[674]$1598 ($dff) from module Instr_mem.
+Removing $memory\memory[673]$1596 ($dff) from module Instr_mem.
+Removing $memory\memory[672]$1594 ($dff) from module Instr_mem.
+Removing $memory\memory[671]$1592 ($dff) from module Instr_mem.
+Removing $memory\memory[670]$1590 ($dff) from module Instr_mem.
+Removing $memory\memory[669]$1588 ($dff) from module Instr_mem.
+Removing $memory\memory[668]$1586 ($dff) from module Instr_mem.
+Removing $memory\memory[667]$1584 ($dff) from module Instr_mem.
+Removing $memory\memory[666]$1582 ($dff) from module Instr_mem.
+Removing $memory\memory[665]$1580 ($dff) from module Instr_mem.
+Removing $memory\memory[664]$1578 ($dff) from module Instr_mem.
+Removing $memory\memory[663]$1576 ($dff) from module Instr_mem.
+Removing $memory\memory[662]$1574 ($dff) from module Instr_mem.
+Removing $memory\memory[661]$1572 ($dff) from module Instr_mem.
+Removing $memory\memory[660]$1570 ($dff) from module Instr_mem.
+Removing $memory\memory[659]$1568 ($dff) from module Instr_mem.
+Removing $memory\memory[658]$1566 ($dff) from module Instr_mem.
+Removing $memory\memory[657]$1564 ($dff) from module Instr_mem.
+Removing $memory\memory[656]$1562 ($dff) from module Instr_mem.
+Removing $memory\memory[655]$1560 ($dff) from module Instr_mem.
+Removing $memory\memory[654]$1558 ($dff) from module Instr_mem.
+Removing $memory\memory[653]$1556 ($dff) from module Instr_mem.
+Removing $memory\memory[652]$1554 ($dff) from module Instr_mem.
+Removing $memory\memory[651]$1552 ($dff) from module Instr_mem.
+Removing $memory\memory[650]$1550 ($dff) from module Instr_mem.
+Removing $memory\memory[649]$1548 ($dff) from module Instr_mem.
+Removing $memory\memory[648]$1546 ($dff) from module Instr_mem.
+Removing $memory\memory[647]$1544 ($dff) from module Instr_mem.
+Removing $memory\memory[646]$1542 ($dff) from module Instr_mem.
+Removing $memory\memory[645]$1540 ($dff) from module Instr_mem.
+Removing $memory\memory[644]$1538 ($dff) from module Instr_mem.
+Removing $memory\memory[643]$1536 ($dff) from module Instr_mem.
+Removing $memory\memory[642]$1534 ($dff) from module Instr_mem.
+Removing $memory\memory[641]$1532 ($dff) from module Instr_mem.
+Removing $memory\memory[640]$1530 ($dff) from module Instr_mem.
+Removing $memory\memory[639]$1528 ($dff) from module Instr_mem.
+Removing $memory\memory[638]$1526 ($dff) from module Instr_mem.
+Removing $memory\memory[637]$1524 ($dff) from module Instr_mem.
+Removing $memory\memory[636]$1522 ($dff) from module Instr_mem.
+Removing $memory\memory[635]$1520 ($dff) from module Instr_mem.
+Removing $memory\memory[634]$1518 ($dff) from module Instr_mem.
+Removing $memory\memory[633]$1516 ($dff) from module Instr_mem.
+Removing $memory\memory[632]$1514 ($dff) from module Instr_mem.
+Removing $memory\memory[631]$1512 ($dff) from module Instr_mem.
+Removing $memory\memory[630]$1510 ($dff) from module Instr_mem.
+Removing $memory\memory[629]$1508 ($dff) from module Instr_mem.
+Removing $memory\memory[628]$1506 ($dff) from module Instr_mem.
+Removing $memory\memory[627]$1504 ($dff) from module Instr_mem.
+Removing $memory\memory[626]$1502 ($dff) from module Instr_mem.
+Removing $memory\memory[625]$1500 ($dff) from module Instr_mem.
+Removing $memory\memory[624]$1498 ($dff) from module Instr_mem.
+Removing $memory\memory[623]$1496 ($dff) from module Instr_mem.
+Removing $memory\memory[622]$1494 ($dff) from module Instr_mem.
+Removing $memory\memory[621]$1492 ($dff) from module Instr_mem.
+Removing $memory\memory[620]$1490 ($dff) from module Instr_mem.
+Removing $memory\memory[619]$1488 ($dff) from module Instr_mem.
+Removing $memory\memory[618]$1486 ($dff) from module Instr_mem.
+Removing $memory\memory[617]$1484 ($dff) from module Instr_mem.
+Removing $memory\memory[616]$1482 ($dff) from module Instr_mem.
+Removing $memory\memory[615]$1480 ($dff) from module Instr_mem.
+Removing $memory\memory[614]$1478 ($dff) from module Instr_mem.
+Removing $memory\memory[613]$1476 ($dff) from module Instr_mem.
+Removing $memory\memory[612]$1474 ($dff) from module Instr_mem.
+Removing $memory\memory[611]$1472 ($dff) from module Instr_mem.
+Removing $memory\memory[610]$1470 ($dff) from module Instr_mem.
+Removing $memory\memory[609]$1468 ($dff) from module Instr_mem.
+Removing $memory\memory[608]$1466 ($dff) from module Instr_mem.
+Removing $memory\memory[607]$1464 ($dff) from module Instr_mem.
+Removing $memory\memory[606]$1462 ($dff) from module Instr_mem.
+Removing $memory\memory[605]$1460 ($dff) from module Instr_mem.
+Removing $memory\memory[604]$1458 ($dff) from module Instr_mem.
+Removing $memory\memory[603]$1456 ($dff) from module Instr_mem.
+Removing $memory\memory[602]$1454 ($dff) from module Instr_mem.
+Removing $memory\memory[601]$1452 ($dff) from module Instr_mem.
+Removing $memory\memory[600]$1450 ($dff) from module Instr_mem.
+Removing $memory\memory[599]$1448 ($dff) from module Instr_mem.
+Removing $memory\memory[598]$1446 ($dff) from module Instr_mem.
+Removing $memory\memory[597]$1444 ($dff) from module Instr_mem.
+Removing $memory\memory[596]$1442 ($dff) from module Instr_mem.
+Removing $memory\memory[595]$1440 ($dff) from module Instr_mem.
+Removing $memory\memory[594]$1438 ($dff) from module Instr_mem.
+Removing $memory\memory[593]$1436 ($dff) from module Instr_mem.
+Removing $memory\memory[592]$1434 ($dff) from module Instr_mem.
+Removing $memory\memory[591]$1432 ($dff) from module Instr_mem.
+Removing $memory\memory[590]$1430 ($dff) from module Instr_mem.
+Removing $memory\memory[589]$1428 ($dff) from module Instr_mem.
+Removing $memory\memory[588]$1426 ($dff) from module Instr_mem.
+Removing $memory\memory[587]$1424 ($dff) from module Instr_mem.
+Removing $memory\memory[586]$1422 ($dff) from module Instr_mem.
+Removing $memory\memory[585]$1420 ($dff) from module Instr_mem.
+Removing $memory\memory[584]$1418 ($dff) from module Instr_mem.
+Removing $memory\memory[583]$1416 ($dff) from module Instr_mem.
+Removing $memory\memory[582]$1414 ($dff) from module Instr_mem.
+Removing $memory\memory[581]$1412 ($dff) from module Instr_mem.
+Removing $memory\memory[580]$1410 ($dff) from module Instr_mem.
+Removing $memory\memory[579]$1408 ($dff) from module Instr_mem.
+Removing $memory\memory[578]$1406 ($dff) from module Instr_mem.
+Removing $memory\memory[577]$1404 ($dff) from module Instr_mem.
+Removing $memory\memory[576]$1402 ($dff) from module Instr_mem.
+Removing $memory\memory[575]$1400 ($dff) from module Instr_mem.
+Removing $memory\memory[574]$1398 ($dff) from module Instr_mem.
+Removing $memory\memory[573]$1396 ($dff) from module Instr_mem.
+Removing $memory\memory[572]$1394 ($dff) from module Instr_mem.
+Removing $memory\memory[571]$1392 ($dff) from module Instr_mem.
+Removing $memory\memory[570]$1390 ($dff) from module Instr_mem.
+Removing $memory\memory[569]$1388 ($dff) from module Instr_mem.
+Removing $memory\memory[568]$1386 ($dff) from module Instr_mem.
+Removing $memory\memory[567]$1384 ($dff) from module Instr_mem.
+Removing $memory\memory[566]$1382 ($dff) from module Instr_mem.
+Removing $memory\memory[565]$1380 ($dff) from module Instr_mem.
+Removing $memory\memory[564]$1378 ($dff) from module Instr_mem.
+Removing $memory\memory[563]$1376 ($dff) from module Instr_mem.
+Removing $memory\memory[562]$1374 ($dff) from module Instr_mem.
+Removing $memory\memory[561]$1372 ($dff) from module Instr_mem.
+Removing $memory\memory[560]$1370 ($dff) from module Instr_mem.
+Removing $memory\memory[559]$1368 ($dff) from module Instr_mem.
+Removing $memory\memory[558]$1366 ($dff) from module Instr_mem.
+Removing $memory\memory[557]$1364 ($dff) from module Instr_mem.
+Removing $memory\memory[556]$1362 ($dff) from module Instr_mem.
+Removing $memory\memory[555]$1360 ($dff) from module Instr_mem.
+Removing $memory\memory[554]$1358 ($dff) from module Instr_mem.
+Removing $memory\memory[553]$1356 ($dff) from module Instr_mem.
+Removing $memory\memory[552]$1354 ($dff) from module Instr_mem.
+Removing $memory\memory[551]$1352 ($dff) from module Instr_mem.
+Removing $memory\memory[550]$1350 ($dff) from module Instr_mem.
+Removing $memory\memory[549]$1348 ($dff) from module Instr_mem.
+Removing $memory\memory[548]$1346 ($dff) from module Instr_mem.
+Removing $memory\memory[547]$1344 ($dff) from module Instr_mem.
+Removing $memory\memory[546]$1342 ($dff) from module Instr_mem.
+Removing $memory\memory[545]$1340 ($dff) from module Instr_mem.
+Removing $memory\memory[544]$1338 ($dff) from module Instr_mem.
+Removing $memory\memory[543]$1336 ($dff) from module Instr_mem.
+Removing $memory\memory[542]$1334 ($dff) from module Instr_mem.
+Removing $memory\memory[541]$1332 ($dff) from module Instr_mem.
+Removing $memory\memory[540]$1330 ($dff) from module Instr_mem.
+Removing $memory\memory[539]$1328 ($dff) from module Instr_mem.
+Removing $memory\memory[538]$1326 ($dff) from module Instr_mem.
+Removing $memory\memory[537]$1324 ($dff) from module Instr_mem.
+Removing $memory\memory[536]$1322 ($dff) from module Instr_mem.
+Removing $memory\memory[535]$1320 ($dff) from module Instr_mem.
+Removing $memory\memory[534]$1318 ($dff) from module Instr_mem.
+Removing $memory\memory[533]$1316 ($dff) from module Instr_mem.
+Removing $memory\memory[532]$1314 ($dff) from module Instr_mem.
+Removing $memory\memory[531]$1312 ($dff) from module Instr_mem.
+Removing $memory\memory[530]$1310 ($dff) from module Instr_mem.
+Removing $memory\memory[529]$1308 ($dff) from module Instr_mem.
+Removing $memory\memory[528]$1306 ($dff) from module Instr_mem.
+Removing $memory\memory[527]$1304 ($dff) from module Instr_mem.
+Removing $memory\memory[526]$1302 ($dff) from module Instr_mem.
+Removing $memory\memory[525]$1300 ($dff) from module Instr_mem.
+Removing $memory\memory[524]$1298 ($dff) from module Instr_mem.
+Removing $memory\memory[523]$1296 ($dff) from module Instr_mem.
+Removing $memory\memory[522]$1294 ($dff) from module Instr_mem.
+Removing $memory\memory[521]$1292 ($dff) from module Instr_mem.
+Removing $memory\memory[520]$1290 ($dff) from module Instr_mem.
+Removing $memory\memory[519]$1288 ($dff) from module Instr_mem.
+Removing $memory\memory[518]$1286 ($dff) from module Instr_mem.
+Removing $memory\memory[517]$1284 ($dff) from module Instr_mem.
+Removing $memory\memory[516]$1282 ($dff) from module Instr_mem.
+Removing $memory\memory[515]$1280 ($dff) from module Instr_mem.
+Removing $memory\memory[514]$1278 ($dff) from module Instr_mem.
+Removing $memory\memory[513]$1276 ($dff) from module Instr_mem.
+Removing $memory\memory[512]$1274 ($dff) from module Instr_mem.
+Removing $memory\memory[511]$1272 ($dff) from module Instr_mem.
+Removing $memory\memory[510]$1270 ($dff) from module Instr_mem.
+Removing $memory\memory[509]$1268 ($dff) from module Instr_mem.
+Removing $memory\memory[508]$1266 ($dff) from module Instr_mem.
+Removing $memory\memory[507]$1264 ($dff) from module Instr_mem.
+Removing $memory\memory[506]$1262 ($dff) from module Instr_mem.
+Removing $memory\memory[505]$1260 ($dff) from module Instr_mem.
+Removing $memory\memory[504]$1258 ($dff) from module Instr_mem.
+Removing $memory\memory[503]$1256 ($dff) from module Instr_mem.
+Removing $memory\memory[502]$1254 ($dff) from module Instr_mem.
+Removing $memory\memory[501]$1252 ($dff) from module Instr_mem.
+Removing $memory\memory[500]$1250 ($dff) from module Instr_mem.
+Removing $memory\memory[499]$1248 ($dff) from module Instr_mem.
+Removing $memory\memory[498]$1246 ($dff) from module Instr_mem.
+Removing $memory\memory[497]$1244 ($dff) from module Instr_mem.
+Removing $memory\memory[496]$1242 ($dff) from module Instr_mem.
+Removing $memory\memory[495]$1240 ($dff) from module Instr_mem.
+Removing $memory\memory[494]$1238 ($dff) from module Instr_mem.
+Removing $memory\memory[493]$1236 ($dff) from module Instr_mem.
+Removing $memory\memory[492]$1234 ($dff) from module Instr_mem.
+Removing $memory\memory[491]$1232 ($dff) from module Instr_mem.
+Removing $memory\memory[490]$1230 ($dff) from module Instr_mem.
+Removing $memory\memory[489]$1228 ($dff) from module Instr_mem.
+Removing $memory\memory[488]$1226 ($dff) from module Instr_mem.
+Removing $memory\memory[487]$1224 ($dff) from module Instr_mem.
+Removing $memory\memory[486]$1222 ($dff) from module Instr_mem.
+Removing $memory\memory[485]$1220 ($dff) from module Instr_mem.
+Removing $memory\memory[484]$1218 ($dff) from module Instr_mem.
+Removing $memory\memory[483]$1216 ($dff) from module Instr_mem.
+Removing $memory\memory[482]$1214 ($dff) from module Instr_mem.
+Removing $memory\memory[481]$1212 ($dff) from module Instr_mem.
+Removing $memory\memory[480]$1210 ($dff) from module Instr_mem.
+Removing $memory\memory[479]$1208 ($dff) from module Instr_mem.
+Removing $memory\memory[478]$1206 ($dff) from module Instr_mem.
+Removing $memory\memory[477]$1204 ($dff) from module Instr_mem.
+Removing $memory\memory[476]$1202 ($dff) from module Instr_mem.
+Removing $memory\memory[475]$1200 ($dff) from module Instr_mem.
+Removing $memory\memory[474]$1198 ($dff) from module Instr_mem.
+Removing $memory\memory[473]$1196 ($dff) from module Instr_mem.
+Removing $memory\memory[472]$1194 ($dff) from module Instr_mem.
+Removing $memory\memory[471]$1192 ($dff) from module Instr_mem.
+Removing $memory\memory[470]$1190 ($dff) from module Instr_mem.
+Removing $memory\memory[469]$1188 ($dff) from module Instr_mem.
+Removing $memory\memory[468]$1186 ($dff) from module Instr_mem.
+Removing $memory\memory[467]$1184 ($dff) from module Instr_mem.
+Removing $memory\memory[466]$1182 ($dff) from module Instr_mem.
+Removing $memory\memory[465]$1180 ($dff) from module Instr_mem.
+Removing $memory\memory[464]$1178 ($dff) from module Instr_mem.
+Removing $memory\memory[463]$1176 ($dff) from module Instr_mem.
+Removing $memory\memory[462]$1174 ($dff) from module Instr_mem.
+Removing $memory\memory[461]$1172 ($dff) from module Instr_mem.
+Removing $memory\memory[460]$1170 ($dff) from module Instr_mem.
+Removing $memory\memory[459]$1168 ($dff) from module Instr_mem.
+Removing $memory\memory[458]$1166 ($dff) from module Instr_mem.
+Removing $memory\memory[457]$1164 ($dff) from module Instr_mem.
+Removing $memory\memory[456]$1162 ($dff) from module Instr_mem.
+Removing $memory\memory[455]$1160 ($dff) from module Instr_mem.
+Removing $memory\memory[454]$1158 ($dff) from module Instr_mem.
+Removing $memory\memory[453]$1156 ($dff) from module Instr_mem.
+Removing $memory\memory[452]$1154 ($dff) from module Instr_mem.
+Removing $memory\memory[451]$1152 ($dff) from module Instr_mem.
+Removing $memory\memory[450]$1150 ($dff) from module Instr_mem.
+Removing $memory\memory[449]$1148 ($dff) from module Instr_mem.
+Removing $memory\memory[448]$1146 ($dff) from module Instr_mem.
+Removing $memory\memory[447]$1144 ($dff) from module Instr_mem.
+Removing $memory\memory[446]$1142 ($dff) from module Instr_mem.
+Removing $memory\memory[445]$1140 ($dff) from module Instr_mem.
+Removing $memory\memory[444]$1138 ($dff) from module Instr_mem.
+Removing $memory\memory[443]$1136 ($dff) from module Instr_mem.
+Removing $memory\memory[442]$1134 ($dff) from module Instr_mem.
+Removing $memory\memory[441]$1132 ($dff) from module Instr_mem.
+Removing $memory\memory[440]$1130 ($dff) from module Instr_mem.
+Removing $memory\memory[439]$1128 ($dff) from module Instr_mem.
+Removing $memory\memory[438]$1126 ($dff) from module Instr_mem.
+Removing $memory\memory[437]$1124 ($dff) from module Instr_mem.
+Removing $memory\memory[436]$1122 ($dff) from module Instr_mem.
+Removing $memory\memory[435]$1120 ($dff) from module Instr_mem.
+Removing $memory\memory[434]$1118 ($dff) from module Instr_mem.
+Removing $memory\memory[433]$1116 ($dff) from module Instr_mem.
+Removing $memory\memory[432]$1114 ($dff) from module Instr_mem.
+Removing $memory\memory[431]$1112 ($dff) from module Instr_mem.
+Removing $memory\memory[430]$1110 ($dff) from module Instr_mem.
+Removing $memory\memory[429]$1108 ($dff) from module Instr_mem.
+Removing $memory\memory[428]$1106 ($dff) from module Instr_mem.
+Removing $memory\memory[427]$1104 ($dff) from module Instr_mem.
+Removing $memory\memory[426]$1102 ($dff) from module Instr_mem.
+Removing $memory\memory[425]$1100 ($dff) from module Instr_mem.
+Removing $memory\memory[424]$1098 ($dff) from module Instr_mem.
+Removing $memory\memory[423]$1096 ($dff) from module Instr_mem.
+Removing $memory\memory[422]$1094 ($dff) from module Instr_mem.
+Removing $memory\memory[421]$1092 ($dff) from module Instr_mem.
+Removing $memory\memory[420]$1090 ($dff) from module Instr_mem.
+Removing $memory\memory[419]$1088 ($dff) from module Instr_mem.
+Removing $memory\memory[418]$1086 ($dff) from module Instr_mem.
+Removing $memory\memory[417]$1084 ($dff) from module Instr_mem.
+Removing $memory\memory[416]$1082 ($dff) from module Instr_mem.
+Removing $memory\memory[415]$1080 ($dff) from module Instr_mem.
+Removing $memory\memory[414]$1078 ($dff) from module Instr_mem.
+Removing $memory\memory[413]$1076 ($dff) from module Instr_mem.
+Removing $memory\memory[412]$1074 ($dff) from module Instr_mem.
+Removing $memory\memory[411]$1072 ($dff) from module Instr_mem.
+Removing $memory\memory[410]$1070 ($dff) from module Instr_mem.
+Removing $memory\memory[409]$1068 ($dff) from module Instr_mem.
+Removing $memory\memory[408]$1066 ($dff) from module Instr_mem.
+Removing $memory\memory[407]$1064 ($dff) from module Instr_mem.
+Removing $memory\memory[406]$1062 ($dff) from module Instr_mem.
+Removing $memory\memory[405]$1060 ($dff) from module Instr_mem.
+Removing $memory\memory[404]$1058 ($dff) from module Instr_mem.
+Removing $memory\memory[403]$1056 ($dff) from module Instr_mem.
+Removing $memory\memory[402]$1054 ($dff) from module Instr_mem.
+Removing $memory\memory[401]$1052 ($dff) from module Instr_mem.
+Removing $memory\memory[400]$1050 ($dff) from module Instr_mem.
+Removing $memory\memory[399]$1048 ($dff) from module Instr_mem.
+Removing $memory\memory[398]$1046 ($dff) from module Instr_mem.
+Removing $memory\memory[397]$1044 ($dff) from module Instr_mem.
+Removing $memory\memory[396]$1042 ($dff) from module Instr_mem.
+Removing $memory\memory[395]$1040 ($dff) from module Instr_mem.
+Removing $memory\memory[394]$1038 ($dff) from module Instr_mem.
+Removing $memory\memory[393]$1036 ($dff) from module Instr_mem.
+Removing $memory\memory[392]$1034 ($dff) from module Instr_mem.
+Removing $memory\memory[391]$1032 ($dff) from module Instr_mem.
+Removing $memory\memory[390]$1030 ($dff) from module Instr_mem.
+Removing $memory\memory[389]$1028 ($dff) from module Instr_mem.
+Removing $memory\memory[388]$1026 ($dff) from module Instr_mem.
+Removing $memory\memory[387]$1024 ($dff) from module Instr_mem.
+Removing $memory\memory[386]$1022 ($dff) from module Instr_mem.
+Removing $memory\memory[385]$1020 ($dff) from module Instr_mem.
+Removing $memory\memory[384]$1018 ($dff) from module Instr_mem.
+Removing $memory\memory[383]$1016 ($dff) from module Instr_mem.
+Removing $memory\memory[382]$1014 ($dff) from module Instr_mem.
+Removing $memory\memory[381]$1012 ($dff) from module Instr_mem.
+Removing $memory\memory[380]$1010 ($dff) from module Instr_mem.
+Removing $memory\memory[379]$1008 ($dff) from module Instr_mem.
+Removing $memory\memory[378]$1006 ($dff) from module Instr_mem.
+Removing $memory\memory[377]$1004 ($dff) from module Instr_mem.
+Removing $memory\memory[376]$1002 ($dff) from module Instr_mem.
+Removing $memory\memory[375]$1000 ($dff) from module Instr_mem.
+Removing $memory\memory[374]$998 ($dff) from module Instr_mem.
+Removing $memory\memory[373]$996 ($dff) from module Instr_mem.
+Removing $memory\memory[372]$994 ($dff) from module Instr_mem.
+Removing $memory\memory[371]$992 ($dff) from module Instr_mem.
+Removing $memory\memory[370]$990 ($dff) from module Instr_mem.
+Removing $memory\memory[369]$988 ($dff) from module Instr_mem.
+Removing $memory\memory[368]$986 ($dff) from module Instr_mem.
+Removing $memory\memory[367]$984 ($dff) from module Instr_mem.
+Removing $memory\memory[366]$982 ($dff) from module Instr_mem.
+Removing $memory\memory[365]$980 ($dff) from module Instr_mem.
+Removing $memory\memory[364]$978 ($dff) from module Instr_mem.
+Removing $memory\memory[363]$976 ($dff) from module Instr_mem.
+Removing $memory\memory[362]$974 ($dff) from module Instr_mem.
+Removing $memory\memory[361]$972 ($dff) from module Instr_mem.
+Removing $memory\memory[360]$970 ($dff) from module Instr_mem.
+Removing $memory\memory[359]$968 ($dff) from module Instr_mem.
+Removing $memory\memory[358]$966 ($dff) from module Instr_mem.
+Removing $memory\memory[357]$964 ($dff) from module Instr_mem.
+Removing $memory\memory[356]$962 ($dff) from module Instr_mem.
+Removing $memory\memory[355]$960 ($dff) from module Instr_mem.
+Removing $memory\memory[354]$958 ($dff) from module Instr_mem.
+Removing $memory\memory[353]$956 ($dff) from module Instr_mem.
+Removing $memory\memory[352]$954 ($dff) from module Instr_mem.
+Removing $memory\memory[351]$952 ($dff) from module Instr_mem.
+Removing $memory\memory[350]$950 ($dff) from module Instr_mem.
+Removing $memory\memory[349]$948 ($dff) from module Instr_mem.
+Removing $memory\memory[348]$946 ($dff) from module Instr_mem.
+Removing $memory\memory[347]$944 ($dff) from module Instr_mem.
+Removing $memory\memory[346]$942 ($dff) from module Instr_mem.
+Removing $memory\memory[345]$940 ($dff) from module Instr_mem.
+Removing $memory\memory[344]$938 ($dff) from module Instr_mem.
+Removing $memory\memory[343]$936 ($dff) from module Instr_mem.
+Removing $memory\memory[342]$934 ($dff) from module Instr_mem.
+Removing $memory\memory[341]$932 ($dff) from module Instr_mem.
+Removing $memory\memory[340]$930 ($dff) from module Instr_mem.
+Removing $memory\memory[339]$928 ($dff) from module Instr_mem.
+Removing $memory\memory[338]$926 ($dff) from module Instr_mem.
+Removing $memory\memory[337]$924 ($dff) from module Instr_mem.
+Removing $memory\memory[336]$922 ($dff) from module Instr_mem.
+Removing $memory\memory[335]$920 ($dff) from module Instr_mem.
+Removing $memory\memory[334]$918 ($dff) from module Instr_mem.
+Removing $memory\memory[333]$916 ($dff) from module Instr_mem.
+Removing $memory\memory[332]$914 ($dff) from module Instr_mem.
+Removing $memory\memory[331]$912 ($dff) from module Instr_mem.
+Removing $memory\memory[330]$910 ($dff) from module Instr_mem.
+Removing $memory\memory[329]$908 ($dff) from module Instr_mem.
+Removing $memory\memory[328]$906 ($dff) from module Instr_mem.
+Removing $memory\memory[327]$904 ($dff) from module Instr_mem.
+Removing $memory\memory[326]$902 ($dff) from module Instr_mem.
+Removing $memory\memory[325]$900 ($dff) from module Instr_mem.
+Removing $memory\memory[324]$898 ($dff) from module Instr_mem.
+Removing $memory\memory[323]$896 ($dff) from module Instr_mem.
+Removing $memory\memory[322]$894 ($dff) from module Instr_mem.
+Removing $memory\memory[321]$892 ($dff) from module Instr_mem.
+Removing $memory\memory[320]$890 ($dff) from module Instr_mem.
+Removing $memory\memory[319]$888 ($dff) from module Instr_mem.
+Removing $memory\memory[318]$886 ($dff) from module Instr_mem.
+Removing $memory\memory[317]$884 ($dff) from module Instr_mem.
+Removing $memory\memory[316]$882 ($dff) from module Instr_mem.
+Removing $memory\memory[315]$880 ($dff) from module Instr_mem.
+Removing $memory\memory[314]$878 ($dff) from module Instr_mem.
+Removing $memory\memory[313]$876 ($dff) from module Instr_mem.
+Removing $memory\memory[312]$874 ($dff) from module Instr_mem.
+Removing $memory\memory[311]$872 ($dff) from module Instr_mem.
+Removing $memory\memory[310]$870 ($dff) from module Instr_mem.
+Removing $memory\memory[309]$868 ($dff) from module Instr_mem.
+Removing $memory\memory[308]$866 ($dff) from module Instr_mem.
+Removing $memory\memory[307]$864 ($dff) from module Instr_mem.
+Removing $memory\memory[306]$862 ($dff) from module Instr_mem.
+Removing $memory\memory[305]$860 ($dff) from module Instr_mem.
+Removing $memory\memory[304]$858 ($dff) from module Instr_mem.
+Removing $memory\memory[303]$856 ($dff) from module Instr_mem.
+Removing $memory\memory[302]$854 ($dff) from module Instr_mem.
+Removing $memory\memory[301]$852 ($dff) from module Instr_mem.
+Removing $memory\memory[300]$850 ($dff) from module Instr_mem.
+Removing $memory\memory[299]$848 ($dff) from module Instr_mem.
+Removing $memory\memory[298]$846 ($dff) from module Instr_mem.
+Removing $memory\memory[297]$844 ($dff) from module Instr_mem.
+Removing $memory\memory[296]$842 ($dff) from module Instr_mem.
+Removing $memory\memory[295]$840 ($dff) from module Instr_mem.
+Removing $memory\memory[294]$838 ($dff) from module Instr_mem.
+Removing $memory\memory[293]$836 ($dff) from module Instr_mem.
+Removing $memory\memory[292]$834 ($dff) from module Instr_mem.
+Removing $memory\memory[291]$832 ($dff) from module Instr_mem.
+Removing $memory\memory[290]$830 ($dff) from module Instr_mem.
+Removing $memory\memory[289]$828 ($dff) from module Instr_mem.
+Removing $memory\memory[288]$826 ($dff) from module Instr_mem.
+Removing $memory\memory[287]$824 ($dff) from module Instr_mem.
+Removing $memory\memory[286]$822 ($dff) from module Instr_mem.
+Removing $memory\memory[285]$820 ($dff) from module Instr_mem.
+Removing $memory\memory[284]$818 ($dff) from module Instr_mem.
+Removing $memory\memory[283]$816 ($dff) from module Instr_mem.
+Removing $memory\memory[282]$814 ($dff) from module Instr_mem.
+Removing $memory\memory[281]$812 ($dff) from module Instr_mem.
+Removing $memory\memory[280]$810 ($dff) from module Instr_mem.
+Removing $memory\memory[279]$808 ($dff) from module Instr_mem.
+Removing $memory\memory[278]$806 ($dff) from module Instr_mem.
+Removing $memory\memory[277]$804 ($dff) from module Instr_mem.
+Removing $memory\memory[276]$802 ($dff) from module Instr_mem.
+Removing $memory\memory[275]$800 ($dff) from module Instr_mem.
+Removing $memory\memory[274]$798 ($dff) from module Instr_mem.
+Removing $memory\memory[273]$796 ($dff) from module Instr_mem.
+Removing $memory\memory[272]$794 ($dff) from module Instr_mem.
+Removing $memory\memory[271]$792 ($dff) from module Instr_mem.
+Removing $memory\memory[270]$790 ($dff) from module Instr_mem.
+Removing $memory\memory[269]$788 ($dff) from module Instr_mem.
+Removing $memory\memory[268]$786 ($dff) from module Instr_mem.
+Removing $memory\memory[267]$784 ($dff) from module Instr_mem.
+Removing $memory\memory[266]$782 ($dff) from module Instr_mem.
+Removing $memory\memory[265]$780 ($dff) from module Instr_mem.
+Removing $memory\memory[264]$778 ($dff) from module Instr_mem.
+Removing $memory\memory[263]$776 ($dff) from module Instr_mem.
+Removing $memory\memory[262]$774 ($dff) from module Instr_mem.
+Removing $memory\memory[261]$772 ($dff) from module Instr_mem.
+Removing $memory\memory[260]$770 ($dff) from module Instr_mem.
+Removing $memory\memory[259]$768 ($dff) from module Instr_mem.
+Removing $memory\memory[258]$766 ($dff) from module Instr_mem.
+Removing $memory\memory[257]$764 ($dff) from module Instr_mem.
+Removing $memory\memory[256]$762 ($dff) from module Instr_mem.
+Removing $memory\memory[255]$760 ($dff) from module Instr_mem.
+Removing $memory\memory[254]$758 ($dff) from module Instr_mem.
+Removing $memory\memory[253]$756 ($dff) from module Instr_mem.
+Removing $memory\memory[252]$754 ($dff) from module Instr_mem.
+Removing $memory\memory[251]$752 ($dff) from module Instr_mem.
+Removing $memory\memory[250]$750 ($dff) from module Instr_mem.
+Removing $memory\memory[249]$748 ($dff) from module Instr_mem.
+Removing $memory\memory[248]$746 ($dff) from module Instr_mem.
+Removing $memory\memory[247]$744 ($dff) from module Instr_mem.
+Removing $memory\memory[246]$742 ($dff) from module Instr_mem.
+Removing $memory\memory[245]$740 ($dff) from module Instr_mem.
+Removing $memory\memory[244]$738 ($dff) from module Instr_mem.
+Removing $memory\memory[243]$736 ($dff) from module Instr_mem.
+Removing $memory\memory[242]$734 ($dff) from module Instr_mem.
+Removing $memory\memory[241]$732 ($dff) from module Instr_mem.
+Removing $memory\memory[240]$730 ($dff) from module Instr_mem.
+Removing $memory\memory[239]$728 ($dff) from module Instr_mem.
+Removing $memory\memory[238]$726 ($dff) from module Instr_mem.
+Removing $memory\memory[237]$724 ($dff) from module Instr_mem.
+Removing $memory\memory[236]$722 ($dff) from module Instr_mem.
+Removing $memory\memory[235]$720 ($dff) from module Instr_mem.
+Removing $memory\memory[234]$718 ($dff) from module Instr_mem.
+Removing $memory\memory[233]$716 ($dff) from module Instr_mem.
+Removing $memory\memory[232]$714 ($dff) from module Instr_mem.
+Removing $memory\memory[231]$712 ($dff) from module Instr_mem.
+Removing $memory\memory[230]$710 ($dff) from module Instr_mem.
+Removing $memory\memory[229]$708 ($dff) from module Instr_mem.
+Removing $memory\memory[228]$706 ($dff) from module Instr_mem.
+Removing $memory\memory[227]$704 ($dff) from module Instr_mem.
+Removing $memory\memory[226]$702 ($dff) from module Instr_mem.
+Removing $memory\memory[225]$700 ($dff) from module Instr_mem.
+Removing $memory\memory[224]$698 ($dff) from module Instr_mem.
+Removing $memory\memory[223]$696 ($dff) from module Instr_mem.
+Removing $memory\memory[222]$694 ($dff) from module Instr_mem.
+Removing $memory\memory[221]$692 ($dff) from module Instr_mem.
+Removing $memory\memory[220]$690 ($dff) from module Instr_mem.
+Removing $memory\memory[219]$688 ($dff) from module Instr_mem.
+Removing $memory\memory[218]$686 ($dff) from module Instr_mem.
+Removing $memory\memory[217]$684 ($dff) from module Instr_mem.
+Removing $memory\memory[216]$682 ($dff) from module Instr_mem.
+Removing $memory\memory[215]$680 ($dff) from module Instr_mem.
+Removing $memory\memory[214]$678 ($dff) from module Instr_mem.
+Removing $memory\memory[213]$676 ($dff) from module Instr_mem.
+Removing $memory\memory[212]$674 ($dff) from module Instr_mem.
+Removing $memory\memory[211]$672 ($dff) from module Instr_mem.
+Removing $memory\memory[210]$670 ($dff) from module Instr_mem.
+Removing $memory\memory[209]$668 ($dff) from module Instr_mem.
+Removing $memory\memory[208]$666 ($dff) from module Instr_mem.
+Removing $memory\memory[207]$664 ($dff) from module Instr_mem.
+Removing $memory\memory[206]$662 ($dff) from module Instr_mem.
+Removing $memory\memory[205]$660 ($dff) from module Instr_mem.
+Removing $memory\memory[204]$658 ($dff) from module Instr_mem.
+Removing $memory\memory[203]$656 ($dff) from module Instr_mem.
+Removing $memory\memory[202]$654 ($dff) from module Instr_mem.
+Removing $memory\memory[201]$652 ($dff) from module Instr_mem.
+Removing $memory\memory[200]$650 ($dff) from module Instr_mem.
+Removing $memory\memory[199]$648 ($dff) from module Instr_mem.
+Removing $memory\memory[198]$646 ($dff) from module Instr_mem.
+Removing $memory\memory[197]$644 ($dff) from module Instr_mem.
+Removing $memory\memory[196]$642 ($dff) from module Instr_mem.
+Removing $memory\memory[195]$640 ($dff) from module Instr_mem.
+Removing $memory\memory[194]$638 ($dff) from module Instr_mem.
+Removing $memory\memory[193]$636 ($dff) from module Instr_mem.
+Removing $memory\memory[192]$634 ($dff) from module Instr_mem.
+Removing $memory\memory[191]$632 ($dff) from module Instr_mem.
+Removing $memory\memory[190]$630 ($dff) from module Instr_mem.
+Removing $memory\memory[189]$628 ($dff) from module Instr_mem.
+Removing $memory\memory[188]$626 ($dff) from module Instr_mem.
+Removing $memory\memory[187]$624 ($dff) from module Instr_mem.
+Removing $memory\memory[186]$622 ($dff) from module Instr_mem.
+Removing $memory\memory[185]$620 ($dff) from module Instr_mem.
+Removing $memory\memory[184]$618 ($dff) from module Instr_mem.
+Removing $memory\memory[183]$616 ($dff) from module Instr_mem.
+Removing $memory\memory[182]$614 ($dff) from module Instr_mem.
+Removing $memory\memory[181]$612 ($dff) from module Instr_mem.
+Removing $memory\memory[180]$610 ($dff) from module Instr_mem.
+Removing $memory\memory[179]$608 ($dff) from module Instr_mem.
+Removing $memory\memory[178]$606 ($dff) from module Instr_mem.
+Removing $memory\memory[177]$604 ($dff) from module Instr_mem.
+Removing $memory\memory[176]$602 ($dff) from module Instr_mem.
+Removing $memory\memory[175]$600 ($dff) from module Instr_mem.
+Removing $memory\memory[174]$598 ($dff) from module Instr_mem.
+Removing $memory\memory[173]$596 ($dff) from module Instr_mem.
+Removing $memory\memory[172]$594 ($dff) from module Instr_mem.
+Removing $memory\memory[171]$592 ($dff) from module Instr_mem.
+Removing $memory\memory[170]$590 ($dff) from module Instr_mem.
+Removing $memory\memory[169]$588 ($dff) from module Instr_mem.
+Removing $memory\memory[168]$586 ($dff) from module Instr_mem.
+Removing $memory\memory[167]$584 ($dff) from module Instr_mem.
+Removing $memory\memory[166]$582 ($dff) from module Instr_mem.
+Removing $memory\memory[165]$580 ($dff) from module Instr_mem.
+Removing $memory\memory[164]$578 ($dff) from module Instr_mem.
+Removing $memory\memory[163]$576 ($dff) from module Instr_mem.
+Removing $memory\memory[162]$574 ($dff) from module Instr_mem.
+Removing $memory\memory[161]$572 ($dff) from module Instr_mem.
+Removing $memory\memory[160]$570 ($dff) from module Instr_mem.
+Removing $memory\memory[159]$568 ($dff) from module Instr_mem.
+Removing $memory\memory[158]$566 ($dff) from module Instr_mem.
+Removing $memory\memory[157]$564 ($dff) from module Instr_mem.
+Removing $memory\memory[156]$562 ($dff) from module Instr_mem.
+Removing $memory\memory[155]$560 ($dff) from module Instr_mem.
+Removing $memory\memory[154]$558 ($dff) from module Instr_mem.
+Removing $memory\memory[153]$556 ($dff) from module Instr_mem.
+Removing $memory\memory[152]$554 ($dff) from module Instr_mem.
+Removing $memory\memory[151]$552 ($dff) from module Instr_mem.
+Removing $memory\memory[150]$550 ($dff) from module Instr_mem.
+Removing $memory\memory[149]$548 ($dff) from module Instr_mem.
+Removing $memory\memory[148]$546 ($dff) from module Instr_mem.
+Removing $memory\memory[147]$544 ($dff) from module Instr_mem.
+Removing $memory\memory[146]$542 ($dff) from module Instr_mem.
+Removing $memory\memory[145]$540 ($dff) from module Instr_mem.
+Removing $memory\memory[144]$538 ($dff) from module Instr_mem.
+Removing $memory\memory[143]$536 ($dff) from module Instr_mem.
+Removing $memory\memory[142]$534 ($dff) from module Instr_mem.
+Removing $memory\memory[141]$532 ($dff) from module Instr_mem.
+Removing $memory\memory[140]$530 ($dff) from module Instr_mem.
+Removing $memory\memory[139]$528 ($dff) from module Instr_mem.
+Removing $memory\memory[138]$526 ($dff) from module Instr_mem.
+Removing $memory\memory[137]$524 ($dff) from module Instr_mem.
+Removing $memory\memory[136]$522 ($dff) from module Instr_mem.
+Removing $memory\memory[135]$520 ($dff) from module Instr_mem.
+Removing $memory\memory[134]$518 ($dff) from module Instr_mem.
+Removing $memory\memory[133]$516 ($dff) from module Instr_mem.
+Removing $memory\memory[132]$514 ($dff) from module Instr_mem.
+Removing $memory\memory[131]$512 ($dff) from module Instr_mem.
+Removing $memory\memory[130]$510 ($dff) from module Instr_mem.
+Removing $memory\memory[129]$508 ($dff) from module Instr_mem.
+Removing $memory\memory[128]$506 ($dff) from module Instr_mem.
+Removing $memory\memory[127]$504 ($dff) from module Instr_mem.
+Removing $memory\memory[126]$502 ($dff) from module Instr_mem.
+Removing $memory\memory[125]$500 ($dff) from module Instr_mem.
+Removing $memory\memory[124]$498 ($dff) from module Instr_mem.
+Removing $memory\memory[123]$496 ($dff) from module Instr_mem.
+Removing $memory\memory[122]$494 ($dff) from module Instr_mem.
+Removing $memory\memory[121]$492 ($dff) from module Instr_mem.
+Removing $memory\memory[120]$490 ($dff) from module Instr_mem.
+Removing $memory\memory[119]$488 ($dff) from module Instr_mem.
+Removing $memory\memory[118]$486 ($dff) from module Instr_mem.
+Removing $memory\memory[117]$484 ($dff) from module Instr_mem.
+Removing $memory\memory[116]$482 ($dff) from module Instr_mem.
+Removing $memory\memory[115]$480 ($dff) from module Instr_mem.
+Removing $memory\memory[114]$478 ($dff) from module Instr_mem.
+Removing $memory\memory[113]$476 ($dff) from module Instr_mem.
+Removing $memory\memory[112]$474 ($dff) from module Instr_mem.
+Removing $memory\memory[111]$472 ($dff) from module Instr_mem.
+Removing $memory\memory[110]$470 ($dff) from module Instr_mem.
+Removing $memory\memory[109]$468 ($dff) from module Instr_mem.
+Removing $memory\memory[108]$466 ($dff) from module Instr_mem.
+Removing $memory\memory[107]$464 ($dff) from module Instr_mem.
+Removing $memory\memory[106]$462 ($dff) from module Instr_mem.
+Removing $memory\memory[105]$460 ($dff) from module Instr_mem.
+Removing $memory\memory[104]$458 ($dff) from module Instr_mem.
+Removing $memory\memory[103]$456 ($dff) from module Instr_mem.
+Removing $memory\memory[102]$454 ($dff) from module Instr_mem.
+Removing $memory\memory[101]$452 ($dff) from module Instr_mem.
+Removing $memory\memory[100]$450 ($dff) from module Instr_mem.
+Removing $memory\memory[99]$448 ($dff) from module Instr_mem.
+Removing $memory\memory[98]$446 ($dff) from module Instr_mem.
+Removing $memory\memory[97]$444 ($dff) from module Instr_mem.
+Removing $memory\memory[96]$442 ($dff) from module Instr_mem.
+Removing $memory\memory[95]$440 ($dff) from module Instr_mem.
+Removing $memory\memory[94]$438 ($dff) from module Instr_mem.
+Removing $memory\memory[93]$436 ($dff) from module Instr_mem.
+Removing $memory\memory[92]$434 ($dff) from module Instr_mem.
+Removing $memory\memory[91]$432 ($dff) from module Instr_mem.
+Removing $memory\memory[90]$430 ($dff) from module Instr_mem.
+Removing $memory\memory[89]$428 ($dff) from module Instr_mem.
+Removing $memory\memory[88]$426 ($dff) from module Instr_mem.
+Removing $memory\memory[87]$424 ($dff) from module Instr_mem.
+Removing $memory\memory[86]$422 ($dff) from module Instr_mem.
+Removing $memory\memory[85]$420 ($dff) from module Instr_mem.
+Removing $memory\memory[84]$418 ($dff) from module Instr_mem.
+Removing $memory\memory[83]$416 ($dff) from module Instr_mem.
+Removing $memory\memory[82]$414 ($dff) from module Instr_mem.
+Removing $memory\memory[81]$412 ($dff) from module Instr_mem.
+Removing $memory\memory[80]$410 ($dff) from module Instr_mem.
+Removing $memory\memory[79]$408 ($dff) from module Instr_mem.
+Removing $memory\memory[78]$406 ($dff) from module Instr_mem.
+Removing $memory\memory[77]$404 ($dff) from module Instr_mem.
+Removing $memory\memory[76]$402 ($dff) from module Instr_mem.
+Removing $memory\memory[75]$400 ($dff) from module Instr_mem.
+Removing $memory\memory[74]$398 ($dff) from module Instr_mem.
+Removing $memory\memory[73]$396 ($dff) from module Instr_mem.
+Removing $memory\memory[72]$394 ($dff) from module Instr_mem.
+Removing $memory\memory[71]$392 ($dff) from module Instr_mem.
+Removing $memory\memory[70]$390 ($dff) from module Instr_mem.
+Removing $memory\memory[69]$388 ($dff) from module Instr_mem.
+Removing $memory\memory[68]$386 ($dff) from module Instr_mem.
+Removing $memory\memory[67]$384 ($dff) from module Instr_mem.
+Removing $memory\memory[66]$382 ($dff) from module Instr_mem.
+Removing $memory\memory[65]$380 ($dff) from module Instr_mem.
+Removing $memory\memory[64]$378 ($dff) from module Instr_mem.
+Removing $memory\memory[63]$376 ($dff) from module Instr_mem.
+Removing $memory\memory[62]$374 ($dff) from module Instr_mem.
+Removing $memory\memory[61]$372 ($dff) from module Instr_mem.
+Removing $memory\memory[60]$370 ($dff) from module Instr_mem.
+Removing $memory\memory[59]$368 ($dff) from module Instr_mem.
+Removing $memory\memory[58]$366 ($dff) from module Instr_mem.
+Removing $memory\memory[57]$364 ($dff) from module Instr_mem.
+Removing $memory\memory[56]$362 ($dff) from module Instr_mem.
+Removing $memory\memory[55]$360 ($dff) from module Instr_mem.
+Removing $memory\memory[54]$358 ($dff) from module Instr_mem.
+Removing $memory\memory[53]$356 ($dff) from module Instr_mem.
+Removing $memory\memory[52]$354 ($dff) from module Instr_mem.
+Removing $memory\memory[51]$352 ($dff) from module Instr_mem.
+Removing $memory\memory[50]$350 ($dff) from module Instr_mem.
+Removing $memory\memory[49]$348 ($dff) from module Instr_mem.
+Removing $memory\memory[48]$346 ($dff) from module Instr_mem.
+Removing $memory\memory[47]$344 ($dff) from module Instr_mem.
+Removing $memory\memory[46]$342 ($dff) from module Instr_mem.
+Removing $memory\memory[45]$340 ($dff) from module Instr_mem.
+Removing $memory\memory[44]$338 ($dff) from module Instr_mem.
+Removing $memory\memory[43]$336 ($dff) from module Instr_mem.
+Removing $memory\memory[42]$334 ($dff) from module Instr_mem.
+Removing $memory\memory[41]$332 ($dff) from module Instr_mem.
+Removing $memory\memory[40]$330 ($dff) from module Instr_mem.
+Removing $memory\memory[39]$328 ($dff) from module Instr_mem.
+Removing $memory\memory[38]$326 ($dff) from module Instr_mem.
+Removing $memory\memory[37]$324 ($dff) from module Instr_mem.
+Removing $memory\memory[36]$322 ($dff) from module Instr_mem.
+Removing $memory\memory[35]$320 ($dff) from module Instr_mem.
+Removing $memory\memory[34]$318 ($dff) from module Instr_mem.
+Removing $memory\memory[33]$316 ($dff) from module Instr_mem.
+Removing $memory\memory[32]$314 ($dff) from module Instr_mem.
+Removing $memory\memory[31]$312 ($dff) from module Instr_mem.
+Removing $memory\memory[30]$310 ($dff) from module Instr_mem.
+Removing $memory\memory[29]$308 ($dff) from module Instr_mem.
+Removing $memory\memory[28]$306 ($dff) from module Instr_mem.
+Removing $memory\memory[27]$304 ($dff) from module Instr_mem.
+Removing $memory\memory[26]$302 ($dff) from module Instr_mem.
+Removing $memory\memory[25]$300 ($dff) from module Instr_mem.
+Removing $memory\memory[24]$298 ($dff) from module Instr_mem.
+Removing $memory\memory[23]$296 ($dff) from module Instr_mem.
+Removing $memory\memory[22]$294 ($dff) from module Instr_mem.
+Removing $memory\memory[21]$292 ($dff) from module Instr_mem.
+Removing $memory\memory[20]$290 ($dff) from module Instr_mem.
+Removing $memory\memory[19]$288 ($dff) from module Instr_mem.
+Removing $memory\memory[18]$286 ($dff) from module Instr_mem.
+Removing $memory\memory[17]$284 ($dff) from module Instr_mem.
+Removing $memory\memory[16]$282 ($dff) from module Instr_mem.
+Removing $memory\memory[15]$280 ($dff) from module Instr_mem.
+Removing $memory\memory[14]$278 ($dff) from module Instr_mem.
+Removing $memory\memory[13]$276 ($dff) from module Instr_mem.
+Removing $memory\memory[12]$274 ($dff) from module Instr_mem.
+Removing $memory\memory[11]$272 ($dff) from module Instr_mem.
+Removing $memory\memory[10]$270 ($dff) from module Instr_mem.
+Removing $memory\memory[9]$268 ($dff) from module Instr_mem.
+Removing $memory\memory[8]$266 ($dff) from module Instr_mem.
+Removing $memory\memory[7]$264 ($dff) from module Instr_mem.
+Removing $memory\memory[6]$262 ($dff) from module Instr_mem.
+Removing $memory\memory[5]$260 ($dff) from module Instr_mem.
+Removing $memory\memory[4]$258 ($dff) from module Instr_mem.
+Removing $memory\memory[3]$256 ($dff) from module Instr_mem.
+Removing $memory\memory[2]$254 ($dff) from module Instr_mem.
+Removing $memory\memory[1]$252 ($dff) from module Instr_mem.
+Removing $memory\memory[0]$250 ($dff) from module Instr_mem.
+Replaced 1024 DFF cells.
+
+25.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\flopenr\WIDTH=32..
+Finding unused cells or wires in module $paramod\flopenrc\WIDTH=96..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=101..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=3..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=4..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=14..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=175..
+Finding unused cells or wires in module \Instr_mem..
+Finding unused cells or wires in module \PCSrc_generator..
+Finding unused cells or wires in module \adder..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \aludec..
+Finding unused cells or wires in module \controller..
+Finding unused cells or wires in module \data_mem..
+Finding unused cells or wires in module \datapath..
+Finding unused cells or wires in module \hazard_unit..
+Finding unused cells or wires in module \imm_extender..
+Finding unused cells or wires in module \maindec..
+Finding unused cells or wires in module \mux2..
+Finding unused cells or wires in module \mux3..
+Finding unused cells or wires in module \reg_file..
+Finding unused cells or wires in module \riscv..
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 7279 unused wires.
+<suppressed ~3 debug messages>
+
+25.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\flopenr\WIDTH=32.
+Optimizing module $paramod\flopenrc\WIDTH=96.
+Optimizing module $paramod\flopr\WIDTH=101.
+Optimizing module $paramod\flopr\WIDTH=3.
+Optimizing module $paramod\flopr\WIDTH=4.
+Optimizing module $paramod\floprc\WIDTH=14.
+Optimizing module $paramod\floprc\WIDTH=175.
+Optimizing module Instr_mem.
+<suppressed ~3740 debug messages>
+Optimizing module PCSrc_generator.
+Optimizing module adder.
+Optimizing module alu.
+Optimizing module aludec.
+Optimizing module controller.
+Optimizing module data_mem.
+Optimizing module datapath.
+Optimizing module hazard_unit.
+Optimizing module imm_extender.
+Optimizing module maindec.
+Optimizing module mux2.
+Optimizing module mux3.
+Optimizing module reg_file.
+Optimizing module riscv.
+Optimizing module top.
+
+25.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+25.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\flopenr\WIDTH=32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopenrc\WIDTH=96..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=101..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=14..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=175..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Instr_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \PCSrc_generator..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \aludec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \controller..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \data_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \datapath..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \hazard_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \imm_extender..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \maindec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \riscv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~1083 debug messages>
+
+25.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\flopenr\WIDTH=32.
+  Optimizing cells in module $paramod\flopenrc\WIDTH=96.
+  Optimizing cells in module $paramod\flopr\WIDTH=101.
+  Optimizing cells in module $paramod\flopr\WIDTH=3.
+  Optimizing cells in module $paramod\flopr\WIDTH=4.
+  Optimizing cells in module $paramod\floprc\WIDTH=14.
+  Optimizing cells in module $paramod\floprc\WIDTH=175.
+  Optimizing cells in module \Instr_mem.
+  Optimizing cells in module \PCSrc_generator.
+  Optimizing cells in module \adder.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \aludec.
+  Optimizing cells in module \controller.
+  Optimizing cells in module \data_mem.
+  Optimizing cells in module \datapath.
+  Optimizing cells in module \hazard_unit.
+  Optimizing cells in module \imm_extender.
+  Optimizing cells in module \maindec.
+  Optimizing cells in module \mux2.
+  Optimizing cells in module \mux3.
+  Optimizing cells in module \reg_file.
+  Optimizing cells in module \riscv.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+25.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\flopenr\WIDTH=32'.
+Finding identical cells in module `$paramod\flopenrc\WIDTH=96'.
+Finding identical cells in module `$paramod\flopr\WIDTH=101'.
+Finding identical cells in module `$paramod\flopr\WIDTH=3'.
+Finding identical cells in module `$paramod\flopr\WIDTH=4'.
+Finding identical cells in module `$paramod\floprc\WIDTH=14'.
+Finding identical cells in module `$paramod\floprc\WIDTH=175'.
+Finding identical cells in module `\Instr_mem'.
+<suppressed ~48 debug messages>
+Finding identical cells in module `\PCSrc_generator'.
+Finding identical cells in module `\adder'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\aludec'.
+Finding identical cells in module `\controller'.
+Finding identical cells in module `\data_mem'.
+Finding identical cells in module `\datapath'.
+Finding identical cells in module `\hazard_unit'.
+Finding identical cells in module `\imm_extender'.
+Finding identical cells in module `\maindec'.
+Finding identical cells in module `\mux2'.
+Finding identical cells in module `\mux3'.
+Finding identical cells in module `\reg_file'.
+Finding identical cells in module `\riscv'.
+Finding identical cells in module `\top'.
+Removed a total of 16 cells.
+
+25.13. Executing OPT_RMDFF pass (remove dff with constant values).
+
+25.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\flopenr\WIDTH=32..
+Finding unused cells or wires in module $paramod\flopenrc\WIDTH=96..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=101..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=3..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=4..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=14..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=175..
+Finding unused cells or wires in module \Instr_mem..
+Finding unused cells or wires in module \PCSrc_generator..
+Finding unused cells or wires in module \adder..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \aludec..
+Finding unused cells or wires in module \controller..
+Finding unused cells or wires in module \data_mem..
+Finding unused cells or wires in module \datapath..
+Finding unused cells or wires in module \hazard_unit..
+Finding unused cells or wires in module \imm_extender..
+Finding unused cells or wires in module \maindec..
+Finding unused cells or wires in module \mux2..
+Finding unused cells or wires in module \mux3..
+Finding unused cells or wires in module \reg_file..
+Finding unused cells or wires in module \riscv..
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 3756 unused wires.
+<suppressed ~1 debug messages>
+
+25.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\flopenr\WIDTH=32.
+Optimizing module $paramod\flopenrc\WIDTH=96.
+Optimizing module $paramod\flopr\WIDTH=101.
+Optimizing module $paramod\flopr\WIDTH=3.
+Optimizing module $paramod\flopr\WIDTH=4.
+Optimizing module $paramod\floprc\WIDTH=14.
+Optimizing module $paramod\floprc\WIDTH=175.
+Optimizing module Instr_mem.
+Optimizing module PCSrc_generator.
+Optimizing module adder.
+Optimizing module alu.
+Optimizing module aludec.
+Optimizing module controller.
+Optimizing module data_mem.
+Optimizing module datapath.
+Optimizing module hazard_unit.
+Optimizing module imm_extender.
+Optimizing module maindec.
+Optimizing module mux2.
+Optimizing module mux3.
+Optimizing module reg_file.
+Optimizing module riscv.
+Optimizing module top.
+
+25.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+25.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\flopenr\WIDTH=32..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopenrc\WIDTH=96..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=101..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=3..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\flopr\WIDTH=4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=14..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\floprc\WIDTH=175..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \Instr_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \PCSrc_generator..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \aludec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \controller..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \data_mem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \datapath..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \hazard_unit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \imm_extender..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \maindec..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \mux3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \reg_file..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \riscv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~1099 debug messages>
+
+25.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\flopenr\WIDTH=32.
+  Optimizing cells in module $paramod\flopenrc\WIDTH=96.
+  Optimizing cells in module $paramod\flopr\WIDTH=101.
+  Optimizing cells in module $paramod\flopr\WIDTH=3.
+  Optimizing cells in module $paramod\flopr\WIDTH=4.
+  Optimizing cells in module $paramod\floprc\WIDTH=14.
+  Optimizing cells in module $paramod\floprc\WIDTH=175.
+  Optimizing cells in module \Instr_mem.
+  Optimizing cells in module \PCSrc_generator.
+  Optimizing cells in module \adder.
+  Optimizing cells in module \alu.
+  Optimizing cells in module \aludec.
+  Optimizing cells in module \controller.
+  Optimizing cells in module \data_mem.
+  Optimizing cells in module \datapath.
+  Optimizing cells in module \hazard_unit.
+  Optimizing cells in module \imm_extender.
+  Optimizing cells in module \maindec.
+  Optimizing cells in module \mux2.
+  Optimizing cells in module \mux3.
+  Optimizing cells in module \reg_file.
+  Optimizing cells in module \riscv.
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+25.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\flopenr\WIDTH=32'.
+Finding identical cells in module `$paramod\flopenrc\WIDTH=96'.
+Finding identical cells in module `$paramod\flopr\WIDTH=101'.
+Finding identical cells in module `$paramod\flopr\WIDTH=3'.
+Finding identical cells in module `$paramod\flopr\WIDTH=4'.
+Finding identical cells in module `$paramod\floprc\WIDTH=14'.
+Finding identical cells in module `$paramod\floprc\WIDTH=175'.
+Finding identical cells in module `\Instr_mem'.
+Finding identical cells in module `\PCSrc_generator'.
+Finding identical cells in module `\adder'.
+Finding identical cells in module `\alu'.
+Finding identical cells in module `\aludec'.
+Finding identical cells in module `\controller'.
+Finding identical cells in module `\data_mem'.
+Finding identical cells in module `\datapath'.
+Finding identical cells in module `\hazard_unit'.
+Finding identical cells in module `\imm_extender'.
+Finding identical cells in module `\maindec'.
+Finding identical cells in module `\mux2'.
+Finding identical cells in module `\mux3'.
+Finding identical cells in module `\reg_file'.
+Finding identical cells in module `\riscv'.
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+25.20. Executing OPT_RMDFF pass (remove dff with constant values).
+
+25.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\flopenr\WIDTH=32..
+Finding unused cells or wires in module $paramod\flopenrc\WIDTH=96..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=101..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=3..
+Finding unused cells or wires in module $paramod\flopr\WIDTH=4..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=14..
+Finding unused cells or wires in module $paramod\floprc\WIDTH=175..
+Finding unused cells or wires in module \Instr_mem..
+Finding unused cells or wires in module \PCSrc_generator..
+Finding unused cells or wires in module \adder..
+Finding unused cells or wires in module \alu..
+Finding unused cells or wires in module \aludec..
+Finding unused cells or wires in module \controller..
+Finding unused cells or wires in module \data_mem..
+Finding unused cells or wires in module \datapath..
+Finding unused cells or wires in module \hazard_unit..
+Finding unused cells or wires in module \imm_extender..
+Finding unused cells or wires in module \maindec..
+Finding unused cells or wires in module \mux2..
+Finding unused cells or wires in module \mux3..
+Finding unused cells or wires in module \reg_file..
+Finding unused cells or wires in module \riscv..
+Finding unused cells or wires in module \top..
+
+25.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\flopenr\WIDTH=32.
+Optimizing module $paramod\flopenrc\WIDTH=96.
+Optimizing module $paramod\flopr\WIDTH=101.
+Optimizing module $paramod\flopr\WIDTH=3.
+Optimizing module $paramod\flopr\WIDTH=4.
+Optimizing module $paramod\floprc\WIDTH=14.
+Optimizing module $paramod\floprc\WIDTH=175.
+Optimizing module Instr_mem.
+Optimizing module PCSrc_generator.
+Optimizing module adder.
+Optimizing module alu.
+Optimizing module aludec.
+Optimizing module controller.
+Optimizing module data_mem.
+Optimizing module datapath.
+Optimizing module hazard_unit.
+Optimizing module imm_extender.
+Optimizing module maindec.
+Optimizing module mux2.
+Optimizing module mux3.
+Optimizing module reg_file.
+Optimizing module riscv.
+Optimizing module top.
+
+25.23. Finished OPT passes. (There is nothing left to do.)
+
+26. Printing statistics.
+
+=== $paramod\flopenr\WIDTH=32 ===
+
+   Number of wires:                  6
+   Number of wire bits:             99
+   Number of public wires:           5
+   Number of public wire bits:      67
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $adff                           1
+     $mux                            1
+
+=== $paramod\flopenrc\WIDTH=96 ===
+
+   Number of wires:                  8
+   Number of wire bits:            388
+   Number of public wires:           6
+   Number of public wire bits:     196
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $adff                           1
+     $mux                            2
+
+=== $paramod\flopr\WIDTH=101 ===
+
+   Number of wires:                  4
+   Number of wire bits:            204
+   Number of public wires:           4
+   Number of public wire bits:     204
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $adff                           1
+
+=== $paramod\flopr\WIDTH=3 ===
+
+   Number of wires:                  4
+   Number of wire bits:              8
+   Number of public wires:           4
+   Number of public wire bits:       8
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $adff                           1
+
+=== $paramod\flopr\WIDTH=4 ===
+
+   Number of wires:                  4
+   Number of wire bits:             10
+   Number of public wires:           4
+   Number of public wire bits:      10
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $adff                           1
+
+=== $paramod\floprc\WIDTH=14 ===
+
+   Number of wires:                  6
+   Number of wire bits:             45
+   Number of public wires:           5
+   Number of public wire bits:      31
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $adff                           1
+     $mux                            1
+
+=== $paramod\floprc\WIDTH=175 ===
+
+   Number of wires:                  6
+   Number of wire bits:            528
+   Number of public wires:           5
+   Number of public wire bits:     353
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $adff                           1
+     $mux                            1
+
+=== Instr_mem ===
+
+   Number of wires:               1361
+   Number of wire bits:          11008
+   Number of public wires:        1026
+   Number of public wire bits:    8256
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                339
+     $add                            3
+     $mux                          336
+
+=== PCSrc_generator ===
+
+   Number of wires:                 14
+   Number of wire bits:             14
+   Number of public wires:           5
+   Number of public wire bits:       5
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 10
+     $eq                             8
+     $mux                            1
+     $reduce_or                      1
+
+=== adder ===
+
+   Number of wires:                  3
+   Number of wire bits:             96
+   Number of public wires:           3
+   Number of public wire bits:      96
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $add                            1
+
+=== alu ===
+
+   Number of wires:                 42
+   Number of wire bits:            541
+   Number of public wires:          10
+   Number of public wire bits:     168
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 38
+     $add                            2
+     $and                            3
+     $eq                            10
+     $logic_not                      2
+     $lt                             1
+     $mux                            1
+     $not                            2
+     $or                             5
+     $pmux                           1
+     $reduce_or                      1
+     $shl                            2
+     $shr                            1
+     $sshr                           1
+     $sub                            1
+     $xor                            5
+
+=== aludec ===
+
+   Number of wires:                 20
+   Number of wire bits:             38
+   Number of public wires:           6
+   Number of public wire bits:      12
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 16
+     $and                            1
+     $eq                             8
+     $logic_not                      2
+     $mux                            3
+     $pmux                           2
+
+=== controller ===
+
+   Number of wires:                 37
+   Number of wire bits:             60
+   Number of public wires:          36
+   Number of public wire bits:      59
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+     $and                            1
+     $or                             1
+     $paramod\flopr\WIDTH=3          1
+     $paramod\flopr\WIDTH=4          1
+     $paramod\floprc\WIDTH=14        1
+     PCSrc_generator                 1
+     aludec                          1
+     maindec                         1
+
+=== data_mem ===
+
+   Number of wires:               5232
+   Number of wire bits:         100586
+   Number of public wires:        1029
+   Number of public wire bits:   32866
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               5228
+     $and                         2144
+     $dff                         1024
+     $mux                         2050
+     $not                           10
+
+=== datapath ===
+
+   Number of wires:                 61
+   Number of wire bits:           1040
+   Number of public wires:          59
+   Number of public wire bits:    1038
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 19
+     $not                            2
+     $paramod\flopenr\WIDTH=32       1
+     $paramod\flopenrc\WIDTH=96      1
+     $paramod\flopr\WIDTH=101        2
+     $paramod\floprc\WIDTH=175       1
+     adder                           2
+     alu                             1
+     imm_extender                    1
+     mux2                            3
+     mux3                            4
+     reg_file                        1
+
+=== hazard_unit ===
+
+   Number of wires:                 35
+   Number of wire bits:             69
+   Number of public wires:          18
+   Number of public wire bits:      48
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 21
+     $and                            5
+     $eq                             6
+     $mux                            6
+     $or                             2
+     $reduce_bool                    2
+
+=== imm_extender ===
+
+   Number of wires:                  8
+   Number of wire bits:             65
+   Number of public wires:           3
+   Number of public wire bits:      60
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $eq                             4
+     $logic_not                      1
+     $pmux                           1
+
+=== maindec ===
+
+   Number of wires:                 22
+   Number of wire bits:             47
+   Number of public wires:          12
+   Number of public wire bits:      37
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 11
+     $eq                             9
+     $logic_not                      1
+     $pmux                           1
+
+=== mux2 ===
+
+   Number of wires:                  4
+   Number of wire bits:             97
+   Number of public wires:           4
+   Number of public wire bits:      97
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $mux                            1
+
+=== mux3 ===
+
+   Number of wires:                  6
+   Number of wire bits:            162
+   Number of public wires:           5
+   Number of public wire bits:     130
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $mux                            2
+
+=== reg_file ===
+
+   Number of wires:                226
+   Number of wire bits:           4303
+   Number of public wires:          40
+   Number of public wire bits:    1137
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                220
+     $and                           80
+     $dff                           32
+     $logic_and                      1
+     $logic_not                      2
+     $mux                           99
+     $not                            5
+     $reduce_bool                    1
+
+=== riscv ===
+
+   Number of wires:                 36
+   Number of wire bits:            236
+   Number of public wires:          36
+   Number of public wire bits:     236
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     controller                      1
+     datapath                        1
+     hazard_unit                     1
+
+=== top ===
+
+   Number of wires:                  8
+   Number of wire bits:            163
+   Number of public wires:           8
+   Number of public wire bits:     163
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     Instr_mem                       1
+     data_mem                        1
+     riscv                           1
+
+=== design hierarchy ===
+
+   top                               1
+     Instr_mem                       1
+     data_mem                        1
+     riscv                           1
+       controller                    1
+         $paramod\flopr\WIDTH=3      1
+         $paramod\flopr\WIDTH=4      1
+         $paramod\floprc\WIDTH=14      1
+         PCSrc_generator             1
+         aludec                      1
+         maindec                     1
+       datapath                      1
+         $paramod\flopenr\WIDTH=32      1
+         $paramod\flopenrc\WIDTH=96      1
+         $paramod\flopr\WIDTH=101      2
+         $paramod\floprc\WIDTH=175      1
+         adder                       2
+         alu                         1
+         imm_extender                1
+         mux2                        3
+         mux3                        4
+         reg_file                    1
+       hazard_unit                   1
+
+   Number of wires:               7186
+   Number of wire bits:         120787
+   Number of public wires:        2363
+   Number of public wire bits:   46161
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               5919
+     $add                            7
+     $adff                           8
+     $and                         2234
+     $dff                         1056
+     $eq                            45
+     $logic_and                      1
+     $logic_not                      8
+     $lt                             1
+     $mux                         2512
+     $not                           19
+     $or                             8
+     $pmux                           5
+     $reduce_bool                    3
+     $reduce_or                      2
+     $shl                            2
+     $shr                            1
+     $sshr                           1
+     $sub                            1
+     $xor                            5
+
+27. Printing statistics.
+
+=== $paramod\flopenr\WIDTH=32 ===
+
+   Number of wires:                  6
+   Number of wire bits:             99
+   Number of public wires:           5
+   Number of public wire bits:      67
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $adff_32                        1
+     $mux_32                         1
+
+=== $paramod\flopenrc\WIDTH=96 ===
+
+   Number of wires:                  8
+   Number of wire bits:            388
+   Number of public wires:           6
+   Number of public wire bits:     196
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $adff_96                        1
+     $mux_96                         2
+
+=== $paramod\flopr\WIDTH=101 ===
+
+   Number of wires:                  4
+   Number of wire bits:            204
+   Number of public wires:           4
+   Number of public wire bits:     204
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $adff_101                       1
+
+=== $paramod\flopr\WIDTH=3 ===
+
+   Number of wires:                  4
+   Number of wire bits:              8
+   Number of public wires:           4
+   Number of public wire bits:       8
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $adff_3                         1
+
+=== $paramod\flopr\WIDTH=4 ===
+
+   Number of wires:                  4
+   Number of wire bits:             10
+   Number of public wires:           4
+   Number of public wire bits:      10
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $adff_4                         1
+
+=== $paramod\floprc\WIDTH=14 ===
+
+   Number of wires:                  6
+   Number of wire bits:             45
+   Number of public wires:           5
+   Number of public wire bits:      31
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $adff_14                        1
+     $mux_14                         1
+
+=== $paramod\floprc\WIDTH=175 ===
+
+   Number of wires:                  6
+   Number of wire bits:            528
+   Number of public wires:           5
+   Number of public wire bits:     353
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $adff_175                       1
+     $mux_175                        1
+
+=== Instr_mem ===
+
+   Number of wires:               1361
+   Number of wire bits:          11008
+   Number of public wires:        1026
+   Number of public wire bits:    8256
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                339
+     $add_32                         3
+     $mux_8                        336
+
+=== PCSrc_generator ===
+
+   Number of wires:                 14
+   Number of wire bits:             14
+   Number of public wires:           5
+   Number of public wire bits:       5
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 10
+     $eq_4                           8
+     $mux_1                          1
+     $reduce_or_8                    1
+
+=== adder ===
+
+   Number of wires:                  3
+   Number of wire bits:             96
+   Number of public wires:           3
+   Number of public wire bits:      96
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $add_32                         1
+
+=== alu ===
+
+   Number of wires:                 42
+   Number of wire bits:            541
+   Number of public wires:          10
+   Number of public wire bits:     168
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 38
+     $add_32                         2
+     $and_1                          2
+     $and_32                         1
+     $eq_4                          10
+     $logic_not_32                   1
+     $logic_not_4                    1
+     $lt_32                          1
+     $mux_32                         1
+     $not_1                          1
+     $not_32                         1
+     $or_1                           3
+     $or_32                          2
+     $pmux_32                        1
+     $reduce_or_2                    1
+     $shl_32                         2
+     $shr_32                         1
+     $sshr_32                        1
+     $sub_32                         1
+     $xor_1                          4
+     $xor_32                         1
+
+=== aludec ===
+
+   Number of wires:                 20
+   Number of wire bits:             38
+   Number of public wires:           6
+   Number of public wire bits:      12
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 16
+     $and_1                          1
+     $eq_2                           1
+     $eq_3                           7
+     $logic_not_2                    1
+     $logic_not_3                    1
+     $mux_4                          3
+     $pmux_4                         2
+
+=== controller ===
+
+   Number of wires:                 37
+   Number of wire bits:             60
+   Number of public wires:          36
+   Number of public wire bits:      59
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+     $and_1                          1
+     $or_1                           1
+     $paramod\flopr\WIDTH=3          1
+     $paramod\flopr\WIDTH=4          1
+     $paramod\floprc\WIDTH=14        1
+     PCSrc_generator                 1
+     aludec                          1
+     maindec                         1
+
+=== data_mem ===
+
+   Number of wires:               5232
+   Number of wire bits:         100586
+   Number of public wires:        1029
+   Number of public wire bits:   32866
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               5228
+     $and_1                       2144
+     $dff_32                      1024
+     $mux_1                          1
+     $mux_30                         1
+     $mux_32                      2048
+     $not_1                         10
+
+=== datapath ===
+
+   Number of wires:                 61
+   Number of wire bits:           1040
+   Number of public wires:          59
+   Number of public wire bits:    1038
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 19
+     $not_1                          2
+     $paramod\flopenr\WIDTH=32       1
+     $paramod\flopenrc\WIDTH=96      1
+     $paramod\flopr\WIDTH=101        2
+     $paramod\floprc\WIDTH=175       1
+     adder                           2
+     alu                             1
+     imm_extender                    1
+     mux2                            3
+     mux3                            4
+     reg_file                        1
+
+=== hazard_unit ===
+
+   Number of wires:                 35
+   Number of wire bits:             69
+   Number of public wires:          18
+   Number of public wire bits:      48
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 21
+     $and_1                          5
+     $eq_5                           6
+     $mux_2                          6
+     $or_1                           2
+     $reduce_bool_5                  2
+
+=== imm_extender ===
+
+   Number of wires:                  8
+   Number of wire bits:             65
+   Number of public wires:           3
+   Number of public wire bits:      60
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $eq_3                           4
+     $logic_not_3                    1
+     $pmux_32                        1
+
+=== maindec ===
+
+   Number of wires:                 22
+   Number of wire bits:             47
+   Number of public wires:          12
+   Number of public wire bits:      37
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 11
+     $eq_7                           9
+     $logic_not_7                    1
+     $pmux_15                        1
+
+=== mux2 ===
+
+   Number of wires:                  4
+   Number of wire bits:             97
+   Number of public wires:           4
+   Number of public wire bits:      97
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $mux_32                         1
+
+=== mux3 ===
+
+   Number of wires:                  6
+   Number of wire bits:            162
+   Number of public wires:           5
+   Number of public wire bits:     130
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $mux_32                         2
+
+=== reg_file ===
+
+   Number of wires:                226
+   Number of wire bits:           4303
+   Number of public wires:          40
+   Number of public wire bits:    1137
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                220
+     $and_1                         80
+     $dff_32                        32
+     $logic_and_1                    1
+     $logic_not_5                    2
+     $mux_1                          1
+     $mux_32                        97
+     $mux_5                          1
+     $not_1                          5
+     $reduce_bool_5                  1
+
+=== riscv ===
+
+   Number of wires:                 36
+   Number of wire bits:            236
+   Number of public wires:          36
+   Number of public wire bits:     236
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     controller                      1
+     datapath                        1
+     hazard_unit                     1
+
+=== top ===
+
+   Number of wires:                  8
+   Number of wire bits:            163
+   Number of public wires:           8
+   Number of public wire bits:     163
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     Instr_mem                       1
+     data_mem                        1
+     riscv                           1
+
+=== design hierarchy ===
+
+   top                               1
+     Instr_mem                       1
+     data_mem                        1
+     riscv                           1
+       controller                    1
+         $paramod\flopr\WIDTH=3      1
+         $paramod\flopr\WIDTH=4      1
+         $paramod\floprc\WIDTH=14      1
+         PCSrc_generator             1
+         aludec                      1
+         maindec                     1
+       datapath                      1
+         $paramod\flopenr\WIDTH=32      1
+         $paramod\flopenrc\WIDTH=96      1
+         $paramod\flopr\WIDTH=101      2
+         $paramod\floprc\WIDTH=175      1
+         adder                       2
+         alu                         1
+         imm_extender                1
+         mux2                        3
+         mux3                        4
+         reg_file                    1
+       hazard_unit                   1
+
+   Number of wires:               7186
+   Number of wire bits:         120787
+   Number of public wires:        2363
+   Number of public wire bits:   46161
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               5919
+     $add_32                         7
+     $adff_101                       2
+     $adff_14                        1
+     $adff_175                       1
+     $adff_3                         1
+     $adff_32                        1
+     $adff_4                         1
+     $adff_96                        1
+     $and_1                       2233
+     $and_32                         1
+     $dff_32                      1056
+     $eq_2                           1
+     $eq_3                          11
+     $eq_4                          18
+     $eq_5                           6
+     $eq_7                           9
+     $logic_and_1                    1
+     $logic_not_2                    1
+     $logic_not_3                    2
+     $logic_not_32                   1
+     $logic_not_4                    1
+     $logic_not_5                    2
+     $logic_not_7                    1
+     $lt_32                          1
+     $mux_1                          3
+     $mux_14                         1
+     $mux_175                        1
+     $mux_2                          6
+     $mux_30                         1
+     $mux_32                      2158
+     $mux_4                          3
+     $mux_5                          1
+     $mux_8                        336
+     $mux_96                         2
+     $not_1                         18
+     $not_32                         1
+     $or_1                           6
+     $or_32                          2
+     $pmux_15                        1
+     $pmux_32                        2
+     $pmux_4                         2
+     $reduce_bool_5                  3
+     $reduce_or_2                    1
+     $reduce_or_8                    1
+     $shl_32                         2
+     $shr_32                         1
+     $sshr_32                        1
+     $sub_32                         1
+     $xor_1                          4
+     $xor_32                         1
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 6155bfaf89
+CPU: user 5.08s system 0.08s, MEM: 93.75 MB total, 84.52 MB resident
+Yosys 0.9 (git sha1 1979e0b)
+Time spent: 32% 9x opt_clean (1 sec), 22% 9x opt_expr (1 sec), ...

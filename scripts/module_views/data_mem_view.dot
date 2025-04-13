@@ -1,0 +1,33 @@
+digraph "data_mem" {
+rankdir="LR";
+remincross=true;
+n8 [ shape=octagon, label="readData", color="black", fontcolor="black" ];
+n9 [ shape=octagon, label="writeEnable", color="black", fontcolor="black" ];
+n10 [ shape=octagon, label="writeData", color="black", fontcolor="black" ];
+n11 [ shape=octagon, label="dataAdr", color="black", fontcolor="black" ];
+n12 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+v0 [ label="1'x" ];
+c17 [ shape=record, label="{{<p13> ADDR|<p14> CLK|<p15> DATA|<p16> EN}|$71\n$memwr|{}}" ];
+v2 [ label="1'x" ];
+v3 [ label="1'x" ];
+c18 [ shape=record, label="{{<p13> ADDR|<p14> CLK|<p16> EN}|$66\n$memrd|{<p15> DATA}}" ];
+x1 [ shape=record, style=rounded, label="<s0> 31:2 - 29:0 " ];
+x1:e -> c18:p13:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", style="setlinewidth(3)", label=""];
+x5 [ shape=record, style=rounded, label="<s0> 31:2 - 29:0 " ];
+p4 [shape=box, style=rounded, label="PROC $67\n../RTL/modules/data_mem.sv:19"];
+x6 [shape=box, style=rounded, label="BUF"];
+n10:e -> p4:w [color="black", style="setlinewidth(3)", label=""];
+n11:e -> x1:s0:w [color="black", style="setlinewidth(3)", label=""];
+n11:e -> x5:s0:w [color="black", style="setlinewidth(3)", label=""];
+n12:e -> p4:w [color="black", label=""];
+c18:p15:e -> x6:w:w [color="black", style="setlinewidth(3)", label=""];
+p4:e -> c17:p16:w [color="black", style="setlinewidth(3)", label=""];
+p4:e -> c17:p15:w [color="black", style="setlinewidth(3)", label=""];
+p4:e -> c17:p13:w [color="black", style="setlinewidth(3)", label=""];
+x6:e:e -> n8:w [color="black", style="setlinewidth(3)", label=""];
+n9:e -> p4:w [color="black", label=""];
+v0:e -> c17:p14:w [color="black", label=""];
+v2:e -> c18:p16:w [color="black", label=""];
+v3:e -> c18:p14:w [color="black", label=""];
+x5:e -> p4:w [color="black", style="setlinewidth(3)", label=""];
+}

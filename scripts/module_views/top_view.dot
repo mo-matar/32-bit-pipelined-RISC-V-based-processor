@@ -1,0 +1,30 @@
+digraph "top" {
+rankdir="LR";
+remincross=true;
+n1 [ shape=diamond, label="ReadDataM", color="black", fontcolor="black" ];
+n2 [ shape=diamond, label="InstrF", color="black", fontcolor="black" ];
+n3 [ shape=diamond, label="PCF", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="MemWriteM", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="DataAdrM", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="WriteDataM", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="reset", color="black", fontcolor="black" ];
+n8 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+c13 [ shape=record, label="{{<p8> clk|<p9> dataAdr|<p10> writeData|<p11> writeEnable}|Data_memory\ndata_mem|{<p12> readData}}" ];
+c16 [ shape=record, label="{{<p14> addr}|Instruction_memory\nInstr_mem|{<p15> instruction}}" ];
+c19 [ shape=record, label="{{<p2> InstrF|<p8> clk|<p17> readDataM|<p7> reset}|core\nriscv|{<p18> ALUResultM|<p4> MemWriteM|<p3> PCF|<p6> WriteDataM}}" ];
+c13:p12:e -> n1:w [color="black", style="setlinewidth(3)", label=""];
+n1:e -> c19:p17:w [color="black", style="setlinewidth(3)", label=""];
+c16:p15:e -> n2:w [color="black", style="setlinewidth(3)", label=""];
+n2:e -> c19:p2:w [color="black", style="setlinewidth(3)", label=""];
+c19:p3:e -> n3:w [color="black", style="setlinewidth(3)", label=""];
+n3:e -> c16:p14:w [color="black", style="setlinewidth(3)", label=""];
+c19:p4:e -> n4:w [color="black", label=""];
+n4:e -> c13:p11:w [color="black", label=""];
+c19:p18:e -> n5:w [color="black", style="setlinewidth(3)", label=""];
+n5:e -> c13:p9:w [color="black", style="setlinewidth(3)", label=""];
+c19:p6:e -> n6:w [color="black", style="setlinewidth(3)", label=""];
+n6:e -> c13:p10:w [color="black", style="setlinewidth(3)", label=""];
+n7:e -> c19:p7:w [color="black", label=""];
+n8:e -> c13:p8:w [color="black", label=""];
+n8:e -> c19:p8:w [color="black", label=""];
+}

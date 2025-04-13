@@ -1,0 +1,17 @@
+# Read design
+read_verilog -sv ../RTL/ALUControl_Defines.sv
+read_verilog -sv ../RTL/modules/*.sv 
+read_verilog -sv ../RTL/top.sv
+
+# Process design
+hierarchy -check -top top
+proc; opt; fsm; opt; memory; opt
+
+# Convert assertions to formal properties
+chformal -assert2assume
+
+# Setup formal verification engine
+engine smtbmc
+
+# Verify properties for 20 cycles
+verify -assert -cover -show-public -max_steps 20

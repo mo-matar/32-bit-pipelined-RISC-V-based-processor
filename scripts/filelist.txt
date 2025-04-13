@@ -1,0 +1,19 @@
+# SystemVerilog files in dependency order
+../RTL/ALUControl_Defines.sv
+../RTL/modules/Instr_mem.sv
+../RTL/modules/adder.sv
+../RTL/modules/alu.sv
+../RTL/modules/aludec.sv
+../RTL/modules/controller.sv
+../RTL/modules/data_mem.sv
+../RTL/modules/hazard_unit.sv
+../RTL/modules/imm_extender.sv
+../RTL/modules/intermediate_registers.sv
+../RTL/modules/maindec.sv
+../RTL/modules/mux2.sv
+../RTL/modules/mux3.sv
+../RTL/modules/PcSrc_generator.sv
+../RTL/modules/reg_file.sv
+../RTL/modules/datapath.sv
+../RTL/modules/RV32I_core.sv
+../RTL/top.sv

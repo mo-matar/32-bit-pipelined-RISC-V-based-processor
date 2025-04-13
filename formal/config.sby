@@ -1,0 +1,52 @@
+[options]
+mode bmc
+depth 20
+append 1
+
+[engines]
+smtbmc
+
+[script]
+# Use absolute paths to read files
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/ALUControl_Defines.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/Instr_mem.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/PcSrc_generator.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/adder.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/alu.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/aludec.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/controller.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/data_mem.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/datapath.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/hazard_unit.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/imm_extender.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/intermediate_registers.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/maindec.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/mux2.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/mux3.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/reg_file.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/RV32I_core.sv
+read -sv /mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/top.sv
+
+# Prepare for verification
+hierarchy -check -top top
+prep -top top
+
+[files]
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/ALUControl_Defines.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/Instr_mem.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/PcSrc_generator.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/adder.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/alu.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/aludec.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/controller.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/data_mem.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/datapath.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/hazard_unit.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/imm_extender.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/intermediate_registers.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/maindec.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/mux2.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/mux3.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/reg_file.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/modules/RV32I_core.sv
+/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/RTL/top.sv

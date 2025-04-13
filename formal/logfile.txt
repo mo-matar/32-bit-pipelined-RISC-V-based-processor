@@ -1,0 +1,2 @@
+SBY  4:33:10 [formal] Removing directory '/mnt/c/Users/Hp/desktop/readers/computer arch/projects/32-bit-pipelined-RISC-V-based-processor/formal'.
+SBY  4:33:10 [formal] ERROR: destination filename must be a relative path without /../: /mnt/c/Users/Hp/desktop/readers/computer

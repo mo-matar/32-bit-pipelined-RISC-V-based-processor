@@ -1,0 +1,17 @@
+[options]
+mode bmc
+depth 20
+append 1
+
+[engines]
+smtbmc
+
+[script]
+# Use relative paths within the formal_test directory
+read -sv src/ALUControl_Defines.sv
+read -sv src/*.sv
+prep -top top
+
+[files]
+src/ALUControl_Defines.sv
+src/*.sv
