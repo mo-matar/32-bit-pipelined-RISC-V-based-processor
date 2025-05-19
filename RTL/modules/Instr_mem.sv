@@ -10,7 +10,7 @@ module Instr_mem #(
     assign instruction = {memory[addr], 
                           memory[addr + 1],
                           memory[addr + 2],
-                          memory[addr + 3]};//big-endian
+                          memory[addr + 3]};//little-endian
 
     initial begin
         $readmemh("instructions.txt", memory);
